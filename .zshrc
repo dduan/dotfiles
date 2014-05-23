@@ -22,3 +22,5 @@ eval "$(tmuxifier init -)"
 
 alias cel="./manage.py celery worker --autoload -l INFO -Q celery,fast"
 alias :q="exit"
+
+export EDITOR="mvim -v"
