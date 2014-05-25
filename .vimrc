@@ -13,18 +13,26 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'mattn/emmet-vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 let mapleader = ","
+
+" Automatically dismiss hint from YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
+" Disable syntastic's automatically checking
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <leader>c :SyntasticCheck<CR> :SyntasticToggleMode<cr>
 
 " To prevent some exploit
 set modelines=0
@@ -105,3 +113,5 @@ inoremap <F1> <Esc>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>a :NERDTree<cr>
 nnoremap <leader>w :Gstatus<cr>
+nnoremap <leader>d :TagbarToggle<cr>
+
