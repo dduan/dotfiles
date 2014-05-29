@@ -33,6 +33,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " Disable syntastic's automatically checking
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 nnoremap <leader>c :SyntasticCheck<CR> :SyntasticToggleMode<cr>
+let g:ctrlp_custom_ignore = '\v.+\.pyc'
 
 " To prevent some exploit
 set modelines=0
