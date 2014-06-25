@@ -115,4 +115,4 @@ nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>a :NERDTree<cr>
 nnoremap <leader>w :Gstatus<cr>
 nnoremap <leader>d :TagbarToggle<cr>
-
+autocmd BufRead,BufNewFile   *.go set noet
