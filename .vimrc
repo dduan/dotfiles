@@ -26,6 +26,9 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'mxw/vim-jsx'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mileszs/ack.vim'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'tpope/vim-surround'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -125,7 +128,7 @@ let g:indent_guides_guide_size=1
 
 inoremap <F1> <Esc>
 nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>a :NERDTree<cr>
+nnoremap <leader>a :NERDTreeTabsToggle<cr>
 nnoremap <leader>w :Gstatus<cr>
 nnoremap <leader>d :TagbarToggle<cr>
 nnoremap <leader>f :FixWhitespace<cr>
