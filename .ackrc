@@ -1,2 +1,3 @@
 --type-add=xib=.xib
 --type-add=pbxproj=.pbxproj
+--type-add=swift=.swift

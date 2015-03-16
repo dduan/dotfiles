@@ -4,18 +4,22 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-export PATH="$HOME/.tmuxifier/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/bin:$HOME/.tmuxifier/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 alias vim='mvim -v'
+alias vi='vim'
 
 bindkey -v
-bindkey '^R' history-incremental-search-backward
+bindkey '^r' history-incremental-search-backward
 
 eval "$(pyenv init -)"
 eval "$(tmuxifier init -)"
 
-alias cel="./manage.py celery worker --autoload -l INFO -Q celery,fast"
-alias :q="exit"
-alias mux="tmuxifier load-session"
-
 export EDITOR="vim"
 export WORKON_HOME=$HOME/workspace/venv
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=$HOME/workspace/go
+
+alias :q="exit"
+alias :e="$EDITOR"
+alias swift="DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/ xcrun swift"
+
