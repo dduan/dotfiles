@@ -5,7 +5,7 @@ fi
 
 # Customize to your needs...
 export PATH="$HOME/bin:$HOME/.tmuxifier/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-alias vim='mvim -v'
+alias vim='nvim'
 alias vi='vim'
 
 bindkey -v
@@ -21,5 +21,8 @@ export GOPATH=$HOME/workspace/go
 
 alias :q="exit"
 alias :e="$EDITOR"
+alias mux="tmuxifier load-session"
 alias swift="DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/ xcrun swift"
 
+alias localserver="ssh -p 19249 duan@192.168.1.250"
+alias remote_db="ssh -fNg -L 3307:127.0.0.1:3306 -p 19249 duan@50.201.94.186"

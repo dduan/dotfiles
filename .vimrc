@@ -4,8 +4,6 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -37,19 +35,15 @@ let mapleader = ","
 
 " Ignore some files for ctrlp
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$|build$',
-  \ 'file': '\v\.(exe|so|dll|o|pyc)$',
-  \ }
+ \ 'dir':  '\v[\/]\.(git|hg|svn)$|build$',
+ \ 'file': '\v\.(exe|so|dll|o|pyc)$',
+ \ }
 
 
 set statusline=
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
 " Auto save
 :au FocusLost * silent! wa
-
 
 " To prevent some exploit
 set modelines=0
@@ -98,8 +92,6 @@ nnoremap <Right> :tabnext<CR>
 set background=dark
 let g:solarized_termtrans = 1
 colorscheme solarized
-"let g:molokai_original = 1
-"colorscheme molokai
 
 " handle long lines correctly
 set wrap
@@ -110,6 +102,10 @@ set colorcolumn=80
 " Display hidden characters
 set list
 set listchars=tab:▸\ ,eol:¬
+
+if has('nvim')
+ nmap <BS> <C-h>
+endif
 
 " easy split window navigation
 nnoremap <C-h> <C-w>h
