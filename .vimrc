@@ -103,6 +103,8 @@ set colorcolumn=80
 set list
 set listchars=tab:▸\ ,eol:¬
 
+
+" quirk of NeoVim
 if has('nvim')
  nmap <BS> <C-h>
 endif
@@ -112,6 +114,11 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+if has('nvim')
+ nnoremap <C-t>t :split <bar> :term<cr>
+ nnoremap <C-t>v :vsplit <bar> :term<cr>
+endif
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -128,5 +135,9 @@ nnoremap <leader>a :NERDTreeTabsToggle<cr>
 nnoremap <leader>w :Gstatus<cr>
 nnoremap <leader>d :TagbarToggle<cr>
 nnoremap <leader>f :FixWhitespace<cr>
+if has('nvim')
+    nnoremap <leader>m :vsplit <bar> :term make<cr>
+endif
+
 autocmd BufRead,BufNewFile   *.go set noet
 autocmd BufRead,BufNewFile   *.txt let g:AutoPairsMapSpace = 0
