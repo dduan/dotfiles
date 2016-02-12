@@ -136,7 +136,9 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #
 
 # Auto set the tab and window titles.
-zstyle ':prezto:module:terminal' auto-title 'yes'
+if ! [[ -n ${INSIDE_EMACS} ]]; then
+    zstyle ':prezto:module:terminal' auto-title 'yes'
+fi
 
 # Set the window title format.
 # zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
