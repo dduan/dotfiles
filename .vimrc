@@ -20,16 +20,13 @@ Plugin 'keith/swift.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-"Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'mxw/vim-jsx'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
-Plugin 'shime/vim-livedown'
 Plugin 'rust-lang/rust.vim'
-Plugin 'begriffs/haskell-vim-now'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,7 +43,7 @@ let g:ctrlp_custom_ignore = {
 " No scrollbars thank you
 set guioptions-=r
 set guioptions-=L
-
+set guifont=Menlo\ for\ Powerline:h13
 set statusline=
 set laststatus=2
 " Auto save
@@ -62,7 +59,6 @@ set backspace=indent,eol,start
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
 set expandtab
 set smarttab
 
@@ -170,7 +166,7 @@ noremap <D-0> :tablast<CR>
 
 autocmd BufRead,BufNewFile   *.go set noet
 autocmd BufRead,BufNewFile   *.txt let g:AutoPairsMapSpace = 0
-autocmd BufRead,BufNewFile   *.md nnoremap <leader>m :LivedownPreview<cr>
+autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " make CtrlP faster
  let g:ctrlp_use_caching = 0
@@ -186,8 +182,8 @@ else
 endif
 
 let g:airline_powerline_fonts = 1
-let g:vimshell_editor_command = '/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/MacVim'
 let g:rustfmt_autosave = 1
+let g:vim_markdown_folding_disabled = 1
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
