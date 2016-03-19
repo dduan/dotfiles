@@ -1,0 +1,5 @@
+set hlsearch
+set relativenumber
+set number
+nmap ,<Space> :noh<cr>
+set clipboard=unnamed
