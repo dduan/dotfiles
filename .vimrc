@@ -20,7 +20,7 @@ Plugin 'keith/swift.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'tomasr/molokai'
+Plugin 'jnurmine/Zenburn'
 Plugin 'mxw/vim-jsx'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mileszs/ack.vim'
@@ -97,7 +97,7 @@ nnoremap <Right> :tabnext<CR>
 " Color Scheme
 set background=dark
 "let g:solarized_termtrans = 1
-colorscheme molokai
+colorscheme zenburn
 
 " handle long lines correctly
 set wrap
