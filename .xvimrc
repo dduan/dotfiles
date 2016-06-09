@@ -3,3 +3,8 @@ set relativenumber
 set number
 nmap ,<Space> :noh<cr>
 set clipboard=unnamed
+" Searching
+set ignorecase
+set smartcase
+set incsearch       " do incremental searching
+set hlsearch

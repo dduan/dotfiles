@@ -13,10 +13,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'mattn/emmet-vim'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'majutsushi/tagbar'
 Plugin 'fatih/vim-go'
-Plugin 'keith/swift.vim'
+Plugin 'toyamarinyon/vim-swift'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -27,6 +26,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'rust-lang/rust.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -43,6 +43,7 @@ let g:ctrlp_custom_ignore = {
 " No scrollbars thank you
 set guioptions-=r
 set guioptions-=L
+"set macligatures
 set guifont=Menlo\ for\ Powerline:h13
 set statusline=
 set laststatus=2
@@ -56,9 +57,9 @@ set modelines=0
 set backspace=indent,eol,start
 
 " tab settings
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set expandtab
 set smarttab
 
@@ -98,6 +99,7 @@ nnoremap <Right> :tabnext<CR>
 set background=dark
 "let g:solarized_termtrans = 1
 colorscheme zenburn
+let g:zenburn_high_Contrast = 1
 
 " handle long lines correctly
 set wrap
@@ -193,3 +195,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+nnoremap tt "=strftime("%F %T%z")<CR>P

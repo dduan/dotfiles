@@ -5,7 +5,7 @@ fi
 
 # Customize to your needs...
 export PATH="$HOME/bin:$HOME/.tmuxifier/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-alias vim='mvim'
+alias vim='mvim -v'
 alias vi='vim'
 
 bindkey -v
