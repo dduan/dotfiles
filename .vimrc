@@ -15,7 +15,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'mattn/emmet-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'fatih/vim-go'
-Plugin 'toyamarinyon/vim-swift'
+Plugin 'keith/swift.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -194,6 +194,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
 nnoremap tt "=strftime("%F %T%z")<CR>p
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
