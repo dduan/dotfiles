@@ -7,6 +7,7 @@ fi
 export PATH="$HOME/bin:$HOME/.tmuxifier/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 alias vim='mvim -v'
 alias vi='vim'
+alias ctags="`brew --prefix`/bin/ctags"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
