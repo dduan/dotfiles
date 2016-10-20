@@ -1,35 +1,35 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" use dein.vim for package management
+set rtp+=~/.config/nvim/dein.vim
+call dein#begin('~/.config/nvim')
+call dein#add('Shougo/dein.vim')
+call dein#add('tpope/vim-fugitive')
+call dein#add('scrooloose/nerdtree')
+call dein#add('scrooloose/nerdcommenter')
+call dein#add('kien/ctrlp.vim')
+call dein#add('jiangmiao/auto-pairs')
+call dein#add('majutsushi/tagbar')
+call dein#add('fatih/vim-go')
+call dein#add('keith/swift.vim')
+call dein#add('keith/sourcekittendaemon.vim')
+call dein#add('airblade/vim-gitgutter')
+call dein#add('godlygeek/tabular')
+call dein#add('plasticboy/vim-markdown')
+call dein#add('jnurmine/Zenburn')
+call dein#add('bronson/vim-trailing-whitespace')
+call dein#add('mileszs/ack.vim')
+call dein#add('tpope/vim-surround')
+call dein#add('bling/vim-airline')
+call dein#add('rust-lang/rust.vim')
+call dein#add('christoomey/vim-tmux-navigator')
+if has('nvim')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('mitsuse/autocomplete-swift')
+endif
+call dein#end()
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'kien/ctrlp.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'mattn/emmet-vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'fatih/vim-go'
-Plugin 'keith/swift.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'jnurmine/Zenburn'
-Plugin 'mxw/vim-jsx'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'mileszs/ack.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
-Plugin 'rust-lang/rust.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 
 let mapleader = ","
@@ -86,7 +86,7 @@ set hlsearch
 nnoremap <leader><space> :noh<cr>
 nnoremap j gj
 nnoremap k gk
-
+set clipboard=unnamed
 syntax on
 
 " tabs
@@ -98,7 +98,6 @@ nnoremap <Right> :tabnext<CR>
 set background=dark
 "let g:solarized_termtrans = 1
 colorscheme zenburn
-let g:zenburn_high_Contrast = 1
 
 " handle long lines correctly
 set wrap
@@ -132,7 +131,6 @@ map Q gq
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 set mouse=a
-set clipboard=unnamed
 
 let g:indent_guides_guide_size=1
 
@@ -170,7 +168,7 @@ else
     \ }
 endif
 
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:rustfmt_autosave = 1
 let g:vim_markdown_folding_disabled = 1
 
@@ -183,6 +181,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+let g:deoplete#enable_at_startup = 1
 
 nnoremap tt "=strftime("%F %T%z")<CR>p
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>

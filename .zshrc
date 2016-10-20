@@ -5,8 +5,7 @@ fi
 
 # Customize to your needs...
 export PATH="$HOME/bin:$HOME/.tmuxifier/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-alias vim='mvim -v'
-alias vi='vim'
+alias vim='nvim'
 alias ctags="`brew --prefix`/bin/ctags"
 
 bindkey -v
@@ -25,4 +24,3 @@ if [ -n "$INSIDE_EMACS" ]; then
     print -P "\033AnSiTu %n"
     print -P "\033AnSiTc %d"
 fi
-
