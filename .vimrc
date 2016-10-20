@@ -2,8 +2,13 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " use dein.vim for package management
-set rtp+=~/.config/nvim/dein.vim
-call dein#begin('~/.config/nvim')
+if has('nvim')
+  set rtp+=~/.config/nvim/dein.vim
+  call dein#begin('~/.config/nvim')
+else
+  set rtp+=~/.vim/dein.vim
+  call dein#begin('~/.vim')
+endif
 call dein#add('Shougo/dein.vim')
 call dein#add('tpope/vim-fugitive')
 call dein#add('scrooloose/nerdtree')
@@ -121,11 +126,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-if has('nvim')
- nnoremap <C-t>t :split <bar> :term<cr>
- nnoremap <C-t>v :vsplit <bar> :term<cr>
-endif
-
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -141,12 +141,16 @@ nnoremap <leader>w :Gstatus<cr>
 nnoremap <leader>e :TagbarToggle<cr>
 nnoremap <leader>f :FixWhitespace<cr>
 nnoremap <leader>t :CtrlPTag<cr>
+
 if has('nvim')
-    tnoremap <C-h> <C-\><C-n><C-w>h
-    tnoremap <C-j> <C-\><C-n><C-w>j
-    tnoremap <C-k> <C-\><C-n><C-w>k
-    tnoremap <C-l> <C-\><C-n><C-w>l
-    nnoremap <leader>m :w <bar> rightbelow vertical split <bar> :term make<cr>
+  set termguicolors
+  nnoremap <C-t>t :split <bar> :term<cr>
+  nnoremap <C-t>v :vsplit <bar> :term<cr>
+  tnoremap <C-h> <C-\><C-n><C-w>h
+  tnoremap <C-j> <C-\><C-n><C-w>j
+  tnoremap <C-k> <C-\><C-n><C-w>k
+  tnoremap <C-l> <C-\><C-n><C-w>l
+  nnoremap <leader>m :w <bar> rightbelow vertical split <bar> :term make<cr>
 else
     nnoremap <leader>m :w <bar> :make<cr>
 endif
