@@ -62,9 +62,9 @@ set modelines=0
 set backspace=indent,eol,start
 
 " tab settings
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
 set expandtab
 set smarttab
 
@@ -106,9 +106,9 @@ colorscheme zenburn
 
 " handle long lines correctly
 set wrap
-set textwidth=78
-set formatoptions=qrn1
+set textwidth=80
 set colorcolumn=80
+set formatoptions=qrn1
 
 " Display hidden characters
 set list
@@ -186,6 +186,21 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 let g:deoplete#enable_at_startup = 1
+
+" Toggle between column widths
+nnoremap <leader>c :call ToggleColumnWidth()<cr>
+let g:wide_column = 0
+function! ToggleColumnWidth()
+    if g:wide_column
+        set textwidth=80
+        set colorcolumn=80
+        let g:wide_column = 0
+    else
+        set textwidth=110
+        set colorcolumn=110
+        let g:wide_column = 1
+    endif
+endfunction
 
 nnoremap tt "=strftime("%F %T%z")<CR>p
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
