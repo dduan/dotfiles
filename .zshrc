@@ -11,7 +11,7 @@ alias ctags="`brew --prefix`/bin/ctags"
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 alias :q="exit"
 alias :e="$EDITOR"

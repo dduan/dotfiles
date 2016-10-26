@@ -135,6 +135,7 @@ set mouse=a
 let g:indent_guides_guide_size=1
 
 inoremap <F1> <Esc>
+inoremap <C-c> <Esc>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>a :NERDTreeToggle<cr>
 nnoremap <leader>w :Gstatus<cr>
