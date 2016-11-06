@@ -144,7 +144,6 @@ nnoremap <leader>f :FixWhitespace<cr>
 nnoremap <leader>t :CtrlPTag<cr>
 
 if has('nvim')
-  set termguicolors
   nnoremap <C-t>t :split <bar> :term<cr>
   nnoremap <C-t>v :vsplit <bar> :term<cr>
   tnoremap <C-h> <C-\><C-n><C-w>h
