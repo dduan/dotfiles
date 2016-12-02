@@ -28,6 +28,7 @@ call dein#add('mileszs/ack.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('bling/vim-airline')
 call dein#add('rust-lang/rust.vim')
+call dein#add('duff/vim-scratch')
 call dein#add('christoomey/vim-tmux-navigator')
 if has('nvim')
   call dein#add('Shougo/deoplete.nvim')
@@ -88,7 +89,6 @@ set ignorecase
 set smartcase
 set incsearch       " do incremental searching
 set hlsearch
-nnoremap <leader><space> :noh<cr>
 nnoremap j gj
 nnoremap k gk
 set clipboard=unnamed
@@ -136,12 +136,14 @@ let g:indent_guides_guide_size=1
 
 inoremap <F1> <Esc>
 inoremap <C-c> <Esc>:w<CR>
+nnoremap <leader><space> :noh<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>a :NERDTreeToggle<cr>
 nnoremap <leader>w :Gstatus<cr>
 nnoremap <leader>e :TagbarToggle<cr>
 nnoremap <leader>f :FixWhitespace<cr>
 nnoremap <leader>t :CtrlPTag<cr>
+nnoremap <leader>s :Scratch<cr>
 
 if has('nvim')
   nnoremap <C-t>t :split <bar> :term<cr>
