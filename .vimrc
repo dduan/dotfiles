@@ -170,7 +170,6 @@ let g:ctrlp_prompt_mappings = {
 \ }
 
 let g:airline_powerline_fonts = 0
-let g:rustfmt_autosave = 1
 let g:vim_markdown_folding_disabled = 1
 
 set statusline+=%#warningmsg#
@@ -183,6 +182,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 let g:deoplete#enable_at_startup = 1
+let g:loaded_sql_completion = 0
 
 " Toggle between column widths
 nnoremap <leader>c :call ToggleColumnWidth()<cr>
