@@ -30,6 +30,7 @@ call dein#add('bling/vim-airline')
 call dein#add('rust-lang/rust.vim')
 call dein#add('duff/vim-scratch')
 call dein#add('christoomey/vim-tmux-navigator')
+call dein#add('machakann/vim-highlightedyank')
 if has('nvim')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('mitsuse/autocomplete-swift')
@@ -82,6 +83,8 @@ set undofile        " undo function after reopening
 set backupdir=/tmp
 set undodir=/tmp
 set scrolljump=-15
+
+set autoread
 " Searching
 nnoremap / /\v
 vnoremap / /\v
