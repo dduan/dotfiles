@@ -109,8 +109,8 @@ colorscheme zenburn
 
 " handle long lines correctly
 set wrap
-set textwidth=80
-set colorcolumn=80
+set textwidth=110
+set colorcolumn=110
 set formatoptions=qrn1
 
 " Display hidden characters
@@ -169,7 +169,7 @@ autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " make CtrlP faster
 let g:ctrlp_use_caching = 0
-let g:ctrlp_user_command = ['.git', 'find %s -type f']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --recurse-submodules --exclude-standard', 'find %s -type f']
 let g:ctrlp_prompt_mappings = {
 \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
 \ }
@@ -191,7 +191,7 @@ let g:loaded_sql_completion = 0
 
 " Toggle between column widths
 nnoremap <leader>c :call ToggleColumnWidth()<cr>
-let g:wide_column = 0
+let g:wide_column = 1
 function! ToggleColumnWidth()
     if g:wide_column
         set textwidth=80
