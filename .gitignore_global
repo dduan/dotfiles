@@ -2,3 +2,4 @@
 .DS_Store
 *swp
 .python-version
+*pyc

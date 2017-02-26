@@ -1,0 +1,14 @@
+# Account Settings ------------------------------
+
+set from      = "danmarner@gmail.com"
+set sendmail  = "/usr/local/bin/msmtp -a danmarner"
+
+# Default inbox.
+set spoolfile = "+danmarner/INBOX"
+
+# Other special folders.
+set mbox      = "+danmarner/archive"
+set postponed = "+danmarner/drafts"
+set record    = "+danmarner/Sent Messages"
+
+color status yellow default
