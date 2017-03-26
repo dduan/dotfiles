@@ -3,39 +3,43 @@ filetype off                  " required
 
 " use dein.vim for package management
 if has('nvim')
-  set rtp+=~/.config/nvim/dein.vim
-  call dein#begin('~/.config/nvim')
+  set rtp+=~/.config/nvim/repos/github.com/Shougo/dein.vim
+  let dein_base = '~/.config/nvim'
 else
-  set rtp+=~/.vim/dein.vim
-  call dein#begin('~/.vim')
+  set rtp+=~/.vim/repos/github.com/Shougo/dein.vim
+  let dein_base = '~/.vim'
 endif
-call dein#add('Shougo/dein.vim')
-call dein#add('tpope/vim-fugitive')
-call dein#add('scrooloose/nerdtree')
-call dein#add('scrooloose/nerdcommenter')
-call dein#add('kien/ctrlp.vim')
-call dein#add('jiangmiao/auto-pairs')
-call dein#add('majutsushi/tagbar')
-call dein#add('fatih/vim-go')
-call dein#add('keith/swift.vim')
-call dein#add('keith/sourcekittendaemon.vim')
-call dein#add('airblade/vim-gitgutter')
-call dein#add('godlygeek/tabular')
-call dein#add('plasticboy/vim-markdown')
-call dein#add('jnurmine/Zenburn')
-call dein#add('bronson/vim-trailing-whitespace')
-call dein#add('mileszs/ack.vim')
-call dein#add('tpope/vim-surround')
-call dein#add('bling/vim-airline')
-call dein#add('rust-lang/rust.vim')
-call dein#add('duff/vim-scratch')
-call dein#add('christoomey/vim-tmux-navigator')
-call dein#add('machakann/vim-highlightedyank')
-if has('nvim')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('mitsuse/autocomplete-swift')
+if dein#load_state(dein_base)
+    call dein#begin(dein_base)
+    call dein#add('Shougo/dein.vim')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('scrooloose/nerdcommenter')
+    call dein#add('kien/ctrlp.vim')
+    call dein#add('jiangmiao/auto-pairs')
+    call dein#add('majutsushi/tagbar')
+    call dein#add('fatih/vim-go')
+    call dein#add('keith/swift.vim')
+    call dein#add('keith/sourcekittendaemon.vim')
+    call dein#add('airblade/vim-gitgutter')
+    call dein#add('godlygeek/tabular')
+    call dein#add('plasticboy/vim-markdown')
+    call dein#add('jnurmine/Zenburn')
+    call dein#add('bronson/vim-trailing-whitespace')
+    call dein#add('mileszs/ack.vim')
+    call dein#add('tpope/vim-surround')
+    call dein#add('bling/vim-airline')
+    call dein#add('rust-lang/rust.vim')
+    call dein#add('duff/vim-scratch')
+    call dein#add('christoomey/vim-tmux-navigator')
+    call dein#add('machakann/vim-highlightedyank')
+    if has('nvim')
+      call dein#add('Shougo/deoplete.nvim')
+      call dein#add('mitsuse/autocomplete-swift')
+    endif
+    call dein#end()
+    call dein#save_state()
 endif
-call dein#end()
 
 filetype plugin indent on    " required
 
@@ -160,7 +164,6 @@ else
     nnoremap <leader>m :w <bar> :make<cr>
 endif
 
-cmap W w
 cmap Wq wq
 
 autocmd BufRead,BufNewFile   *.go set noet

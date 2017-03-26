@@ -5,13 +5,13 @@ fi
 
 # Customize to your needs...
 export PATH="$HOME/bin:$HOME/.tmuxifier/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-alias vim='nvim'
+alias vim='vim'
 alias ctags="`brew --prefix`/bin/ctags"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 
-export EDITOR="nvim"
+export EDITOR="vim"
 
 alias :q="exit"
 alias :e="$EDITOR"
