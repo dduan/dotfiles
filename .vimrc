@@ -170,6 +170,10 @@ autocmd BufRead,BufNewFile   *.go set noet
 autocmd BufRead,BufNewFile   *.txt let g:AutoPairsMapSpace = 0
 autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+endif
+
 " make CtrlP faster
 let g:ctrlp_use_caching = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --recurse-submodules --exclude-standard', 'find %s -type f']
