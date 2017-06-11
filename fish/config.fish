@@ -19,5 +19,6 @@ end
 
 function fish_mode_prompt; end
 
-set PATH /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin $PATH
+set PATH /usr/local/bin /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin $PATH
 
+alias vim="mvim -v"
