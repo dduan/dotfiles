@@ -15,7 +15,6 @@ if dein#load_state(dein_base)
     call dein#add('tpope/vim-fugitive')
     call dein#add('scrooloose/nerdtree')
     call dein#add('scrooloose/nerdcommenter')
-    call dein#add('kien/ctrlp.vim')
     call dein#add('jiangmiao/auto-pairs')
     call dein#add('majutsushi/tagbar')
     call dein#add('fatih/vim-go')
@@ -33,6 +32,7 @@ if dein#load_state(dein_base)
     call dein#add('duff/vim-scratch')
     call dein#add('christoomey/vim-tmux-navigator')
     call dein#add('machakann/vim-highlightedyank')
+    call dein#add('junegunn/fzf')
     if has('nvim')
       call dein#add('Shougo/deoplete.nvim')
       call dein#add('mitsuse/autocomplete-swift')
@@ -45,11 +45,6 @@ filetype plugin indent on    " required
 
 let mapleader = ","
 
-" Ignore some files for ctrlp
-let g:ctrlp_custom_ignore = {
- \ 'dir':  '\v[\/]\.(git|hg|svn)$|build$',
- \ 'file': '\v\.(exe|so|dll|o|pyc)$',
- \ }
 
 " No scrollbars thank you
 set guioptions-=r
@@ -149,8 +144,8 @@ nnoremap <leader>a :NERDTreeToggle<cr>
 nnoremap <leader>w :Gstatus<cr>
 nnoremap <leader>e :TagbarToggle<cr>
 nnoremap <leader>f :FixWhitespace<cr>
-nnoremap <leader>t :CtrlPTag<cr>
 nnoremap <leader>s :Scratch<cr>
+nnoremap <C-p> :FZF<cr>
 
 if has('nvim')
   nnoremap <C-t>t :split <bar> :term<cr>
@@ -173,13 +168,6 @@ autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
 if executable('rg')
   let g:ackprg = 'rg --vimgrep'
 endif
-
-" make CtrlP faster
-let g:ctrlp_use_caching = 0
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --recurse-submodules --exclude-standard', 'find %s -type f']
-let g:ctrlp_prompt_mappings = {
-\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-\ }
 
 let g:airline_powerline_fonts = 0
 let g:vim_markdown_folding_disabled = 1

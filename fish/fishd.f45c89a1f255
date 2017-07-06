@@ -30,5 +30,6 @@ SET fish_pager_color_completion:\x1d
 SET fish_pager_color_description:B3A06D\x1eyellow
 SET fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SET fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SET fish_user_paths:/usr/local/opt/fzf/bin
 SET fisher_active_prompt:simple
-SET fisher_dependency_count:pwd_info\x1epwd_is_home\x1ehost_info\x1egit_util\x1elast_job_id\x1ehumanize_duration\x1esimple
+SET fisher_dependency_count:pwd_info\x1epwd_is_home\x1ehost_info\x1egit_util\x1elast_job_id\x1ehumanize_duration\x1esimple\x1ebass\x1efzy
