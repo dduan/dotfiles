@@ -1,6 +1,7 @@
 
 function fish_user_key_bindings
     fish_vi_key_bindings
+    fzf_key_bindings
 
     for mode in insert default visual
         bind -M $mode \cf forward-char
@@ -12,6 +13,9 @@ function fish_user_key_bindings
 end
 
 set fish_key_bindings fish_user_key_bindings
+
+export FZF_DEFAULT_COMMAND='rg --files -S --no-ignore --hidden --follow --glob "!tags" --glob "!.git/*" --glob "!build/"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 if status --is-login
     set -x PATH $PATH ~/bin
