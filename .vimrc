@@ -166,6 +166,7 @@ endif
 
 cmap Wq wq
 
+autocmd BufRead,BufNewFile   *.gyb set ft=swift
 autocmd BufRead,BufNewFile   *.go set noet
 autocmd BufRead,BufNewFile   *.txt let g:AutoPairsMapSpace = 0
 autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2

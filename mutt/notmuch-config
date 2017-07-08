@@ -11,7 +11,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path=/Users/mark/.mail
+path=/Users/dan/.mail
 
 # User configuration
 #
@@ -29,9 +29,9 @@ path=/Users/mark/.mail
 # address to which the original email was addressed.
 #
 [user]
-name=Mark Nichols
-primary_email=mark@zanshin.net
-other_email=root@zanshin.net;chef@zanshin.net;code.prole@gmail.com;
+name=Daniel Duan
+primary_email=danmarner@gmail.com
+other_email=
 
 # Configuration for "notmuch new"
 #

@@ -118,6 +118,8 @@ set uncollapse_jump                        # don't collapse on an unread message
 set sort_re                                # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
+auto_view text/html
+
 # }}}
 # Index Key Bindings {{{
 bind index gg         first-entry
