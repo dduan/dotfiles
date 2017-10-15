@@ -104,7 +104,7 @@ nnoremap <Right> :tabnext<CR>
 " Color Scheme
 set background=dark
 "let g:solarized_termtrans = 1
-colorscheme zenburn
+colorscheme Zenburn
 
 " handle long lines correctly
 set wrap
@@ -167,23 +167,19 @@ autocmd BufRead,BufNewFile   *.txt let g:AutoPairsMapSpace = 0
 autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 if executable('rg')
-  let g:ackprg = 'rg --vimgrep'
+  let g:ackprg = '/usr/local/bin/rg --vimgrep'
 endif
 
 let g:airline_powerline_fonts = 0
 let g:vim_markdown_folding_disabled = 1
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 let g:deoplete#enable_at_startup = 1
 let g:loaded_sql_completion = 0
+let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' } }
+let g:NERDDefaultAlign = 'left'
 
 " Toggle between column widths
 nnoremap <leader>c :call ToggleColumnWidth()<cr>
