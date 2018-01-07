@@ -33,6 +33,8 @@ if dein#load_state(dein_base)
     call dein#add('christoomey/vim-tmux-navigator')
     call dein#add('machakann/vim-highlightedyank')
     call dein#add('junegunn/fzf')
+    call dein#add('tpope/vim-rhubarb')
+    call dein#add('neomake/neomake')
     if has('nvim')
       call dein#add('Shougo/deoplete.nvim')
       call dein#add('mitsuse/autocomplete-swift')
@@ -45,6 +47,8 @@ filetype plugin indent on    " required
 
 let mapleader = ","
 
+" Nicer line joining (J)
+set formatoptions+=j
 
 " No scrollbars thank you
 set guioptions-=r
@@ -94,6 +98,7 @@ set hlsearch
 nnoremap j gj
 nnoremap k gk
 set clipboard=unnamed
+set diffopt+=vertical
 syntax on
 
 " tabs
@@ -154,13 +159,14 @@ if has('nvim')
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
-  nnoremap <leader>m :w <bar> rightbelow vertical split <bar> :term make<cr>
+  nnoremap <leader>m :w <bar> rightbelow vertical split <bar> :term Nrun make<cr>
 else
-    nnoremap <leader>m :w <bar> :make<cr>
+    nnoremap <leader>m :Nrun make<cr>:20copen<cr>
 endif
 
 cmap Wq wq
 
+autocmd BufRead,BufNewFile   *.wat set ft=lisp
 autocmd BufRead,BufNewFile   *.gyb set ft=swift
 autocmd BufRead,BufNewFile   *.go set noet
 autocmd BufRead,BufNewFile   *.txt let g:AutoPairsMapSpace = 0
@@ -194,6 +200,22 @@ function! ToggleColumnWidth()
         set colorcolumn=110
         let g:wide_column = 1
     endif
+endfunction
+
+let g:neomake_open_list = 2
+
+command! -nargs=+ Nrun call<sid>Nrun("<args>")
+function! s:Nrun(args)
+  let l:arguments = split(a:args)
+  let l:executable = remove(l:arguments, 0)
+  let l:arguments = join(l:arguments, ' ')
+
+  let l:maker = {
+        \ 'exe': l:executable,
+        \ 'args': l:arguments,
+        \ 'errorformat': &errorformat,
+      \ }
+  call neomake#Make(0, [l:maker])
 endfunction
 
 nnoremap tt "=strftime("%F %T%z")<CR>p
