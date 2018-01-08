@@ -81,7 +81,6 @@ set history=50      " keep 50 lines of command line history
 set ruler           " show the cursor position all the time
 set showcmd         " display incomplete commands
 set autoindent      " always set autoindenting on
-set number
 set undofile        " undo function after reopening
 set backupdir=/tmp
 set undodir=/tmp
@@ -161,7 +160,7 @@ if has('nvim')
   tnoremap <C-l> <C-\><C-n><C-w>l
   nnoremap <leader>m :w <bar> rightbelow vertical split <bar> :term Nrun make<cr>
 else
-    nnoremap <leader>m :Nrun make<cr>:20copen<cr>
+    nnoremap <leader>m :Nrun make<cr>
 endif
 
 cmap Wq wq
