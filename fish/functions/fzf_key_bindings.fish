@@ -75,7 +75,7 @@ function fzf_key_bindings
     end
   end
 
-  bind \ct fzf-file-widget
+  bind \cp fzf-file-widget
   bind \cr fzf-history-widget
   bind \ec fzf-cd-widget
 
