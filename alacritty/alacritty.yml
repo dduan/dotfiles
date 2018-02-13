@@ -11,10 +11,9 @@ window:
   padding:
     x: 0
     y: 0
-
   decorations: true
 
-tabspaces: 8
+tabspaces: 4
 
 draw_bold_text_with_bright_colors: true
 
@@ -28,7 +27,7 @@ font:
   italic:
     family: SF Mono
     style: Italic
-  size: 13.0
+  size: 14.0
   offset:
     x: 0.0
     y: 0.0
@@ -45,63 +44,49 @@ custom_cursor_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x3f3f3f'
+    background: '0x3a3a3a'
     foreground: '0xdcdccc'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0xffffff'
+    text: '0xdcdccc'
     cursor: '0x73635a'
 
   # Normal colors
   normal:
-    black:   '0x4d4d4d'
-    red:     '0xcc7173'
-    green:   '0x76d098'
-    yellow:  '0xf0dfaf'
-    blue:    '0x7d8fa1'
-    magenta: '0xdc8cc3'
-    cyan:    '0x96e1cb'
-    white:   '0xdcdccc'
+    black:   '0x4d4d4d' # 0
+    red:     '0xae9190' # 1
+    green:   '0x74b18d' # 2
+    yellow:  '0xeedfb5' # 3
+    blue:    '0x929faf' # 4
+    magenta: '0xd190c0' # 5
+    cyan:    '0x9aced1' # 6
+    white:   '0xdcdbcd' # 7
 
   # Bright colors
   bright:
-    black:   '0x709080'
-    red:     '0xdca3a3'
-    green:   '0xc3bf9f'
-    yellow:  '0xe0cf9f'
-    blue:    '0x6996bf'
-    magenta: '0xec93d3'
-    cyan:    '0x93e0e3'
-    white:   '0xffffff'
+    black:   '0x768f81' # 8
+    red:     '0x999999' # 9
+    green:   '0xc2bfa2' #10
+    yellow:  '0xddcfa4' #11
+    blue:    '0x9dbdee' #12
+    magenta: '0xe097d0' #13
+    cyan:    '0xa4dee2' #14
+    white:   '0xffffff' #15
 
 visual_bell:
   animation: EaseOutExpo
   duration: 0
 
-# Background opacity
 background_opacity: 1.0
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 
 mouse:
-  # Click settings
-  #
-  # The `double_click` and `triple_click` settings control the time
-  # alacritty should wait for accepting multiple clicks as one double
-  # or triple click.
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
 
-  # Faux Scrollback
-  #
-  # The `faux_scrollback_lines` setting controls the number
-  # of lines the terminal should scroll when the alternate
-  # screen buffer is active. This is used to allow mouse
-  # scrolling for applications like `man`.
-  #
-  # To disable this completely, set `faux_scrollback_lines` to 0.
   faux_scrollback_lines: 1
 
 selection:
@@ -111,21 +96,15 @@ dynamic_title: true
 
 hide_cursor_when_typing: true
 
-# Style of the cursor
-#
-# Values for 'cursor_style':
-# - Block
-# - Underline
-# - Beam
 cursor_style: Block
 
-# Live config reload (changes require restart)
 live_config_reload: true
 
 shell:
   program: /usr/local/bin/fish
   args:
     - --login
+    - --command=tmux attach; or tmux
 
 # Key bindings
 #
@@ -163,10 +142,10 @@ shell:
 #     strings. For example:
 #     - { ... , command: { program: "alacritty", args: ["-e", "vttest"] } }
 key_bindings:
-  - { key: V,        mods: Command, action: Paste                        }
-  - { key: C,        mods: Command, action: Copy                         }
-  - { key: Q,        mods: Command, action: Quit                         }
-  - { key: W,        mods: Command, action: Quit                         }
+  - { key: v,        mods: Command, action: Paste                        }
+  - { key: c,        mods: Command, action: Copy                         }
+  - { key: q,        mods: Command, action: Quit                         }
+  - { key: w,        mods: Command, action: Quit                         }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
