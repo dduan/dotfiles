@@ -40,7 +40,7 @@ function fish_prompt -d "Simple Fish Prompt"
     set -l pwd_string (echo $PWD | sed 's|^'$HOME'\(.*\)$|~\1|')
 
     __print_color ffffff "$pwd_glyph"
-    __print_color 94D4AF "$pwd_string"
+    __print_color B2E6EA "$pwd_string"
 
 
     # Git
@@ -74,7 +74,7 @@ function fish_prompt -d "Simple Fish Prompt"
              ')
 
              if test ! -z "$git_ahead"
-                __print_color 94D4AF " $git_ahead"
+                __print_color B2E6EA " $git_ahead"
             end
         end
     end

@@ -28,8 +28,10 @@ alias rg "tag rg"
 set -x PATH $PATH $HOME/Code/wabt/out/clang/Release
 set -x PATH $PATH $HOME/.cargo/bin
 set -x PATH ~/.rbenv/shims $PATH
+set -x PATH ~/.cargo/bin $PATH
 
 rbenv rehash >/dev/null ^&1
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
+if which swiftenv > /dev/null; status --is-interactive; and source (swiftenv init -|psub); end
