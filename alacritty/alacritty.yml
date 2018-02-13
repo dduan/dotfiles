@@ -142,10 +142,10 @@ shell:
 #     strings. For example:
 #     - { ... , command: { program: "alacritty", args: ["-e", "vttest"] } }
 key_bindings:
-  - { key: v,        mods: Command, action: Paste                        }
-  - { key: c,        mods: Command, action: Copy                         }
-  - { key: q,        mods: Command, action: Quit                         }
-  - { key: w,        mods: Command, action: Quit                         }
+  - { key: Period,   mods: Command, action: Paste                        }
+  - { key: I,        mods: Command, action: Copy                         }
+  - { key: X,        mods: Command, action: Quit                         }
+  - { key: Comma,    mods: Command, action: Quit                         }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
