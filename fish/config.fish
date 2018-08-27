@@ -13,7 +13,7 @@ end
 
 set fish_key_bindings fish_user_key_bindings
 
-export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files -S --no-ignore --hidden --follow --glob "!tags" --glob "!.git/*" --glob "!build/" --glob "!.build/" --glob "!.DS_Store"'
+export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files -S --no-ignore --hidden --follow --glob "!tags" --glob "!.git/*" --glob "!build/" --glob "!.build/" --glob "!.DS_Store" --glob "!build.noindex" --glob "!Pods" --glob "!deps"'
 export FZF_DEFAULT_OPTS="--height 37.5% --reverse --preview 'file {}' --preview-window down:1"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -31,7 +31,7 @@ set -x PATH ~/.rbenv/shims $PATH
 set -x PATH ~/.cargo/bin $PATH
 
 rbenv rehash >/dev/null ^&1
-
+set -gx EDITOR vim
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 if which swiftenv > /dev/null; status --is-interactive; and source (swiftenv init -|psub); end

@@ -7,3 +7,5 @@
 	signingkey = A3ABD10F3513DB51
 [push]
 	default = simple
+[rebase]
+	autosquash = true

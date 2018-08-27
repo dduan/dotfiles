@@ -29,7 +29,6 @@ if dein#load_state(dein_base)
     call dein#add('tpope/vim-surround')
     call dein#add('bling/vim-airline')
     call dein#add('rust-lang/rust.vim')
-    call dein#add('duff/vim-scratch')
     call dein#add('christoomey/vim-tmux-navigator')
     call dein#add('machakann/vim-highlightedyank')
     call dein#add('junegunn/fzf')
@@ -148,7 +147,7 @@ nnoremap <leader>a :NERDTreeToggle<cr>
 nnoremap <leader>w :Gstatus<cr>
 nnoremap <leader>e :TagbarToggle<cr>
 nnoremap <leader>f :FixWhitespace<cr>
-nnoremap <leader>s :Scratch<cr>
+vnoremap <leader>s :'<,'>!sort -f<cr>
 nnoremap <C-p> :FZF<cr>
 
 if has('nvim')
@@ -164,6 +163,7 @@ else
 endif
 
 cmap Wq wq
+cmap W w
 
 autocmd BufRead,BufNewFile   *.wat set ft=lisp
 autocmd BufRead,BufNewFile   *.gyb set ft=swift
