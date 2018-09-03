@@ -22,6 +22,7 @@ if status --is-login
 end
 
 function fish_mode_prompt; end
+set fish_greeting
 
 alias vim="mvim -v"
 alias rg "tag rg"
@@ -30,7 +31,6 @@ set -x PATH $PATH $HOME/.cargo/bin
 set -x PATH ~/.rbenv/shims $PATH
 set -x PATH ~/.cargo/bin $PATH
 
-rbenv rehash >/dev/null ^&1
 set -gx EDITOR vim
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
