@@ -2,13 +2,8 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " use dein.vim for package management
-if has('nvim')
-  set rtp+=~/.config/nvim/repos/github.com/Shougo/dein.vim
-  let dein_base = '~/.config/nvim'
-else
-  set rtp+=~/.vim/repos/github.com/Shougo/dein.vim
-  let dein_base = '~/.vim'
-endif
+set rtp+=~/.vim/repos/github.com/Shougo/dein.vim
+let dein_base = '~/.vim'
 if dein#load_state(dein_base)
     call dein#begin(dein_base)
     call dein#add('Shougo/dein.vim')
@@ -19,7 +14,7 @@ if dein#load_state(dein_base)
     call dein#add('majutsushi/tagbar')
     call dein#add('fatih/vim-go')
     call dein#add('keith/swift.vim')
-    call dein#add('keith/sourcekittendaemon.vim')
+    call dein#add('cespare/vim-toml')
     call dein#add('airblade/vim-gitgutter')
     call dein#add('godlygeek/tabular')
     call dein#add('plasticboy/vim-markdown')
@@ -34,10 +29,7 @@ if dein#load_state(dein_base)
     call dein#add('junegunn/fzf')
     call dein#add('tpope/vim-rhubarb')
     call dein#add('neomake/neomake')
-    if has('nvim')
-      call dein#add('Shougo/deoplete.nvim')
-      call dein#add('mitsuse/autocomplete-swift')
-    endif
+    call dein#add('w0rp/ale')
     call dein#end()
     call dein#save_state()
 endif
@@ -45,6 +37,9 @@ endif
 filetype plugin indent on    " required
 
 let mapleader = ","
+
+" .swp location
+set directory=$HOME/.vim/swapfiles//
 
 " Nicer line joining (J)
 set formatoptions+=j
@@ -72,6 +67,7 @@ set softtabstop=4
 set expandtab
 set smarttab
 
+set ttyfast
 set wildmenu
 set wildmode=list:longest
 set cursorline
@@ -119,18 +115,6 @@ set formatoptions=qrn1
 set list
 set listchars=tab:▸\ ,eol:¬
 
-
-" quirk of NeoVim
-if has('nvim')
- nmap <BS> <C-h>
-endif
-
-" easy split window navigation
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
-
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -148,19 +132,9 @@ nnoremap <leader>w :Gstatus<cr>
 nnoremap <leader>e :TagbarToggle<cr>
 nnoremap <leader>f :FixWhitespace<cr>
 vnoremap <leader>s :'<,'>!sort -f<cr>
+nnoremap <leader>d :ALEGoToDefinition<cr>
+nnoremap <leader>m :Nrun make<cr>
 nnoremap <C-p> :FZF<cr>
-
-if has('nvim')
-  nnoremap <C-t>t :split <bar> :term<cr>
-  nnoremap <C-t>v :vsplit <bar> :term<cr>
-  tnoremap <C-h> <C-\><C-n><C-w>h
-  tnoremap <C-j> <C-\><C-n><C-w>j
-  tnoremap <C-k> <C-\><C-n><C-w>k
-  tnoremap <C-l> <C-\><C-n><C-w>l
-  nnoremap <leader>m :w <bar> rightbelow vertical split <bar> :term Nrun make<cr>
-else
-    nnoremap <leader>m :Nrun make<cr>
-endif
 
 cmap Wq wq
 cmap W w
@@ -170,6 +144,7 @@ autocmd BufRead,BufNewFile   *.gyb set ft=swift
 autocmd BufRead,BufNewFile   *.go set noet
 autocmd BufRead,BufNewFile   *.txt let g:AutoPairsMapSpace = 0
 autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType haskell set formatprg=stylish-haskell
 
 if executable('rg')
   let g:ackprg = '/usr/local/bin/rg --vimgrep'
@@ -185,6 +160,7 @@ let g:deoplete#enable_at_startup = 1
 let g:loaded_sql_completion = 0
 let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' } }
 let g:NERDDefaultAlign = 'left'
+let g:ale_completion_enabled = 1
 
 " Toggle between column widths
 nnoremap <leader>c :call ToggleColumnWidth()<cr>

@@ -34,4 +34,8 @@ set -x PATH ~/.cargo/bin $PATH
 set -gx EDITOR vim
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
+set -gx SWIFTENV_ROOT "$HOME/.swiftenv"
+set -gx PATH "$SWIFTENV_ROOT/bin" $PATH
+set -gx PATH "$HOME/.local/bin" $PATH
+set -gx PATH "$HOME/Library/Haskell/bin" $PATH
 if which swiftenv > /dev/null; status --is-interactive; and source (swiftenv init -|psub); end
