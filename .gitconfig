@@ -9,3 +9,7 @@
 	default = simple
 [rebase]
 	autosquash = true
+[diff "swift"]
+	xfuncname = "^ *((\\w+ +)*(((class|struct|enum|protocol|extension|func|(de)?init)\\b.*)|((var|let)\\b.*\\{)))$"
+[remote "origin"]
+	prune = true
