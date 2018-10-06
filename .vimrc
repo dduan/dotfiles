@@ -133,7 +133,6 @@ nnoremap <leader>e :TagbarToggle<cr>
 nnoremap <leader>f :FixWhitespace<cr>
 vnoremap <leader>s :'<,'>!sort -f<cr>
 nnoremap <leader>d :ALEGoToDefinition<cr>
-nnoremap <leader>m :Nrun make<cr>
 nnoremap <C-p> :FZF<cr>
 
 cmap Wq wq
@@ -148,6 +147,8 @@ autocmd FileType haskell set formatprg=stylish-haskell
 
 if executable('rg')
   let g:ackprg = '/usr/local/bin/rg --vimgrep'
+  vnoremap <leader>s :'<,'>Ack!<cr>
+  nnoremap <leader>s :Ack! 
 endif
 
 let g:airline_powerline_fonts = 0
@@ -156,8 +157,6 @@ let g:vim_markdown_folding_disabled = 1
 set statusline+=%#warningmsg#
 set statusline+=%*
 
-let g:deoplete#enable_at_startup = 1
-let g:loaded_sql_completion = 0
 let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' } }
 let g:NERDDefaultAlign = 'left'
 let g:ale_completion_enabled = 1
@@ -179,6 +178,8 @@ endfunction
 
 let g:neomake_open_list = 2
 
+nnoremap <leader>m :Nrun make<cr>
+nnoremap <leader>r :Nrun 
 command! -nargs=+ Nrun call<sid>Nrun("<args>")
 function! s:Nrun(args)
   let l:arguments = split(a:args)
@@ -191,6 +192,21 @@ function! s:Nrun(args)
         \ 'errorformat': &errorformat,
       \ }
   call neomake#Make(0, [l:maker])
+endfunction
+
+
+" Toggle between column widths
+nnoremap <leader><leader> :call ToggleQuickfix()<cr>
+function! ToggleQuickfix()
+  for buffer in tabpagebuflist()
+    if bufname(buffer) == ''
+      " then it should be the quickfix window
+      cclose
+      return
+    endif
+  endfor
+
+  copen
 endfunction
 
 nnoremap tt "=strftime("%F %T%z")<CR>p
