@@ -6,30 +6,33 @@ set rtp+=~/.vim/repos/github.com/Shougo/dein.vim
 let dein_base = '~/.vim'
 if dein#load_state(dein_base)
     call dein#begin(dein_base)
-    call dein#add('Shougo/dein.vim')
-    call dein#add('tpope/vim-fugitive')
-    call dein#add('scrooloose/nerdtree')
-    call dein#add('scrooloose/nerdcommenter')
-    call dein#add('jiangmiao/auto-pairs')
-    call dein#add('majutsushi/tagbar')
-    call dein#add('fatih/vim-go')
-    call dein#add('keith/swift.vim')
-    call dein#add('cespare/vim-toml')
-    call dein#add('airblade/vim-gitgutter')
-    call dein#add('godlygeek/tabular')
-    call dein#add('plasticboy/vim-markdown')
-    call dein#add('jnurmine/Zenburn')
+    call dein#add('Shougo/dein.vim'                )
+    call dein#add('tpope/vim-fugitive'             )
+    call dein#add('scrooloose/nerdtree'            )
+    call dein#add('scrooloose/nerdcommenter'       )
+    call dein#add('jiangmiao/auto-pairs'           )
+    call dein#add('majutsushi/tagbar'              )
+    call dein#add('fatih/vim-go'                   )
+    call dein#add('keith/swift.vim'                )
+    call dein#add('cespare/vim-toml'               )
+    call dein#add('airblade/vim-gitgutter'         )
+    call dein#add('godlygeek/tabular'              )
+    call dein#add('plasticboy/vim-markdown'        )
+    call dein#add('jnurmine/Zenburn'               )
     call dein#add('bronson/vim-trailing-whitespace')
-    call dein#add('mileszs/ack.vim')
-    call dein#add('tpope/vim-surround')
-    call dein#add('bling/vim-airline')
-    call dein#add('rust-lang/rust.vim')
-    call dein#add('christoomey/vim-tmux-navigator')
-    call dein#add('machakann/vim-highlightedyank')
-    call dein#add('junegunn/fzf')
-    call dein#add('tpope/vim-rhubarb')
-    call dein#add('neomake/neomake')
-    call dein#add('w0rp/ale')
+    call dein#add('mileszs/ack.vim'                )
+    call dein#add('tpope/vim-surround'             )
+    call dein#add('bling/vim-airline'              )
+    call dein#add('rust-lang/rust.vim'             )
+    call dein#add('christoomey/vim-tmux-navigator' )
+    call dein#add('machakann/vim-highlightedyank'  )
+    call dein#add('junegunn/fzf'                   )
+    call dein#add('tpope/vim-rhubarb'              )
+    call dein#add('neomake/neomake'                )
+    call dein#add('junegunn/vim-easy-align'        )
+    call dein#add('uarun/vim-protobuf'             )
+    call dein#add('prabirshrestha/async.vim'       )
+    call dein#add('prabirshrestha/vim-lsp'         )
     call dein#end()
     call dein#save_state()
 endif
@@ -126,29 +129,28 @@ let g:indent_guides_guide_size=1
 inoremap <F1> <Esc>
 inoremap <C-c> <Esc>:w<CR>
 nnoremap <leader><space> :noh<cr>
-nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>a :NERDTreeToggle<cr>
 nnoremap <leader>w :Gstatus<cr>
 nnoremap <leader>e :TagbarToggle<cr>
 nnoremap <leader>f :FixWhitespace<cr>
 vnoremap <leader>s :'<,'>!sort -f<cr>
-nnoremap <leader>d :ALEGoToDefinition<cr>
+nnoremap <leader>d :LspDefinition<cr>
 nnoremap <C-p> :FZF<cr>
 
 cmap Wq wq
-cmap W w
 
 autocmd BufRead,BufNewFile   *.wat set ft=lisp
 autocmd BufRead,BufNewFile   *.gyb set ft=swift
 autocmd BufRead,BufNewFile   *.go set noet
 autocmd BufRead,BufNewFile   *.txt let g:AutoPairsMapSpace = 0
-autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType haskell set formatprg=stylish-haskell
+autocmd FileType cpp      setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType haskell  set formatprg=stylish-haskell
+autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 if executable('rg')
   let g:ackprg = '/usr/local/bin/rg --vimgrep'
-  vnoremap <leader>s :'<,'>Ack!<cr>
-  nnoremap <leader>s :Ack! 
+  vnoremap <leader>r :'<,'>Ack!<cr>
+  nnoremap <leader>r :Ack! 
 endif
 
 let g:airline_powerline_fonts = 0
@@ -214,3 +216,32 @@ nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+
+if executable('sourcekit-lsp')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'sourcekit-lsp',
+        \ 'cmd': {server_info->['sourcekit-lsp']},
+        \ 'whitelist': ['swift'],
+        \ })
+endif
+
+autocmd FileType swift setlocal omnifunc=lsp#complete
+
+" omnifunc niceties
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+function! Complete()
+    if pumvisible() || &omnifunc == ""
+        return "\<C-n>"
+    else
+        return "\<C-x>\<C-o>\<C-r>=CompleteOpen()\<CR>"
+    endif
+endfunction
+
+function! CompleteOpen()
+    return pumvisible() ? "\<Down>" : ""
+endfunction
+
+inoremap <expr> <C-n> Complete()
+

@@ -1,5 +1,6 @@
 [core]
-	excludesfile = /Users/dan/.gitignore_global
+	excludesfile = ~/.gitignore_global
+	attributesFile = ~/.gitattributes
 	editor = vim -v
 [user]
 	name = Daniel Duan
