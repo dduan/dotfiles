@@ -131,10 +131,12 @@ inoremap <C-c> <Esc>:w<CR>
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>a :NERDTreeToggle<cr>
 nnoremap <leader>w :Gstatus<cr>
-nnoremap <leader>e :TagbarToggle<cr>
+nnoremap <leader>e :LspHover<cr>
 nnoremap <leader>f :FixWhitespace<cr>
 vnoremap <leader>s :'<,'>!sort -f<cr>
 nnoremap <leader>d :LspDefinition<cr>
+nnoremap <leader>m :let &makeprg=""<left>
+nnoremap <silent> <Leader>b :cclose<cr>:silent !clear<cr>:make<cr>
 nnoremap <C-p> :FZF<cr>
 
 cmap Wq wq
@@ -180,8 +182,7 @@ endfunction
 
 let g:neomake_open_list = 2
 
-nnoremap <leader>m :Nrun make<cr>
-nnoremap <leader>r :Nrun 
+"nnoremap <leader>r :Nrun 
 command! -nargs=+ Nrun call<sid>Nrun("<args>")
 function! s:Nrun(args)
   let l:arguments = split(a:args)
@@ -231,17 +232,9 @@ autocmd FileType swift setlocal omnifunc=lsp#complete
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-function! Complete()
-    if pumvisible() || &omnifunc == ""
-        return "\<C-n>"
-    else
-        return "\<C-x>\<C-o>\<C-r>=CompleteOpen()\<CR>"
-    endif
-endfunction
 
-function! CompleteOpen()
-    return pumvisible() ? "\<Down>" : ""
-endfunction
-
-inoremap <expr> <C-n> Complete()
-
+set efm=
+set efm+=%f:%l:%c:\ %trror:%m
+set efm+=%f:%l:%c:\ %tarning:%m
+set efm+=%f:%l:\ %trror:%m
+set efm+=%f:%l:\ %tarning:%m

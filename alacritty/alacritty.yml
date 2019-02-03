@@ -145,6 +145,9 @@ key_bindings:
   - { key: Period,   mods: Command, action: Paste                        }
   - { key: I,        mods: Command, action: Copy                         }
   - { key: X,        mods: Command, action: Quit                         }
+  - { key: V,        mods: Command, action: Paste                        }
+  - { key: C,        mods: Command, action: Copy                         }
+  - { key: W,        mods: Command, action: Quit                         }
   - { key: Comma,    mods: Command, action: Quit                         }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
