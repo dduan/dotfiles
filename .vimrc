@@ -18,7 +18,7 @@ if dein#load_state(dein_base)
     call dein#add('airblade/vim-gitgutter'         )
     call dein#add('godlygeek/tabular'              )
     call dein#add('plasticboy/vim-markdown'        )
-    call dein#add('dracula/vim'                    )
+    call dein#add('tomasr/molokai'                 )
     call dein#add('bronson/vim-trailing-whitespace')
     call dein#add('mileszs/ack.vim'                )
     call dein#add('tpope/vim-surround'             )
@@ -104,7 +104,8 @@ nnoremap <Left> :tabprevious<CR>
 nnoremap <Right> :tabnext<CR>
 
 " Color Scheme
-colorscheme dracula
+let g:molokai_original = 1
+colorscheme molokai
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
