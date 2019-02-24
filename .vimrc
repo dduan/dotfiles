@@ -234,7 +234,7 @@ autocmd FileType swift setlocal omnifunc=lsp#complete
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-
+let g:AutoPairsMultilineClose = 0
 set efm=
 set efm+=%f:%l:%c:\ %trror:%m
 set efm+=%f:%l:%c:\ %tarning:%m
