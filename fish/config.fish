@@ -24,18 +24,14 @@ end
 function fish_mode_prompt; end
 set fish_greeting
 
-alias vim="mvim -v"
+alias vim "mvim -v"
 alias rg "tag rg"
+alias tree tre
 set -x PATH $PATH $HOME/Code/wabt/out/clang/Release
 set -x PATH $PATH $HOME/.cargo/bin
-set -x PATH ~/.rbenv/shims $PATH
-set -x PATH ~/.cargo/bin $PATH
 
 set -gx EDITOR vim
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
-set -gx SWIFTENV_ROOT "$HOME/.swiftenv"
-set -gx PATH "$SWIFTENV_ROOT/bin" $PATH
-set -gx PATH "$HOME/.local/bin" $PATH
 set -gx PATH "$HOME/Library/Haskell/bin" $PATH
 if which swiftenv > /dev/null; status --is-interactive; and source (swiftenv init -|psub); end
