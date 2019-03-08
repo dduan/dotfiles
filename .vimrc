@@ -33,17 +33,30 @@ if dein#load_state(dein_base)
     call dein#add('uarun/vim-protobuf'             )
     call dein#add('prabirshrestha/async.vim'       )
     call dein#add('prabirshrestha/vim-lsp'         )
+    call dein#add('prabirshrestha/asyncomplete.vim')
+    call dein#add('prabirshrestha/asyncomplete-lsp.vim')
     call dein#end()
     call dein#save_state()
 endif
 
 filetype plugin indent on    " required
 
+let g:deoplete#enable_at_startup = 1
+
 let mapleader = ","
+
+let g:asyncomplete_auto_popup = 1
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " .swp location
 set directory=$HOME/.vim/swapfiles//
-
 " Nicer line joining (J)
 set formatoptions+=j
 
@@ -129,7 +142,7 @@ set mouse=a
 let g:indent_guides_guide_size=1
 
 inoremap <F1> <Esc>
-inoremap <C-c> <Esc>:w<CR>
+inoremap <C-c> <Esc>
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>a :NERDTreeToggle<cr>
 nnoremap <leader>w :Gstatus<cr>
@@ -229,10 +242,6 @@ if executable('sourcekit-lsp')
 endif
 
 autocmd FileType swift setlocal omnifunc=lsp#complete
-
-" omnifunc niceties
-set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 let g:AutoPairsMultilineClose = 0
 set efm=
