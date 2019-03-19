@@ -6,42 +6,40 @@ set rtp+=~/.vim/repos/github.com/Shougo/dein.vim
 let dein_base = '~/.vim'
 if dein#load_state(dein_base)
     call dein#begin(dein_base)
-    call dein#add('Shougo/dein.vim'                )
-    call dein#add('tpope/vim-fugitive'             )
-    call dein#add('scrooloose/nerdtree'            )
-    call dein#add('scrooloose/nerdcommenter'       )
-    call dein#add('jiangmiao/auto-pairs'           )
-    call dein#add('majutsushi/tagbar'              )
-    call dein#add('fatih/vim-go'                   )
-    call dein#add('keith/swift.vim'                )
-    call dein#add('cespare/vim-toml'               )
-    call dein#add('airblade/vim-gitgutter'         )
-    call dein#add('godlygeek/tabular'              )
-    call dein#add('plasticboy/vim-markdown'        )
-    call dein#add('tomasr/molokai'                 )
-    call dein#add('bronson/vim-trailing-whitespace')
-    call dein#add('mileszs/ack.vim'                )
-    call dein#add('tpope/vim-surround'             )
-    call dein#add('bling/vim-airline'              )
-    call dein#add('rust-lang/rust.vim'             )
-    call dein#add('christoomey/vim-tmux-navigator' )
-    call dein#add('machakann/vim-highlightedyank'  )
-    call dein#add('junegunn/fzf'                   )
-    call dein#add('tpope/vim-rhubarb'              )
-    call dein#add('neomake/neomake'                )
-    call dein#add('junegunn/vim-easy-align'        )
-    call dein#add('uarun/vim-protobuf'             )
-    call dein#add('prabirshrestha/async.vim'       )
-    call dein#add('prabirshrestha/vim-lsp'         )
-    call dein#add('prabirshrestha/asyncomplete.vim')
+    call dein#add('Shougo/dein.vim'                    )
+    call dein#add('tpope/vim-fugitive'                 )
+    call dein#add('scrooloose/nerdtree'                )
+    call dein#add('scrooloose/nerdcommenter'           )
+    call dein#add('jiangmiao/auto-pairs'               )
+    call dein#add('majutsushi/tagbar'                  )
+    call dein#add('fatih/vim-go'                       )
+    call dein#add('keith/swift.vim'                    )
+    call dein#add('cespare/vim-toml'                   )
+    call dein#add('airblade/vim-gitgutter'             )
+    call dein#add('godlygeek/tabular'                  )
+    call dein#add('plasticboy/vim-markdown'            )
+    call dein#add('tomasr/molokai'                     )
+    call dein#add('bronson/vim-trailing-whitespace'    )
+    call dein#add('mileszs/ack.vim'                    )
+    call dein#add('tpope/vim-surround'                 )
+    call dein#add('bling/vim-airline'                  )
+    call dein#add('rust-lang/rust.vim'                 )
+    call dein#add('christoomey/vim-tmux-navigator'     )
+    call dein#add('machakann/vim-highlightedyank'      )
+    call dein#add('junegunn/fzf'                       )
+    call dein#add('tpope/vim-rhubarb'                  )
+    call dein#add('neomake/neomake'                    )
+    call dein#add('junegunn/vim-easy-align'            )
+    call dein#add('uarun/vim-protobuf'                 )
+    call dein#add('prabirshrestha/async.vim'           )
+    call dein#add('prabirshrestha/vim-lsp'             )
+    call dein#add('prabirshrestha/asyncomplete.vim'    )
     call dein#add('prabirshrestha/asyncomplete-lsp.vim')
     call dein#end()
     call dein#save_state()
 endif
 
 filetype plugin indent on    " required
-
-let g:deoplete#enable_at_startup = 1
 
 let mapleader = ","
 
@@ -64,11 +62,9 @@ set formatoptions+=j
 set guioptions-=r
 set guioptions-=L
 
-set guifont=Menlo\ for\ Powerline:h13
 set statusline=
 set laststatus=2
-" Auto save
-:au FocusLost * silent! wa
+set autowrite
 
 " To prevent some exploit
 set modelines=0
@@ -143,6 +139,7 @@ let g:indent_guides_guide_size=1
 
 inoremap <F1> <Esc>
 inoremap <C-c> <Esc>
+nnoremap <C-c> :w<cr>
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>a :NERDTreeToggle<cr>
 nnoremap <leader>w :Gstatus<cr>
@@ -178,7 +175,6 @@ set statusline+=%*
 
 let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' } }
 let g:NERDDefaultAlign = 'left'
-let g:ale_completion_enabled = 1
 
 " Toggle between column widths
 nnoremap <leader>c :call ToggleColumnWidth()<cr>
@@ -244,6 +240,8 @@ endif
 autocmd FileType swift setlocal omnifunc=lsp#complete
 
 let g:AutoPairsMultilineClose = 0
+let g:AutoPairsMapSpace=0
+
 set efm=
 set efm+=%f:%l:%c:\ %trror:%m
 set efm+=%f:%l:%c:\ %tarning:%m

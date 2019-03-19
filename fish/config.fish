@@ -28,6 +28,7 @@ set fish_greeting
 alias vim "mvim -v"
 alias rg "tag rg"
 alias tree tre
+alias cloc "echo 'tokei?!'"
 set -x PATH $PATH $HOME/Code/wabt/out/clang/Release
 set -x PATH $PATH $HOME/.cargo/bin
 
