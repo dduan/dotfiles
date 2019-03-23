@@ -25,7 +25,8 @@ end
 function fish_mode_prompt; end
 set fish_greeting
 
-alias vim "mvim -v"
+# alias vim "mvim -v"
+alias vim "nvim"
 alias rg "tag rg"
 alias tree tre
 alias cloc "echo 'tokei?!'"
