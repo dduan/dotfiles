@@ -36,3 +36,8 @@ https://github.com/BurntSushi/ripgrep
 ```
 https://github.com/apple/sourcekit-lsp
 ```
+
+## Install pynvim
+```
+python3 -m pip install pynvim
+```
