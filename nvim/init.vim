@@ -16,6 +16,7 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'uarun/vim-protobuf'
 Plug 'plasticboy/vim-markdown'
+Plug 'rust-lang/rust.vim'
 
 " Nice status bar
 Plug 'bling/vim-airline'
@@ -220,6 +221,13 @@ set shortmess+=cI
 nnoremap <leader>e :LspHover<cr>
 nnoremap <leader>d :LspDefinition<cr>
 
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
 " Map filetypes
 autocmd BufRead,BufNewFile   *.wat set ft=lisp
 autocmd BufRead,BufNewFile   *.gyb set ft=swift
+
+" [scrooloose/nerdcommenter] Use // for comments
+let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' } }
+let g:NERDDefaultAlign = 'left'
