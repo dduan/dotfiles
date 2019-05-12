@@ -13,7 +13,7 @@ end
 
 set fish_key_bindings fish_user_key_bindings
 
-export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files -S --no-ignore --hidden --follow --glob "!tags" --glob "!.git/*" --glob "!build/" --glob "!.build/" --glob "!.DS_Store" --glob "!build.noindex" --glob "!Pods" --glob "!deps" --glob "!bazel-ios"'
+export FZF_DEFAULT_COMMAND='/usr/local/bin/rg --files -S --no-ignore --hidden --follow --glob "!tags" --glob "!.git/*" --glob "!build/" --glob "!.build/" --glob "!.DS_Store" --glob "!build.noindex" --glob "!Pods" --glob "!deps" --glob "!bazel-ios" --glob "!.vscode" --glob "!.clangd"'
 export FZF_DEFAULT_OPTS="--height 37.5% --reverse --preview 'file {}' --preview-window down:1"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
