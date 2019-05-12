@@ -229,5 +229,13 @@ autocmd BufRead,BufNewFile   *.wat set ft=lisp
 autocmd BufRead,BufNewFile   *.gyb set ft=swift
 
 " [scrooloose/nerdcommenter] Use // for comments
-let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' } }
+let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' }, 'c': { 'left': '// '} }
 let g:NERDDefaultAlign = 'left'
+
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
