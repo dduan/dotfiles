@@ -71,6 +71,9 @@ colorscheme molokai
 set list
 set listchars=tab:▸\ ,eol:¬
 
+" Numbers
+set relativenumber
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 set mouse=a
 
