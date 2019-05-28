@@ -72,7 +72,7 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 " Numbers
-set relativenumber
+set number
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 set mouse=a
