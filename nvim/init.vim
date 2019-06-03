@@ -72,7 +72,10 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 " Numbers
-set relativenumber
+set number
+
+" Git Gutter always shows
+set signcolumn=yes
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 set mouse=a
