@@ -17,6 +17,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'uarun/vim-protobuf'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
+Plug 'LnL7/vim-nix'
 
 " Nice status bar
 Plug 'bling/vim-airline'
