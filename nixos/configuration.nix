@@ -30,11 +30,12 @@
       fish
       git
       tig
+      fzf
+      ripgrep
       zip
       unzip
       neovim
     ];
-    variables.EDITOR = "neovim"; 
   };
 
   nixpkgs.config.packageOverrides = pkgs: {
