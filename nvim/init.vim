@@ -140,6 +140,8 @@ nnoremap <C-c> :wa<cr>
 
 " Toggle NerdTree
 nnoremap <leader>a :NERDTreeToggle<cr>
+" Close vim if the last window open is NerdTree
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " I type Wq more often than wq
 cmap Wq wq
