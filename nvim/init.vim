@@ -17,6 +17,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'uarun/vim-protobuf'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
+Plug 'LnL7/vim-nix'
 
 " Nice status bar
 Plug 'bling/vim-airline'
@@ -73,6 +74,9 @@ set listchars=tab:▸\ ,eol:¬
 
 " Numbers
 set number
+
+" Git Gutter always shows
+set signcolumn=yes
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 set mouse=a
