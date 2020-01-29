@@ -10,7 +10,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Syntax For languages
-Plug 'keith/swift.vim'
 Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
@@ -18,6 +17,10 @@ Plug 'uarun/vim-protobuf'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
 Plug 'LnL7/vim-nix'
+
+" Swift stuff
+Plug 'keith/swift.vim'
+Plug 'dduan/DrString.vim'
 
 " Nice status bar
 Plug 'bling/vim-airline'
@@ -47,7 +50,7 @@ Plug 'tpope/vim-rhubarb'
 " Fuzzy finder
 Plug 'junegunn/fzf'
 
-" Better than grepprg
+" Better than grepping
 Plug 'mileszs/ack.vim'
 
 " Aligning stuff
