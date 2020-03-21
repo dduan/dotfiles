@@ -231,7 +231,7 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 " found' messages
 set shortmess+=cI
 nnoremap <leader>e :LspHover<cr>
-nnoremap <leader>d :LspDefinition<cr>
+nnoremap <leader>j :LspDefinition<cr>
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -240,14 +240,32 @@ map Q gq
 autocmd BufRead,BufNewFile   *.wat set ft=lisp
 autocmd BufRead,BufNewFile   *.gyb set ft=swift
 
-" [scrooloose/nerdcommenter] Use // for comments
-let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' }, 'c': { 'left': '// '} }
-let g:NERDDefaultAlign = 'left'
-
-if executable('clangd')
+let clangd = '/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clangd'
+if executable(clangd)
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'cmd': {server_info->[clangd]},
         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
         \ })
 endif
+
+" [scrooloose/nerdcommenter] Use // for comments
+let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' } }
+let g:NERDDefaultAlign = 'left'
+
+let g:sourcekitlsp = '/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp'
+if executable(g:sourcekitlsp)
+    " LSP and autocomplete
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'sourcekit-lsp',
+        \ 'cmd': {server_info->[g:sourcekitlsp, '-c', 'release']},
+        \ 'whitelist': ['swift'],
+        \ })
+endif
+
+" Error detection
+set efm=
+set efm+=%f:%l:%c:\ %trror:%m
+set efm+=%f:%l:%c:\ %tarning:%m
+set efm+=%f:%l:\ %trror:%m
+set efm+=%f:%l:\ %tarning:%m
