@@ -190,7 +190,7 @@ if executable('fzf')
 endif
 
 " Quickly insert a timestamp
-nnoremap tt "=strftime("%F %T%z")<CR>p
+nnoremap tt "=strftime("%FT%T")<CR>p"=strftime("%z")<CR>phi:<esc>
 
 " [mileszs/ack.vim]
 if executable('rg')
@@ -231,7 +231,7 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 " found' messages
 set shortmess+=cI
 nnoremap <leader>e :LspHover<cr>
-nnoremap <leader>d :LspDefinition<cr>
+nnoremap <leader>j :LspDefinition<cr>
 
 " Don't use Ex mode, use Q for formatting
 map Q gq

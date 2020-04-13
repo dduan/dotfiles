@@ -1,7 +1,8 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	attributesFile = ~/.gitattributes
-	editor = vim -v
+	editor = nvim
+	commentChar = ";"
 [user]
 	name = Daniel Duan
 	email = daniel@duan.ca
