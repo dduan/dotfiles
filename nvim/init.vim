@@ -118,7 +118,7 @@ set undofile
 set undodir=/tmp
 
 " macOS clipboard sharing
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " accelerated scrolling
 set scrolljump=-15
@@ -230,7 +230,7 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 " suppress the annoying 'match x of y', 'The only match' and 'Pattern not
 " found' messages
 set shortmess+=cI
-nnoremap <leader>e :LspHover<cr>
+nnoremap <leader>h :LspHover<cr>
 nnoremap <leader>j :LspDefinition<cr>
 
 " Don't use Ex mode, use Q for formatting
