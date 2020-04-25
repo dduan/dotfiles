@@ -50,6 +50,7 @@
       rofi
       tig
       tmux
+      tre-command
       unzip
       vscode
       xclip
