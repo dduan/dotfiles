@@ -6,6 +6,8 @@
       ./hardware-configuration.nix
     ];
 
+  hardware.pulseaudio.enable = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -18,40 +20,86 @@
   networking.useDHCP = false;
   networking.interfaces.enp0s3.useDHCP = true;
 
+  console.keyMap = "dvorak";
   i18n = {
-    consoleKeyMap = "dvorak";
     defaultLocale = "en_US.UTF-8";
   };
 
   time.timeZone = "America/Los_Angeles";
 
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-extra
+    noto-fonts-cjk
+    source-code-pro
+  ];
   environment = {
     systemPackages = with pkgs; [
+      alacritty
+      firefox
       fish
-      git
-      tig
       fzf
-      ripgrep
-      zip
-      unzip
+      git
+      gnumake
+      htop
+      killall
       neovim
+      obs-studio
+      polybarFull
+      ripgrep
+      rofi
+      tig
+      tmux
+      unzip
+      vscode
+      xclip
+      zip
     ];
+    pathsToLink = [ "libexec" ];
   };
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    neovim = pkgs.neovim.override {
-      vimAlias = true;
-      viAlias = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      neovim = pkgs.neovim.override {
+        vimAlias = true;
+        viAlias = true;
+      };
     };
   };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.xserver = {
+    enable = true;
+    xkbVariant = "dvorak";
 
+    displayManager = {
+      gdm = {
+        enable = true;
+      };
+    };
+    desktopManager = {
+      xterm.enable = false;
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu #application launcher most people use
+        i3status # gives you the default i3 status bar
+        i3lock #default i3 screen locker
+        i3blocks #if you are planning on using i3blocks over i3status
+     ];
+    };
+  };
   users.users.dan = {
     isNormalUser = true;
     home = "/home/dan";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "audio"
+      "wheel"
+    ];
     shell = "/run/current-system/sw/bin/fish";
   };
 
@@ -61,6 +109,6 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.09"; # Did you read the comment?
+  system.stateVersion = "20.03"; # Did you read the comment?
 }
 
