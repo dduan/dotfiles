@@ -27,12 +27,6 @@
 
   time.timeZone = "America/Los_Angeles";
 
-  fonts.fonts = with pkgs; [
-    noto-fonts
-    noto-fonts-extra
-    noto-fonts-cjk
-    source-code-pro
-  ];
   environment = {
     systemPackages = with pkgs; [
       alacritty
@@ -45,6 +39,7 @@
       killall
       neovim
       obs-studio
+      p7zip
       polybarFull
       ripgrep
       rofi
