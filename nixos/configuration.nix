@@ -48,6 +48,7 @@
       tre-command
       unzip
       vscode
+      xorg.xbacklight
       xclip
       zip
     ];
