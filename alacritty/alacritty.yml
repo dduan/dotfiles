@@ -66,13 +66,13 @@ shell:
 
 font:
   normal:
-    family: Source Code Pro
+    family: SF Mono
     style: Regular
   bold:
-    family: Source Code Pro
+    family: SF Mono
     style: Bold
   italic:
-    family: Source Code Pro
+    family: SF Mono
     style: Italic
-  size: 11.0
+  size: 12.0
   use_thin_strokes: true
