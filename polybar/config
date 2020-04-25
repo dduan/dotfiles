@@ -9,9 +9,7 @@ alert = #bd2c40
 
 [bar/main]
 monitor =
-width = 100%
 height = 2.5%
-radius = 6.0
 fixed-center = true
 bottom = false
 
@@ -23,10 +21,8 @@ line-size = 2
 padding = 1
 module-margin = 1
 
-font-0 = "Noto Sans Mono:size=10;1"
-font-1 = "Noto Sans Mono:size=10;1"
-font-2 = "Noto Sans Symbols:size=10;1"
-font-3 = "Noto Sans Symbols2:size=10;1"
+font-0 = "SF Pro Text:size=10;1"
+font-1 = "SF Pro Text:size=10;1"
 
 modules-left = i3
 modules-center = xwindow
