@@ -74,5 +74,5 @@ font:
   italic:
     family: SF Mono
     style: Italic
-  size: 12.0
+  size: 11.0
   use_thin_strokes: true
