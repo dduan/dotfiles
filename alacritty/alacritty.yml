@@ -59,7 +59,7 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 shell:
-  program: /home/dan/.nix-profile/bin/fish
+  program: /run/current-system/sw/bin/fish
   args:
     - --login
     - --command=tmux attach; or tmux
