@@ -9,7 +9,7 @@ alert = #bd2c40
 
 [bar/main]
 monitor =
-height = 2.8%
+height = 1.8%
 fixed-center = true
 bottom = false
 
