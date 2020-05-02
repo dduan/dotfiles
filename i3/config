@@ -15,7 +15,7 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+w kill
 
-bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons
+bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons -font "SF Pro Text 17"
 
 # change focus
 bindsym $mod+j focus down
