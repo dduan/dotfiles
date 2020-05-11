@@ -33,6 +33,14 @@ function fish_prompt -d "Simple Fish Prompt"
     __print_color ffffff "$host_glyph"
     __print_color F6F49D "$host_name"
 
+    set -l nix_shell_info (
+      if test -n "$IN_NIX_SHELL"
+        echo -n " (nix-shell)"
+      end
+    )
+
+    __print_color 00AA00 "$nix_shell_info"
+
 
     # Current working directory
     #
