@@ -16,6 +16,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+w kill
 
 bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons -font "SF Pro Text 17"
+bindsym $mod+shift+4 exec --no-startup-id flameshot gui -p ~/screenshots
 
 # change focus
 bindsym $mod+j focus down
@@ -84,7 +85,7 @@ bindsym $mod+0 workspace number $ws10
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
+#bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
@@ -129,4 +130,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id killall -r polybar
-default_border none
+default_border pixel 1
+bindmouse button1 resize
+
