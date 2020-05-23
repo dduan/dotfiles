@@ -76,3 +76,8 @@ font:
     style: Italic
   size: 11.0
   use_thin_strokes: true
+
+window:
+  dimensions:
+    columns: 160
+    lines: 48
