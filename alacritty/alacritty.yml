@@ -59,7 +59,7 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 shell:
-  program: /run/current-system/sw/bin/fish
+  program: /usr/bin/fish
   args:
     - --login
     - --command=tmux attach; or tmux
@@ -74,7 +74,7 @@ font:
   italic:
     family: SF Mono
     style: Italic
-  size: 11.0
+  size: 13.0
   use_thin_strokes: true
 
 window:
