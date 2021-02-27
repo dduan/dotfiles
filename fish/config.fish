@@ -28,10 +28,9 @@ set fish_greeting
 # alias vim "mvim -v"
 alias vim "nvim"
 alias rg "tag rg"
-alias tree tre
-alias cloc "echo 'tokei?!'"
 set -x PATH $PATH $HOME/Code/wabt/out/clang/Release
 set -x PATH $PATH $HOME/.cargo/bin
+set -x PATH $PATH $HOME/.local/bin
 
 set -gx EDITOR vim
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish

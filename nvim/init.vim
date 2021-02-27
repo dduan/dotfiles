@@ -17,6 +17,7 @@ Plug 'uarun/vim-protobuf'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
 Plug 'LnL7/vim-nix'
+Plug 'rwxrob/abnf'
 
 " Swift stuff
 Plug 'keith/swift.vim'
@@ -223,6 +224,7 @@ nnoremap <silent> <Leader>b :cclose<cr>:silent !clear<cr>:make<cr>
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
+let g:lsp_highlight_references_enabled = 1
 " When the <Enter> key is pressed while the popup menu is visible, it only
 " hides the menu. Use this mapping to close the menu and also start a new
 " line.
@@ -240,11 +242,10 @@ map Q gq
 autocmd BufRead,BufNewFile   *.wat set ft=lisp
 autocmd BufRead,BufNewFile   *.gyb set ft=swift
 
-let clangd = '/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clangd'
-if executable(clangd)
+if executable('clangd')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
-        \ 'cmd': {server_info->[clangd]},
+        \ 'cmd': {server_info->['clangd']},
         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
         \ })
 endif
@@ -253,12 +254,12 @@ endif
 let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' } }
 let g:NERDDefaultAlign = 'left'
 
-let g:sourcekitlsp = '/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp'
+let g:sourcekitlsp = 'sourcekit-lsp'
 if executable(g:sourcekitlsp)
     " LSP and autocomplete
     au User lsp_setup call lsp#register_server({
         \ 'name': 'sourcekit-lsp',
-        \ 'cmd': {server_info->[g:sourcekitlsp, '-c', 'release']},
+        \ 'cmd': {server_info->[g:sourcekitlsp]},
         \ 'whitelist': ['swift'],
         \ })
 endif
@@ -269,3 +270,23 @@ set efm+=%f:%l:%c:\ %trror:%m
 set efm+=%f:%l:%c:\ %tarning:%m
 set efm+=%f:%l:\ %trror:%m
 set efm+=%f:%l:\ %tarning:%m
+
+if executable('rust-analyzer')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rust-analyzer',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rust-analyzer']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+
+if executable('cmake-language-server')
+  au User lsp_setup call lsp#register_server({
+  \ 'name': 'cmake',
+  \ 'cmd': {server_info->['cmake-language-server']},
+  \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'build/'))},
+  \ 'whitelist': ['cmake'],
+  \ 'initialization_options': {
+  \   'buildDirectory': 'build',
+  \ }
+  \})
+endif
