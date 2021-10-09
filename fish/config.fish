@@ -25,13 +25,13 @@ end
 function fish_mode_prompt; end
 set fish_greeting
 
-# alias vim "mvim -v"
 alias vim "nvim"
 alias rg "tag rg"
 set -x PATH $PATH $HOME/Code/wabt/out/clang/Release
 set -x PATH $PATH $HOME/.cargo/bin
 set -x PATH $PATH $HOME/.local/bin
-
+set -gx SWIFTENV_ROOT "$HOME/.swiftenv"
+set -gx PATH "$SWIFTENV_ROOT/bin" $PATH
 set -gx EDITOR vim
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 

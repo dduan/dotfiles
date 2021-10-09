@@ -17,7 +17,8 @@ Plug 'uarun/vim-protobuf'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
 Plug 'LnL7/vim-nix'
-Plug 'rwxrob/abnf'
+Plug 'tomlion/vim-solidity'
+Plug 'vyperlang/vim-vyper'
 
 " Swift stuff
 Plug 'keith/swift.vim'
@@ -58,11 +59,8 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/vim-easy-align'
 
 " Language Protocol Server and autocompelete
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-vim-lsp'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
 
 " update &runtimepath and initialize plugin system
 " Automatically executes `filetype plugin indent` on and `syntax enable`.
@@ -220,11 +218,7 @@ nnoremap <leader>w :Gstatus<cr>
 nnoremap <leader>m :let &makeprg=""<left>
 nnoremap <silent> <Leader>b :cclose<cr>:silent !clear<cr>:make<cr>
 
-" LSP and autocomplete
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
-let g:lsp_highlight_references_enabled = 1
 " When the <Enter> key is pressed while the popup menu is visible, it only
 " hides the menu. Use this mapping to close the menu and also start a new
 " line.
@@ -232,8 +226,6 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 " suppress the annoying 'match x of y', 'The only match' and 'Pattern not
 " found' messages
 set shortmess+=cI
-nnoremap <leader>h :LspHover<cr>
-nnoremap <leader>j :LspDefinition<cr>
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -242,27 +234,9 @@ map Q gq
 autocmd BufRead,BufNewFile   *.wat set ft=lisp
 autocmd BufRead,BufNewFile   *.gyb set ft=swift
 
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd']},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        \ })
-endif
-
 " [scrooloose/nerdcommenter] Use // for comments
 let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' } }
 let g:NERDDefaultAlign = 'left'
-
-let g:sourcekitlsp = 'sourcekit-lsp'
-if executable(g:sourcekitlsp)
-    " LSP and autocomplete
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'sourcekit-lsp',
-        \ 'cmd': {server_info->[g:sourcekitlsp]},
-        \ 'whitelist': ['swift'],
-        \ })
-endif
 
 " Error detection
 set efm=
@@ -271,22 +245,69 @@ set efm+=%f:%l:%c:\ %tarning:%m
 set efm+=%f:%l:\ %trror:%m
 set efm+=%f:%l:\ %tarning:%m
 
-if executable('rust-analyzer')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rust-analyzer',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rust-analyzer']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
+lua << EOF
+require'lspconfig'.sourcekit.setup{
+    cmd = { "sourcekit-lsp" }
+}
+require'lspconfig'.pylsp.setup{}
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.rust_analyzer.setup{}
+-- Compe setup
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
 
-if executable('cmake-language-server')
-  au User lsp_setup call lsp#register_server({
-  \ 'name': 'cmake',
-  \ 'cmd': {server_info->['cmake-language-server']},
-  \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'build/'))},
-  \ 'whitelist': ['cmake'],
-  \ 'initialization_options': {
-  \   'buildDirectory': 'build',
-  \ }
-  \})
-endif
+  source = {
+    path = true;
+    nvim_lsp = true;
+  };
+}
+
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
+-- Use (s-)tab to:
+--- move to prev/next item in completion menuone
+--- jump to prev/next snippet's placeholder
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-p>"
+  else
+    return t "<S-Tab>"
+  end
+end
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+EOF
