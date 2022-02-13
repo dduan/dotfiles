@@ -76,6 +76,7 @@ set listchars=tab:▸\ ,eol:¬
 
 " Numbers
 set number
+set relativenumber
 
 " Git Gutter always shows
 set signcolumn=yes
