@@ -11,35 +11,11 @@
       bat
     ];
   };
-  programs = {
+  programs = rec {
     home-manager.enable = true;
-    git = {
-      enable = true;
-      userName = "Daniel Duan";
-      userEmail = "daniel@duan.ca";
-      extraConfig = {
-        core.editor = "nvim";
-        color.ui = true;
-        pull.ff = "only";
-        init.defaultBranch = "main";
-      };
-      ignores = [
-        ".DS_Store"
-        "*.pyc"
-      ];
-      delta = {
-        enable = true;
-        options = {
-          navigate = true;
-          line-numbers = true;
-          syntax-theme = "github";
-        };
-      };
-    };
-    neovim = {
-      enable = true;
-      vimAlias = true;
-      viAlias = true;
-    };
+    alacritty = import ./alacritty.nix { fish = pkgs.fish; };
+    fish = import ./fish.nix;
+    git = import ./git.nix;
+    neovim = import ./neovim.nix;
   };
 }
