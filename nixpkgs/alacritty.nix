@@ -3,8 +3,8 @@
   enable = true;
   settings = {
     dpi = {
-      x = 120;
-      y = 120;
+      x = 220;
+      y = 220;
     };
     env.TERM = "xterm-256color";
     shell = {

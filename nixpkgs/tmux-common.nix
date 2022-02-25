@@ -27,7 +27,7 @@
     set -g status-justify left
     set -g status-bg colour235
     set -g status-fg colour12
-    set -g status-right \'\'
+    set -g status-right ""
     set -g status-interval 2
     set-option -g status-position top
     setw -g aggressive-resize on
