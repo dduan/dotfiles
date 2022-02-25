@@ -9,12 +9,13 @@
       ripgrep
       tmux
       bat
+      nixpkgs-fmt
     ];
   };
-  programs = rec {
+  programs = with pkgs; rec {
     home-manager.enable = true;
+    fish = import ./fish.nix { inherit fetchFromGitHub; };
     alacritty = import ./alacritty.nix { fish = pkgs.fish; };
-    fish = import ./fish.nix;
     git = import ./git.nix;
     neovim = import ./neovim.nix;
   };

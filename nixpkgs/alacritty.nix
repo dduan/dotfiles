@@ -1,8 +1,8 @@
 { fish }:
 {
-  enable = true;     
+  enable = true;
   settings = {
-  	dpi = {
+    dpi = {
       x = 120;
       y = 120;
     };
