@@ -11,7 +11,7 @@
       program = "${fish}/bin/fish";
       args = [
         "--login"
-        "--command=tmux attach || tmux"
+        "--command=tmux attach; or tmux"
       ];
     };
     font = {
@@ -21,6 +21,10 @@
     window.dimentions = {
       columns = 120;
       lines = 50;
+    };
+    bell = {
+      animation = "EaseOutExpo";
+      duration = 1;
     };
   };
 }
