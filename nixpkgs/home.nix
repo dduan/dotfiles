@@ -7,6 +7,7 @@
     stateVersion = "22.05";
     packages = with pkgs; [
       bat
+      fd
       nixpkgs-fmt
       ripgrep
       tig
