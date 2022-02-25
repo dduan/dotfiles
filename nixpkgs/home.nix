@@ -7,9 +7,10 @@
     stateVersion = "22.05";
     packages = with pkgs; [
       bat
-      ripgrep
       nixpkgs-fmt
+      ripgrep
       tig
+      tre-command
     ];
   };
   programs = with pkgs; rec {

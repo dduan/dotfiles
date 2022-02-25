@@ -12,6 +12,10 @@
   }];
 
   functions = {
+    tre = ''
+      command tre $argv -e; and source /tmp/tre_aliases_$USER ^/dev/null
+    '';
+
     key_binds = ''
       fish_vi_key_bindings
       for mode in insert default visual
