@@ -15,8 +15,24 @@
       ];
     };
     font = {
-      size = 13.0;
+      size = 14.0;
       use_thin_strokes = true;
+      normal = {
+        family = "SF Mono";
+	style = "Regular";
+      };
+      bold = {
+        family = "SF Mono";
+	style = "Bold";
+      };
+      italic = {
+        family = "SF Mono";
+	style = "Italic";
+      };
+      bold_italic = {
+        family = "SF Mono";
+	style = "Bold Italic";
+      };
     };
     window.dimentions = {
       columns = 120;
