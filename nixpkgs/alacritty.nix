@@ -19,19 +19,19 @@
       use_thin_strokes = true;
       normal = {
         family = "SF Mono";
-	style = "Regular";
+        style = "Regular";
       };
       bold = {
         family = "SF Mono";
-	style = "Bold";
+        style = "Bold";
       };
       italic = {
         family = "SF Mono";
-	style = "Italic";
+        style = "Italic";
       };
       bold_italic = {
         family = "SF Mono";
-	style = "Bold Italic";
+        style = "Bold Italic";
       };
     };
     window.dimentions = {
