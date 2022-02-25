@@ -157,6 +157,8 @@
 
       __print_color F4ADA9 "\e[K\n❯ "
     '';
+
+    fish_mode_prompt = "";
   };
 
   interactiveShellInit = ''
@@ -173,6 +175,5 @@
     set fish_greeting
     set fish_key_bindings key_binds
     set -gx EDITOR vim
-    function fish_mode_prompt; end
   '';
 }
