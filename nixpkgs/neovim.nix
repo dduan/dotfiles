@@ -19,7 +19,13 @@
     vim-gitgutter
     vim-go
     vim-highlightedyank
-    vim-markdown
+    {
+      plugin = vim-markdown;
+      config = ''
+        " No folding
+        let g:vim_markdown_folding_disabled = 1
+      '';
+    }
     vim-nix
     vim-rhubarb
     vim-tmux-navigator
