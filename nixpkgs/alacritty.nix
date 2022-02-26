@@ -15,7 +15,7 @@
       ];
     };
     font = {
-      size = 15.0;
+      size = 14.0;
       use_thin_strokes = true;
       normal = {
         family = "SF Mono";
