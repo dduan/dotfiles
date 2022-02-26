@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  tag = pkgs.callPackage ./packages/tag {};
+in
 {
   home = {
     username = "dduan";
@@ -10,6 +12,7 @@
       fd
       nixpkgs-fmt
       ripgrep
+      tag
       tig
       tre-command
     ];
@@ -20,7 +23,7 @@
 
     # Program-specific configs.
     alacritty = import ./alacritty.nix { fish = pkgs.fish; };
-    fish = import ./fish.nix { inherit fetchFromGitHub; };
+    fish = import ./fish.nix { inherit fetchFromGitHub tag; };
     git = import ./git.nix;
     neovim = import ./neovim.nix {
       vimPlugins = pkgs.vimPlugins;

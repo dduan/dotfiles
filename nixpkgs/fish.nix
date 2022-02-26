@@ -1,4 +1,4 @@
-{ fetchFromGitHub }:
+{ fetchFromGitHub, tag }:
 {
   enable = true;
   plugins = [{
@@ -12,6 +12,12 @@
   }];
 
   functions = {
+    tag = ''
+      command ${tag}/bin/tag $argv; and source /tmp/tag_aliases &> /dev/null
+      alias fd "${tag}/bin/tag fd"
+      alias find "${tag}/bin/tag find"
+      alias rg "${tag}/bin/tag rg"
+    '';
     tre = ''
       command tre $argv -e; and source /tmp/tre_aliases_$USER ^/dev/null
     '';
