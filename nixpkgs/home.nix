@@ -6,6 +6,7 @@
     homeDirectory = "/Users/dduan";
     stateVersion = "22.05";
     packages = with pkgs; [
+      nixUnstable
       bat
       fd
       nixpkgs-fmt
@@ -14,6 +15,9 @@
       tre-command
     ];
   };
+  xdg.configFile."nix/nix.conf".text = ''
+    experimental-features = nix-command flakes
+  '';
   programs = with pkgs; rec {
     # Home manager manages itself.
     home-manager.enable = true;
