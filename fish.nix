@@ -51,14 +51,15 @@
       end
       commandline -f repaint
 
-      function __fzfcmd
-        set -q FZF_TMUX; or set FZF_TMUX 0
-        set -q FZF_TMUX_HEIGHT; or set FZF_TMUX_HEIGHT 40%
-        if [ $FZF_TMUX -eq 1 ]
-          echo "fzf-tmux -d$FZF_TMUX_HEIGHT"
-        else
-          echo "fzf"
-        end
+    '';
+
+    __fzfcmd = ''
+      set -q FZF_TMUX; or set FZF_TMUX 0
+      set -q FZF_TMUX_HEIGHT; or set FZF_TMUX_HEIGHT 40%
+      if [ $FZF_TMUX -eq 1 ]
+        echo "fzf-tmux -d$FZF_TMUX_HEIGHT"
+      else
+        echo "fzf"
       end
     '';
 
@@ -242,5 +243,6 @@
     export FZF_DEFAULT_COMMAND="${fd}/bin/fd --type f --hidden --exclude .git"
     export FZF_DEFAULT_OPTS="--height 37.5% --reverse --preview 'file {}' --preview-window down:1"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
   '';
 }
