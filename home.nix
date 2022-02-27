@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 let
-  tag = pkgs.callPackage ./packages/tag { };
+  localPackages = import ./packages { inherit pkgs; };
+  callPackages = path: overrides:
+    let f = import path;
+    in f ((builtins.intersectAttrs (builtins.functionArgs f) (pkgs // localPackages)) // overrides);
 in
 {
   home = {
@@ -12,21 +15,23 @@ in
       fd
       nixpkgs-fmt
       ripgrep
-      tag
       tig
       tre-command
     ];
   };
   news.display = "silent";
-  programs = with pkgs; rec {
+  programs = rec {
     # Home manager manages itself.
     home-manager.enable = true;
 
     # Program-specific configs.
-    alacritty = import ./alacritty.nix { fish = pkgs.fish; };
-    fish = import ./fish.nix { inherit fetchFromGitHub tag; };
-    git = import ./git.nix;
-    neovim = import ./neovim { inherit vimPlugins ripgrep; };
-    tmux = import ./tmux { inherit pkgs; };
+    alacritty = callPackages ./alacritty.nix { };
+    fish = callPackages ./fish.nix { };
+    git = callPackages ./git.nix { };
+    neovim = callPackages ./neovim { };
+    tmux =
+      if pkgs.stdenv.isLinux
+      then callPackages ./tmux/tmux-linux.nix { }
+      else callPackages ./tmux/tmux-darwin.nix { };
   };
 }
