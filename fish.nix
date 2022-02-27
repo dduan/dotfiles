@@ -1,4 +1,4 @@
-{ fetchFromGitHub, tag }:
+{ fetchFromGitHub, tag, fd }:
 {
   enable = true;
   plugins = [{
@@ -65,6 +65,7 @@
     tag = ''
       command ${tag}/bin/tag $argv; and source /tmp/tag_aliases &> /dev/null
     '';
+
     tre = ''
       command tre $argv -e; and source /tmp/tre_aliases_$USER ^/dev/null
     '';
@@ -75,10 +76,7 @@
       for mode in insert default visual
           bind -M $mode \cf forward-char
       end
-
-      for mode in insert visual
-          bind -M insert -m default \cc backward-char force-repaint
-      end
+      bind -M insert -m default \cc backward-char force-repaint
     '';
 
     git_branch_name = ''
@@ -238,6 +236,11 @@
 
     set fish_greeting
     set fish_key_bindings key_binds
-    set -gx EDITOR vim
+
+    # FZF
+    # TODO: Home manager's fzf module didn't work.
+    export FZF_DEFAULT_COMMAND="${fd}/bin/fd --type f --hidden --exclude .git"
+    export FZF_DEFAULT_OPTS="--height 37.5% --reverse --preview 'file {}' --preview-window down:1"
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   '';
 }
