@@ -16,6 +16,8 @@
     {
       plugin = ack-vim;
       config = ''
+        " Habit THIS MUST COME PRIOR TO ALL MAPPINGS TO <leader>
+        let mapleader = ","
         if executable('rg')
           let g:ackprg = '${ripgrep}/bin/rg --vimgrep'
           nnoremap <leader>r :Ack!
@@ -139,9 +141,6 @@
     vim-toml
   ];
   extraConfig = ''
-    " Habit
-    let mapleader = ","
-
     " Display hidden characters
     set list
     set listchars=tab:▸\ ,eol:¬
