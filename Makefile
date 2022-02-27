@@ -1,2 +1,0 @@
-format:
-	@nixpkgs-fmt ./*.nix

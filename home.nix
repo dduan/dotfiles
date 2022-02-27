@@ -26,9 +26,7 @@ in
     alacritty = import ./alacritty.nix { fish = pkgs.fish; };
     fish = import ./fish.nix { inherit fetchFromGitHub tag; };
     git = import ./git.nix;
-    neovim = import ./neovim.nix {
-      inherit vimPlugins ripgrep;
-    };
+    neovim = import ./neovim.nix { inherit vimPlugins ripgrep nixpkgs-fmt; };
     tmux =
       if pkgs.stdenv.isLinux then
         import ./tmux-linux.nix { inherit xclip; }
