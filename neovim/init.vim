@@ -157,8 +157,6 @@ colorscheme molokai
 
 " [Nerdcommenter]
 let g:NERDCustomDelimiters = {}
-let g:NERDCustomDelimiters['swift'] = { 'left': '// ' }
-let g:NERDCustomDelimiters['nix'] = { 'left': '# ' }
 let g:NERDDefaultAlign = 'left'
 
 " [Nerdtree]
@@ -236,3 +234,4 @@ vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 EOF
 
 autocmd BufNewFile,BufRead *.nix source ./neovim/nix.vim
+autocmd BufNewFile,BufRead *.swift source ./neovim/swift.vim
