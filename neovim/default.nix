@@ -26,5 +26,5 @@
     vim-tmux-navigator
     vim-toml
   ];
-  extraConfig = builtins.readFile ./init.vim;
+  extraConfig = builtins.readFile ./config.vim;
 }
