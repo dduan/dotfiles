@@ -22,6 +22,7 @@
       homeConfigurations = builtins.listToAttrs [
         (mkConfig { username = "dduan"; host = "dduan-mbp184"; os = "aarch64-darwin"; })
         (mkConfig { username = "dan"; host = "the-puter"; os = "x86_64-linux"; })
+        (mkConfig { username = "dan"; host = "imac"; os = "x86_64-darwin"; })
       ];
     };
 }
