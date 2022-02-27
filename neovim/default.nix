@@ -7,6 +7,7 @@
   plugins = with vimPlugins; [
     ack-vim
     auto-pairs
+    fzf-vim
     molokai
     nerdcommenter
     nerdtree

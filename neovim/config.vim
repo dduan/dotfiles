@@ -172,6 +172,11 @@ nnoremap <leader>w :Git<cr>
 " No folding
 let g:vim_markdown_folding_disabled = 1
 
+" [fzf]
+if executable('fzf')
+    nnoremap <C-p> :FZF<cr>
+endif
+
 lua << EOF
 -- Compe setup
 require'compe'.setup {
