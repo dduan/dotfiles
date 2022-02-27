@@ -26,15 +26,7 @@ in
     alacritty = import ./alacritty.nix { fish = pkgs.fish; };
     fish = import ./fish.nix { inherit fetchFromGitHub tag; };
     git = import ./git.nix;
-    neovim = import ./neovim.nix { inherit vimPlugins ripgrep; };
-    tmux =
-      if pkgs.stdenv.isLinux then
-        import ./tmux-linux.nix { inherit xclip; }
-      else
-        import ./tmux-darwin.nix {
-          reattach-to-user-namespace = pkgs.reattach-to-user-namespace;
-          fish = pkgs.fish;
-        }
-    ;
+    neovim = import ./neovim { inherit vimPlugins ripgrep; };
+    tmux = import ./tmux { inherit pkgs; };
   };
 }

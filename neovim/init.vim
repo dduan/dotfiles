@@ -235,4 +235,4 @@ vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 EOF
 
-autocmd BufNewFile,BufRead *.nix source ./vim/nix.vim
+autocmd BufNewFile,BufRead *.nix source ./neovim/nix.vim
