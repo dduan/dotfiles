@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  tag = pkgs.callPackage ./packages/tag {};
+  tag = pkgs.callPackage ./packages/tag { };
 in
 {
   home = {
@@ -26,8 +26,7 @@ in
     fish = import ./fish.nix { inherit fetchFromGitHub tag; };
     git = import ./git.nix;
     neovim = import ./neovim.nix {
-      vimPlugins = pkgs.vimPlugins;
-      rg = pkgs.ripgrep;
+      inherit vimPlugins ripgrep;
     };
     tmux =
       if pkgs.stdenv.isLinux then

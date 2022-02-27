@@ -1,24 +1,58 @@
-{ vimPlugins, rg }:
+{ vimPlugins, ripgrep }:
 {
   enable = true;
   viAlias = true;
   vimAlias = true;
   plugins = with vimPlugins; [
-    auto-pairs
-    ack-vim
-    molokai
-    nerdcommenter
-    nerdtree
-    nvim-compe
-    nvim-lspconfig
-    rust-vim
-    swift-vim
-    vim-airline
-    vim-better-whitespace
-    vim-fugitive
-    vim-gitgutter
-    vim-go
-    vim-highlightedyank
+    {
+      plugin = auto-pairs;
+      config = ''
+        " Don't be too smart across lines
+        let g:AutoPairsMultilineClose=0
+        " Don't insert extra spaces
+        let g:AutoPairsMapSpace=0
+      '';
+    }
+    {
+      plugin = ack-vim;
+      config = ''
+        if executable('rg')
+          let g:ackprg = '${ripgrep}/bin/rg --vimgrep'
+          nnoremap <leader>r :Ack!
+        endif
+      '';
+    }
+    {
+      plugin = molokai;
+      config = ''
+        let g:molokai_original = 1
+        colorscheme molokai
+      '';
+    }
+    {
+      plugin = nerdcommenter;
+      config = ''
+        let g:NERDCustomDelimiters = {}
+        let g:NERDCustomDelimiters['swift'] = { 'left': '// ' }
+        let g:NERDCustomDelimiters['nix'] = { 'left': '# ' }
+        let g:NERDDefaultAlign = 'left'
+      '';
+    }
+    {
+      plugin = nerdtree;
+      config = ''
+        " Toggle NerdTree
+        nnoremap <leader>a :NERDTreeToggle<cr>
+        " Close vim if the last window open is NerdTree
+        autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+      '';
+    }
+    {
+      plugin = vim-fugitive;
+      config = ''
+        nnoremap <leader>w :Git<cr>
+      '';
+    }
     {
       plugin = vim-markdown;
       config = ''
@@ -26,6 +60,79 @@
         let g:vim_markdown_folding_disabled = 1
       '';
     }
+    {
+      plugin = nvim-compe;
+      config = ''
+        lua << EOF
+        -- Compe setup
+        require'compe'.setup {
+          enabled = true;
+          autocomplete = true;
+          debug = false;
+          min_length = 1;
+          preselect = 'enable';
+          throttle_time = 80;
+          source_timeout = 200;
+          incomplete_delay = 400;
+          max_abbr_width = 100;
+          max_kind_width = 100;
+          max_menu_width = 100;
+          documentation = true;
+
+          source = {
+            path = true;
+            nvim_lsp = true;
+          };
+        }
+
+        local t = function(str)
+          return vim.api.nvim_replace_termcodes(str, true, true, true)
+        end
+
+        local check_back_space = function()
+            local col = vim.fn.col('.') - 1
+            if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+                return true
+            else
+                return false
+            end
+        end
+
+        -- Use (s-)tab to:
+        --- move to prev/next item in completion menuone
+        --- jump to prev/next snippet's placeholder
+        _G.tab_complete = function()
+          if vim.fn.pumvisible() == 1 then
+            return t "<C-n>"
+          elseif check_back_space() then
+            return t "<Tab>"
+          else
+            return vim.fn['compe#complete']()
+          end
+        end
+        _G.s_tab_complete = function()
+          if vim.fn.pumvisible() == 1 then
+            return t "<C-p>"
+          else
+            return t "<S-Tab>"
+          end
+        end
+
+        vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+        vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+        vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+        vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+        EOF
+      '';
+    }
+    nvim-lspconfig
+    rust-vim
+    swift-vim
+    vim-airline
+    vim-better-whitespace
+    vim-gitgutter
+    vim-go
+    vim-highlightedyank
     vim-nix
     vim-rhubarb
     vim-tmux-navigator
@@ -172,94 +279,5 @@
     " Map filetypes
     autocmd BufRead,BufNewFile   *.wat set ft=lisp
     autocmd BufRead,BufNewFile   *.gyb set ft=swift
-
-    " Toggle NerdTree
-    nnoremap <leader>a :NERDTreeToggle<cr>
-    " Close vim if the last window open is NerdTree
-    autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-    " Color Scheme
-    let g:molokai_original = 1
-    colorscheme molokai
-
-    " [scrooloose/nerdcommenter]
-    " Don't be too smart across lines
-    let g:AutoPairsMultilineClose=0
-    " Don't insert extra spaces
-    let g:AutoPairsMapSpace=0
-
-    " [scrooloose/nerdcommenter] Use // for comments
-    let g:NERDCustomDelimiters = { 'swift': { 'left': '// ' } }
-    let g:NERDDefaultAlign = 'left'
-
-    " Git status
-    nnoremap <leader>w :Git<cr>
-
-    " [mileszs/ack.vim]
-    if executable('rg')
-      let g:ackprg = '${rg}/bin/rg --vimgrep'
-      nnoremap <leader>r :Ack! 
-    endif
-
-    lua << EOF
-    -- Compe setup
-    require'compe'.setup {
-      enabled = true;
-      autocomplete = true;
-      debug = false;
-      min_length = 1;
-      preselect = 'enable';
-      throttle_time = 80;
-      source_timeout = 200;
-      incomplete_delay = 400;
-      max_abbr_width = 100;
-      max_kind_width = 100;
-      max_menu_width = 100;
-      documentation = true;
-
-      source = {
-        path = true;
-        nvim_lsp = true;
-      };
-    }
-
-    local t = function(str)
-      return vim.api.nvim_replace_termcodes(str, true, true, true)
-    end
-
-    local check_back_space = function()
-        local col = vim.fn.col('.') - 1
-        if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-            return true
-        else
-            return false
-        end
-    end
-
-    -- Use (s-)tab to:
-    --- move to prev/next item in completion menuone
-    --- jump to prev/next snippet's placeholder
-    _G.tab_complete = function()
-      if vim.fn.pumvisible() == 1 then
-        return t "<C-n>"
-      elseif check_back_space() then
-        return t "<Tab>"
-      else
-        return vim.fn['compe#complete']()
-      end
-    end
-    _G.s_tab_complete = function()
-      if vim.fn.pumvisible() == 1 then
-        return t "<C-p>"
-      else
-        return t "<S-Tab>"
-      end
-    end
-
-    vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-    vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-    vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-    vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-    EOF
   '';
 }
