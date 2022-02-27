@@ -1,4 +1,4 @@
-{ vimPlugins, ripgrep, nixpkgs-fmt }:
+{ vimPlugins, ripgrep }:
 {
   enable = true;
   viAlias = true;
