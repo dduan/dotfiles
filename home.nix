@@ -17,6 +17,7 @@ in
       tre-command
     ];
   };
+  news.display = "silent";
   programs = with pkgs; rec {
     # Home manager manages itself.
     home-manager.enable = true;
