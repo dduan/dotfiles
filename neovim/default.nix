@@ -17,6 +17,7 @@
     swift-vim
     vim-airline
     vim-better-whitespace
+    vim-fish
     vim-fugitive
     vim-gitgutter
     vim-go
