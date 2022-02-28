@@ -182,6 +182,9 @@ if executable('fzf')
 endif
 
 lua << EOF
+require'lspconfig'.sourcekit.setup{
+  cmd = { "sourcekit-lsp" }
+}
 -- Compe setup
 require'compe'.setup {
   enabled = true;
