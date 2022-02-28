@@ -19,7 +19,11 @@
         (f: { name = f; value = readFile ./functions/${f}.fish; })
         (map
           (f: elemAt (split "\\." f) 0)
-          (attrNames (readDir ./functions))));
+          (attrNames (readDir ./functions))))
+    // {
+      tag = import ./functions/tag.fish { inherit tag; };
+    };
+
 
   shellAliases = {
     fd = "tag fd";
