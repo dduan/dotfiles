@@ -28,5 +28,5 @@
     vim-tmux-navigator
     vim-toml
   ];
-  extraConfig = builtins.readFile ./config.vim;
+  extraConfig = import ./config.vim { inherit ripgrep; };
 }

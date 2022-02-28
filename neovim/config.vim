@@ -1,3 +1,5 @@
+{ ripgrep }:
+''
 " Habit
 let mapleader = ","
 
@@ -157,6 +159,8 @@ colorscheme molokai
 
 " [Nerdcommenter]
 let g:NERDCustomDelimiters = {}
+let g:NERDCustomDelimiters['nix'] = { 'left': '# ' }
+let g:NERDCustomDelimiters['swift'] = { 'left': '// ' }
 let g:NERDDefaultAlign = 'left'
 
 " [Nerdtree]
@@ -238,5 +242,11 @@ vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 EOF
 
-autocmd BufNewFile,BufRead *.nix source ./neovim/nix.vim
-autocmd BufNewFile,BufRead *.swift source ./neovim/swift.vim
+
+function! FormatNix()
+  silent !nixpkgs-fmt %
+  e
+endfunction
+
+autocmd BufWritePost *.nix :call FormatNix()
+''

@@ -26,7 +26,7 @@ in
 
     # Program-specific configs.
     alacritty = callPackages ./alacritty.nix { };
-    fish = callPackages ./fish.nix { };
+    fish = callPackages ./fish { };
     git = callPackages ./git.nix { };
     neovim = callPackages ./neovim { };
     tmux =
