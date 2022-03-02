@@ -21,7 +21,6 @@ in
   ];
   news.display = "silent";
   xdg.configFile."nix/nix.conf".text = "experimental-features = nix-command flakes";
-  home.file."Library/Developer/Xcode/UserData/FontAndColorThemes".source = ./Monokai.xccolortheme;
   programs = rec {
     # Home manager manages itself.
     home-manager.enable = true;
