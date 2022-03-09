@@ -6,7 +6,7 @@
   };
   outputs = { self, nixpkgs, home-manager }:
     let
-      mkConfig = { username, host, os }:
+      mkConfig = { username ? "dan", host, os }:
         let isDarwin = (builtins.elemAt (builtins.split "-" os) 2) == "darwin"; in
         {
           name = "${username}@${host}";
@@ -21,8 +21,9 @@
     {
       homeConfigurations = builtins.listToAttrs [
         (mkConfig { username = "dduan"; host = "dduan-mbp184"; os = "aarch64-darwin"; })
-        (mkConfig { username = "dan"; host = "the-puter"; os = "x86_64-linux"; })
-        (mkConfig { username = "dan"; host = "imac.local"; os = "x86_64-darwin"; })
+        (mkConfig { host = "the-puter"; os = "x86_64-linux"; })
+        (mkConfig { host = "imac.local"; os = "x86_64-darwin"; })
+        (mkConfig { host = "nixos"; os = "aarch64-linux"; })
       ];
     };
 }
