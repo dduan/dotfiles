@@ -13,6 +13,7 @@ in
     bat
     fd
     fzf
+    htop
     nixpkgs-fmt
     ripgrep
     tig
