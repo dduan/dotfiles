@@ -13,6 +13,7 @@ in
     bat
     fd
     fzf
+    gnumake
     htop
     nixpkgs-fmt
     ripgrep
