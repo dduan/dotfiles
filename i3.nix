@@ -9,10 +9,14 @@ let mod = "Mod1"; in
       titlebar = false;
     };
     terminal = "${alacritty}/bin/alacritty";
-    defaultWorkspace = "workspace number 9";
+    defaultWorkspace = "1";
     fonts = {
       names = [ "SF Mono" "pango:DejaVu Sans Mono" ];
-      size = 10.0;
+      size = 8.0;
     };
   };
+  extraConfig = ''
+    exec alacritty
+    exec i3-msg workspace 1
+  '';
 }
