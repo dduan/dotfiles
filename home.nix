@@ -20,7 +20,7 @@ in
     tig
     tre-command
     wget
-  ] ++ (lib.lists.optionals (! isDarwin) [
+  ] ++ (lib.lists.optionals (!isDarwin) [
     xclip
   ]);
   news.display = "silent";
