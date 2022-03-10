@@ -41,10 +41,10 @@ in
       if isDarwin
       then callPackages ./tmux/tmux-darwin.nix { }
       else callPackages ./tmux/tmux-linux.nix { };
-  } // {
+  } // (pkgs.lib.attrsets.optionalAttrs (!isDarwin) {
     i3status = callPackages ./i3status.nix { };
     rofi = callPackages ./rofi.nix { };
-  };
+  });
   xsession.windowManager = (pkgs.lib.attrsets.optionalAttrs (!isDarwin)) {
     i3 = callPackages ./i3.nix { };
   };
