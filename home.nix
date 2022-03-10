@@ -21,12 +21,13 @@ in
     tre-command
     wget
   ] ++ (lib.lists.optionals (!isDarwin) [
-    localPackages.sf-mono-font
+    localPackages.apple-fonts.SF-Mono
+    localPackages.apple-fonts.SF-Pro
     xclip
   ]);
   news.display = "silent";
-  fonts.fontconfig.enable = !isDarwin;
   xdg.configFile."nix/nix.conf".text = "experimental-features = nix-command flakes";
+  fonts.fontconfig.enable = true;
   programs = rec {
     # Home manager manages itself.
     home-manager.enable = true;
@@ -40,6 +41,9 @@ in
       if isDarwin
       then callPackages ./tmux/tmux-darwin.nix { }
       else callPackages ./tmux/tmux-linux.nix { };
+  } // {
+    i3status = callPackages ./i3status.nix { };
+    rofi = callPackages ./rofi.nix { };
   };
   xsession.windowManager = (pkgs.lib.attrsets.optionalAttrs (!isDarwin)) {
     i3 = callPackages ./i3.nix { };
