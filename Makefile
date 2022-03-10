@@ -7,4 +7,4 @@ ifeq ($(UNAME_S),Darwin)
 	@mkdir -p ${HOME}/Developer/Xcode/UserData/FontAndColorThemes
 	@cp Monokai.xccolortheme ${HOME}/Developer/Xcode/UserData/FontAndColorThemes
 endif
-	@home-manager switch
+	@NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 home-manager switch --flake . --impure
