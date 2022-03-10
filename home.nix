@@ -24,6 +24,8 @@ in
     localPackages.apple-fonts.SF-Mono
     localPackages.apple-fonts.SF-Pro
     xclip
+  ]) ++ (lib.lists.optionals isDarwin [
+    coreutils
   ]);
   news.display = "silent";
   xdg.configFile."nix/nix.conf".text = "experimental-features = nix-command flakes";
