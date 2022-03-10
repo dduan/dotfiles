@@ -21,9 +21,11 @@ in
     tre-command
     wget
   ] ++ (lib.lists.optionals (!isDarwin) [
+    localPackages.sf-mono-font
     xclip
   ]);
   news.display = "silent";
+  fonts.fontconfig.enable = !isDarwin;
   xdg.configFile."nix/nix.conf".text = "experimental-features = nix-command flakes";
   programs = rec {
     # Home manager manages itself.
