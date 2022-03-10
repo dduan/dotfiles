@@ -41,4 +41,7 @@ in
       then callPackages ./tmux/tmux-darwin.nix { }
       else callPackages ./tmux/tmux-linux.nix { };
   };
+  xsession.windowManager = (pkgs.lib.attrsets.optionalAttrs (!isDarwin)) {
+    i3 = callPackages ./i3.nix { };
+  };
 }
