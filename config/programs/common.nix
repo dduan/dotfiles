@@ -1,5 +1,5 @@
 { pkgs }:
-let callPackages = (import ../../lib { inherit pkgs; }).callPackages; in
+let callPackages = (import ../../lib).callPackages pkgs; in
 {
   home-manager.enable = true;
   alacritty = callPackages ../alacritty.nix { };
