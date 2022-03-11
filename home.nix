@@ -15,6 +15,7 @@ in
     fzf
     gnumake
     htop
+    librsvg
     nixpkgs-fmt
     ripgrep
     tig
