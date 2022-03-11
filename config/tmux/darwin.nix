@@ -1,6 +1,6 @@
 { reattach-to-user-namespace, fish }:
 let
-  common = import ./tmux-common.nix;
+  common = import ./common.nix;
   reattach = "${reattach-to-user-namespace}/bin/reattach-to-user-namespace";
 in
 common // {

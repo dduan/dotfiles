@@ -1,6 +1,6 @@
 { xclip }:
 let
-  common = import ./tmux-common.nix;
+  common = import ./common.nix;
 in
 common // {
   extraConfig = common.extraConfig + ''

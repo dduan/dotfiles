@@ -13,7 +13,7 @@
           value = home-manager.lib.homeManagerConfiguration {
             inherit username;
             system = os;
-            configuration = import ./home.nix isDarwin;
+            configuration = if isDarwin then import ./config/home/darwin.nix else ./config/home/linux.nix;
             homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
           };
         };
