@@ -29,6 +29,7 @@
     set -g status-fg colour12
     set -g status-right ""
     set -g status-interval 2
+    set -g default-terminal "screen-256color"
     set-option -g status-position top
     setw -g aggressive-resize on
     unbind p
