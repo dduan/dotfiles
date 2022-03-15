@@ -7,7 +7,7 @@
   htop
   librsvg
   nixpkgs-fmt
-  python39.pkgs.ipython
+  python39Packages.ipython
   ripgrep
   tig
   tre-command
