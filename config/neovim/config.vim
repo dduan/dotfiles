@@ -185,6 +185,7 @@ lua << EOF
 require'lspconfig'.sourcekit.setup{
   cmd = { "sourcekit-lsp" }
 }
+require'lspconfig'.rust_analyzer.setup{}
 -- Compe setup
 require'compe'.setup {
   enabled = true;
@@ -252,4 +253,7 @@ function! FormatNix()
 endfunction
 
 autocmd BufWritePost *.nix :call FormatNix()
+
+let g:rustfmt_autosave = 1
+let g:cargo_makeprg_params = 'check'
 ''
