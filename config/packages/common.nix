@@ -1,4 +1,4 @@
-{ pkgs }: with pkgs; [
+{ pkgs, nixpkgs-unstable }: with pkgs; [
   bat
   direnv
   fd
@@ -6,6 +6,7 @@
   gnumake
   htop
   librsvg
+  nixpkgs-unstable.python39Packages.python-lsp-server
   nixpkgs-fmt
   python39Packages.ipython
   ripgrep

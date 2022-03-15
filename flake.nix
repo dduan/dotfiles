@@ -1,18 +1,26 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager }:
     let
       mkConfig = { username ? "dan", host, arch, os }:
-        let isDarwin = os == "darwin"; in
+        let
+          isDarwin = os == "darwin";
+          system = "${arch}-${os}";
+        in
         {
           name = "${username}@${host}";
           value = home-manager.lib.homeManagerConfiguration {
-            inherit username;
-            system = "${arch}-${os}";
+            inherit username system;
+            extraModules = [
+              ({ pkgs, ... }: {
+                _module.args.nixpkgs-unstable = import nixpkgs-unstable { inherit system; };
+              })
+            ];
             configuration = if isDarwin then import ./config/home/darwin.nix else ./config/home/linux.nix;
             homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
           };
