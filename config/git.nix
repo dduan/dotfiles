@@ -12,6 +12,7 @@
   ignores = [
     ".DS_Store"
     "*.pyc"
+    ".envrc"
   ];
   delta = {
     enable = true;
