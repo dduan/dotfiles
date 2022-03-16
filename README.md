@@ -7,7 +7,7 @@ These are dotfiles for stand-alone home-manager.
 These are things not managed by home-manager. They should exist somehow.
 
 - An OS-provided Alacritty
-- Multi-user installation of Nix with flake support
+- Nix with flake support
 
 ## Usage
 
