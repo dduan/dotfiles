@@ -1,6 +1,5 @@
 { pkgs, nixpkgs-unstable }: with pkgs; [
   bat
-  direnv
   fd
   fzf
   gnumake
