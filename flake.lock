@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1642700792,
+        "narHash": "sha256-XqHrk7hFb+zBvRg6Ghl+AZDq03ov6OshJLiSWOoX5es=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "846b2ae0fc4cc943637d3d1def4454213e203cba",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -52,11 +67,46 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1642901039,
+        "narHash": "sha256-/zzyhaKwBXROXXiccae6dskJb7ybGE36m5cSM9azVGg=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "03a272b278356be444f7ebff02f6419b5af73dcf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "tre-command": "tre-command"
+      }
+    },
+    "tre-command": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1647613261,
+        "narHash": "sha256-/RlwyO6t9XfCQponv78181W6tr5ZkktQROJumGYbbMA=",
+        "owner": "dduan",
+        "repo": "tre",
+        "rev": "f3267c22f2b88ffeac47fe5d6951944453bf7602",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dduan",
+        "repo": "tre",
+        "type": "github"
       }
     }
   },
