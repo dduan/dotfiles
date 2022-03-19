@@ -12,7 +12,6 @@
         let
           isDarwin = os == "darwin";
           system = "${arch}-${os}";
-          nixpkgs-unstable = import inputs.nixpkgs-unstable { inherit system; };
         in
         {
           name = "${username}@${host}";
@@ -22,12 +21,14 @@
             homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
             pkgs = import inputs.nixpkgs {
               overlays = [
-                (final: prev: {
-                  tre-command = inputs.tre-command.defaultPackage.${system};
-                  python39Packages = prev.python39Packages // {
-                    python-lsp-server = nixpkgs-unstable.python39Packages.python-lsp-server;
-                  };
-                })
+                (final: prev:
+                  let nixpkgs-unstable = import inputs.nixpkgs-unstable { inherit system; }; in
+                  {
+                    tre-command = inputs.tre-command.defaultPackage.${system};
+                    python39Packages = prev.python39Packages // {
+                      python-lsp-server = nixpkgs-unstable.python39Packages.python-lsp-server;
+                    };
+                  })
               ];
               inherit system;
             };
