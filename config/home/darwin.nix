@@ -1,4 +1,4 @@
-{ config, pkgs, extraPkg, ... }:
+{ config, pkgs, extraPkgs, ... }:
 import ./common.nix // {
   home.packages = import ../packages/darwin.nix { inherit pkgs extraPkgs; };
   programs = import ../programs/darwin.nix { inherit pkgs; };
