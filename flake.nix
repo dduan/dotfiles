@@ -4,8 +4,9 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    tre-command.url = "github:dduan/tre";
   };
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, tre-command }:
     let
       mkConfig = { username ? "dan", host, arch, os }:
         let
@@ -18,7 +19,10 @@
             inherit username system;
             extraModules = [
               ({ pkgs, ... }: {
-                _module.args.nixpkgs-unstable = import nixpkgs-unstable { inherit system; };
+                _module.args.extraPkgs = {
+                  nixpkgs-unstable = import nixpkgs-unstable { inherit system; };
+                  tre-command = tre-command.defaultPackage.${system};
+                };
               })
             ];
             configuration = if isDarwin then import ./config/home/darwin.nix else ./config/home/linux.nix;

@@ -1,15 +1,15 @@
-{ pkgs, nixpkgs-unstable }: with pkgs; [
+{ pkgs, extraPkgs }: with pkgs; [
   bat
   fd
   fzf
   gnumake
   htop
   librsvg
-  nixpkgs-unstable.python39Packages.python-lsp-server
+  extraPkgs.tre-command
+  extraPkgs.nixpkgs-unstable.python39Packages.python-lsp-server
   nixpkgs-fmt
   python39Packages.ipython
   ripgrep
   tig
-  tre-command
   wget
 ]
