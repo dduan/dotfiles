@@ -13,6 +13,7 @@
     ".DS_Store"
     "*.pyc"
     ".envrc"
+    ".direnv"
   ];
   delta = {
     enable = true;
