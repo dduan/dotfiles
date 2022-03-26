@@ -107,7 +107,8 @@ endfunction
 vnoremap <leader>s :'<,'>!sort -f<cr>
 
 " Paste on selected text without yanking it
-vnoremap <leader>p "_dP
+vnoremap p "0p
+vnoremap P "0P
 
 " Quickly insert a timestamp
 nnoremap tt "=strftime("%FT%T")<CR>p"=strftime("%z")<CR>phi:<esc>
