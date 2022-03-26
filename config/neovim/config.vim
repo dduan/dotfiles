@@ -106,6 +106,9 @@ endfunction
 " Sort lines in alphabetical order
 vnoremap <leader>s :'<,'>!sort -f<cr>
 
+" Paste on selected text without yanking it
+vnoremap <leader>p "_dP
+
 " Quickly insert a timestamp
 nnoremap tt "=strftime("%FT%T")<CR>p"=strftime("%z")<CR>phi:<esc>
 " Toggle quickfix windown
