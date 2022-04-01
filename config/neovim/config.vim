@@ -185,6 +185,9 @@ if executable('fzf')
     nnoremap <C-p> :FZF<cr>
 endif
 
+" no folding
+set nofoldenable
+
 lua << EOF
 require'lspconfig'.sourcekit.setup{
   cmd = { "sourcekit-lsp" }
