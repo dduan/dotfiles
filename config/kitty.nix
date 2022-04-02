@@ -65,5 +65,7 @@
     map ctrl+a>7 goto_tab 7
     map ctrl+a>8 goto_tab 8
     map ctrl+a>9 goto_tab 9
+    map cmd+v paste_from_clipboard
+    map ctrl+shift+v paste_from_clipboard
   '';
 }
