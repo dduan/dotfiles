@@ -20,7 +20,6 @@
     inactive_tab_foreground = "#999";
     inactive_tab_background = "#444";
     inactive_tab_font_style = "normal";
-    term = "xterm-256color";
     background = "#212121";
     foreground = "#dcdccc";
     color0 = "#4d4d4d";
