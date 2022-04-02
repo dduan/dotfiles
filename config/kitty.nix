@@ -2,6 +2,7 @@
 {
   enable = true;
   settings = {
+    allow_remote_control = "yes";
     shell = "${fish}/bin/fish --login";
     copy_on_select = "yes";
     clear_all_shortcuts = "yes";
