@@ -1,12 +1,11 @@
-{}:
+{ fish }:
 {
   enable = true;
   settings = {
+    shell = "${fish}/bin/fish --login";
+    clear_all_shortcuts = "yes";
     font_size = "14.0";
-    font_family = "SF Mono";
-    bold_font = "SF Mono Bold";
-    italic_font = "SF Mono Italic";
-    bold_italic_font = "SF Mono Bold Italic";
+    font_family = "Liga SFMono Nerd Font";
     cursor_shape = "block";
     shell_integration = "no-cursor";
     enabled_layouts = "splits";
