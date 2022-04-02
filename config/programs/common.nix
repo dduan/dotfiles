@@ -7,4 +7,5 @@ let callPackages = (import ../../lib).callPackages pkgs; in
   git = callPackages ../git.nix { };
   neovim = callPackages ../neovim { };
   direnv = callPackages ../direnv.nix { };
+  kitty = callPackages ../kitty.nix { };
 }
