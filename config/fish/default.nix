@@ -58,6 +58,6 @@
 
     set -gx SWIFTENV_ROOT "$HOME/.swiftenv"
     fish_add_path "$SWIFTENV_ROOT/bin"
-    if which swiftenv > /dev/null; status --is-interactive; and source (swiftenv init -|psub); end
+    fish_add_path "$SWIFTENV_ROOT/shims"
   '';
 }
