@@ -1,4 +1,4 @@
-{ fish }:
+{ fish, neovim }:
 {
   enable = true;
   settings = {
@@ -38,6 +38,9 @@
     color13 = "#e097d0";
     color14 = "#a4dee2";
     color15 = "#ffffff";
+    scrollback_pager = ''
+      ${neovim}/bin/nvim -c "set nonumber nolist showtabline=0 foldcolumn=0" -c "autocmd TermOpen * normal G" -c "silent write! /tmp/kitty_scrollback_buffer | te cat /tmp/kitty_scrollback_buffer - "
+    '';
   };
 
   extraConfig = ''
@@ -67,5 +70,6 @@
     map ctrl+a>9 goto_tab 9
     map cmd+v paste_from_clipboard
     map ctrl+shift+v paste_from_clipboard
+    map ctrl+a>[ show_scrollback
   '';
 }
