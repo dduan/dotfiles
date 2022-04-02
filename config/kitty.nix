@@ -3,6 +3,7 @@
   enable = true;
   settings = {
     shell = "${fish}/bin/fish --login";
+    copy_on_select = "yes";
     clear_all_shortcuts = "yes";
     font_size = "14.0";
     font_family = "Liga SFMono Nerd Font";
