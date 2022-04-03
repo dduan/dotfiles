@@ -176,6 +176,9 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " [vim-fugitive]
 nnoremap <leader>w :Git<cr>
 
+" Jump to definition
+nnoremap <leader>j :lua vim.lsp.buf.definition()<cr>
+
 " [vim-markdown]
 " No folding
 let g:vim_markdown_folding_disabled = 1
