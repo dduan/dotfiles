@@ -7,7 +7,7 @@
     copy_on_select = "yes";
     clear_all_shortcuts = "yes";
     font_size = "14.0";
-    font_family = "Liga SFMono Nerd Font";
+    font_family = "Liga SFMono Nerd Font Semibold";
     cursor_shape = "block";
     shell_integration = "no-cursor";
     enabled_layouts = "splits";
