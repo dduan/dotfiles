@@ -5,7 +5,6 @@
   gnumake
   htop
   jq
-  librsvg
   nixpkgs-fmt
   ripgrep
   tig

@@ -11,13 +11,12 @@
         unstable = nixpkgs-unstable.legacyPackages.${system};
       in
       {
-        defaultPackage = stable.python3Packages.ipython;
-        devShell = stable.mkShell
-          {
-            buildInputs = import ../components/python.nix {
-              inherit stable unstable;
-            };
-          };
+        defaultPackage = stable.librsvg;
+        devShell = stable.mkShell {
+          buildInputs = [
+            stable.librsvg
+          ] ++ (import ../components/python.nix { inherit stable unstable; });
+        };
       }
     );
 }
