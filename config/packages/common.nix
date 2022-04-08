@@ -4,6 +4,7 @@
   fzf
   gnumake
   htop
+  jq
   librsvg
   nixpkgs-fmt
   ripgrep
