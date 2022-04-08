@@ -1,4 +1,4 @@
-{ fetchFromGitHub, tag, fd }:
+{ fetchFromGitHub, tag, fd, direnv }:
 {
   enable = true;
   plugins = [{
@@ -59,5 +59,7 @@
     set -gx SWIFTENV_ROOT "$HOME/.swiftenv"
     fish_add_path "$SWIFTENV_ROOT/bin"
     fish_add_path "$SWIFTENV_ROOT/shims"
+
+    ${direnv}/bin/direnv hook fish | source
   '';
 }

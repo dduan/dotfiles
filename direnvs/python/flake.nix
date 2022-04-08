@@ -12,12 +12,12 @@
       in
       {
         defaultPackage = stable.ipython;
-        devShell = stable.mkShell {
-          buildInputs = [
-            stable.python39Packages.ipython
-            unstable.python39Packages.python-lsp-server
-          ];
-        };
+        devShell = stable.mkShell
+          {
+            buildInputs = import ../components/python.nix {
+              inherit stable unstable;
+            };
+          };
       }
     );
 }
