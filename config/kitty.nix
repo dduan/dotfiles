@@ -53,8 +53,8 @@
     map ctrl+shift+k move_window up
     map ctrl+shift+h move_window left
     map ctrl+shift+l move_window right
-    map ctrl+a>" launch --location=hsplit
-    map ctrl+a>% launch --location=vsplit
+    map ctrl+a>" launch --location=hsplit --cwd=current
+    map ctrl+a>% launch --location=vsplit --cwd=current
     map ctrl+a>c new_tab
     map ctrl+a>n next_tab
     map ctrl+a>p previous_tab
