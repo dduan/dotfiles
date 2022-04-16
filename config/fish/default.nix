@@ -42,6 +42,8 @@
        fenv source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
     end
 
+    ${direnv}/bin/direnv hook fish | source
+
     set fish_greeting
     set fish_key_bindings key_binds
 
@@ -60,6 +62,5 @@
     fish_add_path "$SWIFTENV_ROOT/bin"
     fish_add_path "$SWIFTENV_ROOT/shims"
 
-    ${direnv}/bin/direnv hook fish | source
   '';
 }
