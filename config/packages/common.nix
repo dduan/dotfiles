@@ -8,6 +8,7 @@
   nixpkgs-fmt
   ripgrep
   tig
+  tokei
   tre-command
   wget
 ]
