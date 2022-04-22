@@ -1,4 +1,4 @@
-{ fetchFromGitHub, tag, fd, direnv }:
+{ fetchFromGitHub, ea, fd, direnv }:
 {
   enable = true;
   plugins = [{
@@ -21,7 +21,7 @@
           (f: elemAt (split "\\." f) 0)
           (attrNames (readDir ./functions))))
     // {
-      tag = import ./functions/tag.fish { inherit tag; };
+      e = import ./functions/e.fish { inherit ea; };
     };
 
 
