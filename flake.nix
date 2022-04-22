@@ -4,6 +4,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
     tre-command.url = "github:dduan/tre";
+    ea.url = "github:dduan/ea";
     nixpkgs-unstable.url = "github:nixos/nixpkgs";
   };
   outputs = { self, home-manager, ... }@inputs:
@@ -25,6 +26,7 @@
                   let nixpkgs-unstable = import inputs.nixpkgs-unstable { inherit system; }; in
                   {
                     tre-command = inputs.tre-command.defaultPackage.${system};
+                    ea = inputs.ea.defaultPackage.${system};
                     python39Packages = prev.python39Packages // {
                       python-lsp-server = nixpkgs-unstable.python39Packages.python-lsp-server;
                     };

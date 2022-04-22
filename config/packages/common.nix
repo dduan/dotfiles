@@ -1,5 +1,6 @@
 { pkgs }: with pkgs; [
   bat
+  ea
   fd
   fzf
   gnumake

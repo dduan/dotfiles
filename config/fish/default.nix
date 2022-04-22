@@ -26,9 +26,9 @@
 
 
   shellAliases = {
-    fd = "tag fd";
-    find = "tag find";
-    rg = "tag rg";
+    fd = "ea run linear fd --";
+    find = "ea run linear find --";
+    rg = "ea run grouped rg --";
   };
 
   shellInit = ''
