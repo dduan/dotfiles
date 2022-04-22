@@ -179,6 +179,9 @@ nnoremap <leader>w :Git<cr>
 " Jump to definition
 nnoremap <leader>j :lua vim.lsp.buf.definition()<cr>
 
+" Show LSP hover
+nnoremap <leader>h :lua vim.lsp.buf.hover()<cr>
+
 " [vim-markdown]
 " No folding
 let g:vim_markdown_folding_disabled = 1
