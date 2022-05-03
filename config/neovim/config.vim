@@ -80,6 +80,7 @@ nnoremap <C-c> :wa<cr>
 
 " I type Wq more often than wq
 cmap Wq wq
+cmap W w
 
 " Use arrow keys to switch tabs
 nnoremap <Left> :tabprevious<CR>
