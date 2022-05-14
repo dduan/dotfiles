@@ -29,6 +29,7 @@
     fd = "ea run linear fd --";
     find = "ea run linear find --";
     rg = "ea run grouped rg --";
+    clue = "ea run grouped clue --";
   };
 
   shellInit = ''
