@@ -63,5 +63,7 @@
     fish_add_path "$SWIFTENV_ROOT/bin"
     fish_add_path "$SWIFTENV_ROOT/shims"
 
+    export GIT_PILE_PREFIX="dd/"
+
   '';
 }
