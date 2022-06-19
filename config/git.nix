@@ -4,10 +4,13 @@
   userName = "Daniel Duan";
   userEmail = "daniel@duan.ca";
   extraConfig = {
-    core.editor = "nvim";
+    advice.skippedCherryPicks = false;
+    branch.main.pushRemote = "NOPE";
     color.ui = true;
-    pull.ff = "only";
+    core.editor = "nvim";
     init.defaultBranch = "main";
+    pull.rebase = true;
+    rerere.enabled = true;
   };
   ignores = [
     ".DS_Store"
