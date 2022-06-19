@@ -7,9 +7,9 @@ stdenv.mkDerivation rec {
     fzy
   ];
   src = fetchFromGitHub {
-    owner = "keith";
+    owner = "dduan";
     repo = "git-pile";
-    rev = version;
+    rev = "88830a8af75fcb2d6e927f9a9b69334f62ee6420";
     sha256 = "sha256-M7A2xdUTrwc6xSEns2W4qTCMk6WnEN8mUtDBfHQNsH0=";
     name = "git-pile-${version}-src";
   };
