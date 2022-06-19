@@ -30,7 +30,6 @@
                     python39Packages = prev.python39Packages // {
                       python-lsp-server = nixpkgs-unstable.python39Packages.python-lsp-server;
                     };
-                    kitty = nixpkgs-unstable.kitty;
                   })
               ];
               inherit system;
