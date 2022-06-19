@@ -3,6 +3,7 @@
   ea
   fd
   fzf
+  gh
   gnumake
   htop
   jq
