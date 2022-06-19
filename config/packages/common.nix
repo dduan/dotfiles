@@ -1,4 +1,7 @@
-{ pkgs }: with pkgs; [
+{ pkgs }:
+let localPackages = import ../../pkgs { inherit pkgs; }; in
+with pkgs;
+[
   bat
   ea
   fd
@@ -13,4 +16,5 @@
   tokei
   tre-command
   wget
+  localPackages.git-pile
 ]
