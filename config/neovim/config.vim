@@ -196,7 +196,7 @@ require'lspconfig'.sourcekit.setup{
   cmd = { "sourcekit-lsp" }
 }
 require'lspconfig'.rust_analyzer.setup{}
-require'lspconfig'.pylsp.setup{}
+require'lspconfig'.pyright.setup{}
 -- Compe setup
 require'compe'.setup {
   enabled = true;

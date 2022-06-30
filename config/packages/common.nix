@@ -17,4 +17,5 @@ with pkgs;
   tre-command
   wget
   localPackages.git-pile
+  pyright
 ]
