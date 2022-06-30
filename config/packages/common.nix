@@ -10,12 +10,12 @@ with pkgs;
   gnumake
   htop
   jq
+  localPackages.git-pile
   nixpkgs-fmt
+  pyright
   ripgrep
   tig
   tokei
   tre-command
   wget
-  localPackages.git-pile
-  pyright
 ]
