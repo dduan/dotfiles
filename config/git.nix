@@ -23,7 +23,6 @@
     options = {
       navigate = true;
       line-numbers = true;
-      syntax-theme = "github";
     };
   };
 }
