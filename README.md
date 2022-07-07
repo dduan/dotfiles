@@ -6,8 +6,8 @@ These are dotfiles for stand-alone home-manager.
 
 These are things not managed by home-manager. They should exist somehow.
 
-- An OS-provided Alacritty
 - Nix with flake support
+- Alacritty installed NOT by nix
 
 ## Usage
 
