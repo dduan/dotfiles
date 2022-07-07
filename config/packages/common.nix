@@ -14,7 +14,6 @@ with pkgs;
   nixpkgs-fmt
   pyright
   ripgrep
-  tig
   tokei
   tre-command
   wget
