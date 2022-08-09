@@ -36,6 +36,7 @@
       homeConfigurations = builtins.listToAttrs [
         (mkConfig { username = "dduan"; host = "dduan-mbp184"; arch = arch.aarch64; os = os.darwin; })
         (mkConfig { host = "the-puter"; arch = arch.x86_64; os = os.linux; })
+        (mkConfig { host = "dduan.local"; arch = arch.aarch64; os = os.darwin; })
         (mkConfig { host = "imac.local"; arch = arch.x86_64; os = os.darwin; })
         (mkConfig { host = "nixos"; arch = arch.aarch64; os = os.linux; })
       ];
