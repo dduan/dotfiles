@@ -87,19 +87,19 @@ nnoremap <Left> :tabprevious<CR>
 nnoremap <Right> :tabnext<CR>
 
 " Column limits
-set textwidth=110
-set colorcolumn=110
+set textwidth=80
+set colorcolumn=80
 " Toggle between column widths
 nnoremap <leader>c :call ToggleColumnWidth()<cr>
-let g:wide_column = 1
+let g:wide_column = 0
 function! ToggleColumnWidth()
     if g:wide_column
         set textwidth=80
         set colorcolumn=80
     let g:wide_column = 0
     else
-        set textwidth=110
-        set colorcolumn=110
+        set textwidth=100
+        set colorcolumn=100
         let g:wide_column = 1
     endif
 endfunction
