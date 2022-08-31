@@ -8,17 +8,18 @@
   };
   outputs = { self, home-manager, ... }@inputs:
     let
-      mkConfig = { username ? "dan", host, arch, os }:
+      mkConfig = { host, arch, os }:
         let
           isDarwin = os == "darwin";
           system = "${arch}-${os}";
         in
         {
-          name = "${username}@${host}";
+          name = "dan@${host}";
           value = home-manager.lib.homeManagerConfiguration {
-            inherit username system;
+            inherit system;
+            username = "dan";
             configuration = if isDarwin then import ./config/home/darwin.nix else ./config/home/linux.nix;
-            homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
+            homeDirectory = if isDarwin then "/Users/dan" else "/home/dan";
             pkgs = import inputs.nixpkgs {
               overlays = [
                 (final: prev:
@@ -34,7 +35,6 @@
     in
     with import ./lib; {
       homeConfigurations = builtins.listToAttrs [
-        (mkConfig { username = "dduan"; host = "dduan-mbp184"; arch = arch.aarch64; os = os.darwin; })
         (mkConfig { host = "the-puter"; arch = arch.x86_64; os = os.linux; })
         (mkConfig { host = "dduan.local"; arch = arch.aarch64; os = os.darwin; })
         (mkConfig { host = "imac.local"; arch = arch.x86_64; os = os.darwin; })
