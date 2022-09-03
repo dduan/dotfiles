@@ -1,9 +1,8 @@
-{ stdenv, gh, fzy, fetchFromGitHub, ... }:
+{ stdenv, fzy, fetchFromGitHub, ... }:
 stdenv.mkDerivation rec {
   pname = "git-pile";
   version = "0.2.0";
   buildInputs = [
-    gh
     fzy
   ];
   src = fetchFromGitHub {

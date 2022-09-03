@@ -8,6 +8,7 @@ These are things not managed by home-manager. They should exist somehow.
 
 - Nix with flake support
 - Alacritty installed NOT by nix
+- gh
 
 ## Usage
 
