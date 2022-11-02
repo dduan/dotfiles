@@ -30,6 +30,7 @@
     find = "ea run linear find --";
     rg = "ea run grouped rg --";
     clue = "ea run grouped clue --";
+    tig = "tig --no-merges";
   };
 
   shellInit = ''
