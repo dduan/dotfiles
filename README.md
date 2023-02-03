@@ -9,11 +9,13 @@ These are things not managed by home-manager. They should exist somehow.
 - Nix with flake support
 - Alacritty installed NOT by nix
 - gh
+- Some sort of `make` command with basic GNU Make compatibility
 
 ## Usage
 
 Having prepare the OS for the assumptions detailed above: 
-1. put content of this directory in `$HOME/.config/nixpkgs`.
+1. Add a call to `mkConfg` to the list at the bottom of `flake.nix` with your
+   username, hostname, arch, and OS.
 2. run `make switch`, following instructions of output if necessary.
 
 ## About direnvs/

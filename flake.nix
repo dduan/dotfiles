@@ -8,21 +8,21 @@
   };
   outputs = { self, home-manager, ... }@inputs:
     let
-      mkConfig = { host, arch, os }:
+      mkConfig = { username, host, arch, os }:
         let
           isDarwin = os == "darwin";
           system = "${arch}-${os}";
         in
         {
-          name = "dan@${host}";
+          name = "${username}@${host}";
           value = home-manager.lib.homeManagerConfiguration
             {
               modules = [
                 (if isDarwin then ./config/home/darwin.nix else ./config/home/linux.nix)
                 {
                   home = {
-                    username = "dan";
-                    homeDirectory = if isDarwin then "/Users/dan" else "/home/dan";
+                    inherit username;
+                    homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
                     stateVersion = "22.11";
                   };
                 }
@@ -42,11 +42,11 @@
     in
     with import ./lib; {
       homeConfigurations = builtins.listToAttrs [
-        (mkConfig { host = "mbp.local"; arch = arch.aarch64; os = os.darwin; })
-        (mkConfig { host = "the-puter"; arch = arch.x86_64; os = os.linux; })
-        (mkConfig { host = "dduan.local"; arch = arch.aarch64; os = os.darwin; })
-        (mkConfig { host = "imac.local"; arch = arch.x86_64; os = os.darwin; })
-        (mkConfig { host = "nixos"; arch = arch.aarch64; os = os.linux; })
+        (mkConfig { username = "dan"; host = "mbp.local"; arch = arch.aarch64; os = os.darwin; })
+        (mkConfig { username = "dan"; host = "the-puter"; arch = arch.x86_64; os = os.linux; })
+        (mkConfig { username = "dan"; host = "dduan.local"; arch = arch.aarch64; os = os.darwin; })
+        (mkConfig { username = "dan"; host = "imac.local"; arch = arch.x86_64; os = os.darwin; })
+        (mkConfig { username = "dan"; host = "nixos"; arch = arch.aarch64; os = os.linux; })
       ];
     };
 }
