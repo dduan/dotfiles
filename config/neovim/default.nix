@@ -29,6 +29,7 @@
     vim-rhubarb
     vim-tmux-navigator
     vim-toml
+    zig-vim
   ];
   extraConfig = import ./config.vim { inherit ripgrep; };
 }
