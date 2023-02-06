@@ -17,5 +17,4 @@ with pkgs;
   tokei
   tre-command
   wget
-  zls
 ]
