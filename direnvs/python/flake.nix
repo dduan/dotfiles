@@ -1,21 +1,19 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     flake-utils.url = "github:numtide/flake-utils";
   };
-  outputs = { self, nixpkgs, flake-utils, nixpkgs-unstable }:
+  outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        stable = nixpkgs.legacyPackages.${system};
-        unstable = nixpkgs-unstable.legacyPackages.${system};
+        pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        defaultPackage = stable.python3Packages.ipython;
-        devShell = stable.mkShell
+        defaultPackage = pkgs.python3Packages.ipython;
+        devShell = pkgs.mkShell
           {
             buildInputs = import ../components/python.nix {
-              inherit stable unstable;
+              inherit pkgs;
             };
           };
       }
