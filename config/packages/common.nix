@@ -13,8 +13,8 @@ with pkgs;
   nixpkgs-fmt
   pyright
   ripgrep
+  scc
   tig
-  tokei
   tre-command
   wget
 ]
