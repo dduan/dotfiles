@@ -39,5 +39,10 @@
     set-window-option -g mode-keys vi
     # Setup 'v' to begin selection as in Vim
     bind-key -T copy-mode-vi v send -X begin-selection
+
+    # Turn off status bar if there's only one window
+    if -F "#{==:#{session_windows},1}" "set -g status off" "set -g status on"
+    set-hook -g window-linked 'if -F "#{==:#{session_windows},1}" "set -g status off" "set -g status on"'
+    set-hook -g window-unlinked 'if -F "#{==:#{session_windows},1}" "set -g status off" "set -g status on"'
   '';
 }
