@@ -165,7 +165,7 @@ let g:NERDDefaultAlign = 'left'
 
 " [Nerdtree]
 " Toggle NerdTree
-nnoremap <leader>a :NERDTreeToggle<cr>
+nnoremap <leader>a :NvimTreeToggle<cr>
 " Close vim if the last window open is NerdTree
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -191,6 +191,10 @@ endif
 set nofoldenable
 
 lua << EOF
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+require("nvim-tree").setup()
 require'lspconfig'.sourcekit.setup{
   cmd = { "sourcekit-lsp" }
 }

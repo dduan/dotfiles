@@ -11,9 +11,9 @@
     fzf-vim
     molokai
     nerdcommenter
-    nerdtree
     nvim-compe
     nvim-lspconfig
+    nvim-tree-lua
     rust-vim
     swift-vim
     vim-airline
