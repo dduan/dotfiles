@@ -14,6 +14,7 @@
     nvim-compe
     nvim-lspconfig
     nvim-tree-lua
+    nvim-web-devicons
     rust-vim
     swift-vim
     vim-airline
