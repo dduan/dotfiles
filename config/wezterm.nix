@@ -11,9 +11,8 @@
       };
       color_scheme = "My Molokai",
       default_prog = { '${fish}/bin/fish', '--login', '--command=tmux attach; or tmux' },
-      dpi = 220,
       font = wezterm.font("SF Mono Nerd"),
-      font_size = 11,
+      font_size = 14,
       hide_tab_bar_if_only_one_tab = true,
       window_background_opacity = 0.85,
       macos_window_background_blur = 20,
