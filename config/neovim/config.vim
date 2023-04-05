@@ -163,11 +163,9 @@ let g:NERDCustomDelimiters['nix'] = { 'left': '# ' }
 let g:NERDCustomDelimiters['swift'] = { 'left': '// ' }
 let g:NERDDefaultAlign = 'left'
 
-" [Nerdtree]
-" Toggle NerdTree
+" [nvim-tree]
+" Toggle nvim-tree
 nnoremap <leader>a :NvimTreeToggle<cr>
-" Close vim if the last window open is NerdTree
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " [vim-fugitive]
 nnoremap <leader>w :Git<cr>
