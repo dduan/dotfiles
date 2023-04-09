@@ -8,6 +8,7 @@
     ack-vim
     auto-pairs
     copilot-vim
+    editorconfig-vim
     emmet-vim
     fzf-vim
     molokai
