@@ -212,7 +212,7 @@ require("nvim-tree").setup {
             git_placement = "after",
             glyphs = {
                 git = {
-                    unstaged = "",
+                    unstaged = "⚡︎",
                 },
             },
         },
