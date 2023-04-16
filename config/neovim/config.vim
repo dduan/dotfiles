@@ -181,9 +181,9 @@ nnoremap <leader>h :lua vim.lsp.buf.hover()<cr>
 let g:vim_markdown_folding_disabled = 1
 
 " [fzf]
-if executable('fzf')
-    nnoremap <C-p> :FZF<cr>
-endif
+nnoremap <C-p> :GFiles<cr>
+nnoremap <C-s> :Rg<cr>
+nnoremap <C-g> :Commits<cr>
 
 " no folding
 set nofoldenable
