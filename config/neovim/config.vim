@@ -181,7 +181,7 @@ nnoremap <leader>h :lua vim.lsp.buf.hover()<cr>
 let g:vim_markdown_folding_disabled = 1
 
 " [fzf]
-nnoremap <C-p> :GFiles<cr>
+nnoremap <C-p> :Files<cr>
 nnoremap <C-s> :Rg<cr>
 nnoremap <C-g> :Commits<cr>
 
