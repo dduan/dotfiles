@@ -10,7 +10,6 @@
     copilot-vim
     editorconfig-vim
     emmet-vim
-    fzf-vim
     molokai
     nerdcommenter
     nvim-compe
@@ -19,6 +18,7 @@
     nvim-web-devicons
     rust-vim
     swift-vim
+    telescope-nvim
     vim-airline
     vim-better-whitespace
     vim-easy-align

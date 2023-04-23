@@ -163,10 +163,26 @@ vim.keymap.set('n', '<leader>h', ':lua vim.lsp.buf.hover()<cr>')
 -- Markdown no folding
 vim.g.vim_markdown_folding_disabled = 1
 
--- fzf
-vim.keymap.set('n', '<C-p>', ':Files<cr>')
-vim.keymap.set('n', '<C-s>', ':Rg<cr>')
-vim.keymap.set('n', '<C-g>', ':Commits<cr>')
+-- Telescope
+require('telescope').setup({
+    defaults = {
+        layout_strategy = 'vertical',
+        mappings = {
+            i = {
+                ["<C-j>"] = "move_selection_next",
+                ["<C-k>"] = "move_selection_previous",
+                ["<C-q>"] = require('telescope.actions').send_to_qflist + require('telescope.actions').open_qflist,
+            },
+            n = {
+                ["<C-j>"] = "move_selection_next",
+                ["<C-k>"] = "move_selection_previous",
+            },
+        },
+    },
+})
+vim.keymap.set('n', '<C-p>', ':Telescope find_files<cr>')
+vim.keymap.set('n', '<C-s>', ':Telescope live_grep<cr>')
+vim.keymap.set('n', '<C-g>', ':Telescope git_commits<cr>')
 
 -- No folding
 vim.opt.foldenable = false
