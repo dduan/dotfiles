@@ -5,7 +5,6 @@
   vimAlias = true;
   vimdiffAlias = true;
   plugins = with vimPlugins; [
-    ack-vim
     auto-pairs
     copilot-vim
     editorconfig-vim
