@@ -1,4 +1,4 @@
-{ vimPlugins }:
+{ lib, vimPlugins }:
 {
   enable = true;
   viAlias = true;
@@ -26,5 +26,11 @@
     vim-rhubarb
     vim-tmux-navigator
   ];
-  extraLuaConfig = builtins.readFile ./init.lua;
+  extraLuaConfig = lib.concatStrings (map builtins.readFile [
+    ./init.lua
+    ./appearance.lua
+    ./lsp.lua
+    ./tree.lua
+    ./keymaps.lua
+  ]);
 }
