@@ -94,7 +94,7 @@ vim.opt.completeopt = { 'noinsert', 'menuone', 'noselect' }
 
 -- [Molokai]
 vim.g.molokai_original = 1
-vim.cmd [[ colorscheme molokai ]]
+vim.cmd.colorscheme("molokai")
 
 -- When the <Enter> key is pressed while the popup menu is visible, it only
 -- hides the menu. Use this mapping to close the menu and also start a new
