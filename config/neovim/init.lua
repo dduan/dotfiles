@@ -87,6 +87,9 @@ vim.keymap.set('c', 'Wq', 'wq')
 vim.opt.textwidth = 80
 vim.opt.colorcolumn = '80'
 
+-- Better paste
+vim.keymap.set('x', 'p', '"_dP')
+
 -- Sort lines in alphabetical order
 vim.keymap.set('v', '<leader>s', ":'<,'>!sort -f<cr>")
 
