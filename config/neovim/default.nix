@@ -1,4 +1,4 @@
-{ vimPlugins, ripgrep }:
+{ vimPlugins }:
 {
   enable = true;
   viAlias = true;
@@ -34,5 +34,5 @@
     vim-toml
     zig-vim
   ];
-  extraConfig = import ./config.vim { inherit ripgrep; };
+  extraLuaConfig = builtins.readFile ./init.lua;
 }
