@@ -101,6 +101,7 @@ require('telescope').setup({
             n = {
                 ["<C-j>"] = "move_selection_next",
                 ["<C-k>"] = "move_selection_previous",
+                ["<C-q>"] = require('telescope.actions').send_to_qflist + require('telescope.actions').open_qflist,
             },
         },
     },

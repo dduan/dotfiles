@@ -15,6 +15,16 @@
     nvim-compe
     nvim-lspconfig
     nvim-tree-lua
+    nvim-web-devicons
+    swift-vim
+    telescope-nvim
+    vim-airline
+    vim-better-whitespace
+    vim-easy-align
+    vim-fugitive
+    vim-highlightedyank
+    vim-rhubarb
+    vim-tmux-navigator
     (nvim-treesitter.withPlugins (plugins: with plugins; [
       bash
       c
@@ -55,15 +65,6 @@
       yaml
       zig
     ]))
-    nvim-web-devicons
-    telescope-nvim
-    vim-airline
-    vim-better-whitespace
-    vim-easy-align
-    vim-fugitive
-    vim-highlightedyank
-    vim-rhubarb
-    vim-tmux-navigator
   ];
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua

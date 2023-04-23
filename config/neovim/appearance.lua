@@ -57,6 +57,7 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
 require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
+    disable = { "swift" },
     additional_vim_regex_highlighting = false,
   },
 }
