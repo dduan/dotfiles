@@ -21,7 +21,7 @@ vim.cmd.colorscheme("molokai")
 
 vim.opt.termguicolors = true
 
-require'nvim-web-devicons'.setup {
+require('nvim-web-devicons').setup {
  default = true;
  strict = true;
  override_by_filename = {
@@ -54,7 +54,7 @@ require'nvim-web-devicons'.setup {
 vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
 
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
