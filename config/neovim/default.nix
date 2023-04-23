@@ -15,24 +15,17 @@
     nvim-compe
     nvim-lspconfig
     nvim-tree-lua
+    nvim-treesitter.withAllGrammars
     nvim-web-devicons
-    rust-vim
-    swift-vim
     telescope-nvim
     vim-airline
     vim-better-whitespace
     vim-easy-align
-    vim-fish
     vim-fugitive
     vim-gitgutter
-    vim-go
     vim-highlightedyank
-    vim-markdown
-    vim-nix
     vim-rhubarb
     vim-tmux-navigator
-    vim-toml
-    zig-vim
   ];
   extraLuaConfig = builtins.readFile ./init.lua;
 }
