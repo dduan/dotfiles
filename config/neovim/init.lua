@@ -12,9 +12,6 @@ vim.opt.relativenumber = true
 -- In many terminal emulators the mouse works just fine, thus enable it.
 vim.opt.mouse = 'a'
 
--- Git Gutter always shows
-vim.g.signcolumn = 'yes'
-
 -- Searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
