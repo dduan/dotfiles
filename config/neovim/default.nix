@@ -15,7 +15,46 @@
     nvim-compe
     nvim-lspconfig
     nvim-tree-lua
-    nvim-treesitter.withAllGrammars
+    (nvim-treesitter.withPlugins (plugins: with plugins; [
+      bash
+      c
+      cmake
+      cpp
+      css
+      diff
+      dockerfile
+      dot
+      fish
+      gitattributes
+      gitignore
+      git_rebase
+      go
+      haskell
+      html
+      javascript
+      json
+      json5
+      kotlin
+      latex
+      lua
+      make
+      markdown
+      nix
+      perl
+      proto
+      python
+      rst
+      rust
+      scheme
+      solidity
+      sql
+      swift
+      toml
+      typescript
+      vim
+      yaml
+      zig
+    ]))
     nvim-web-devicons
     telescope-nvim
     vim-airline
