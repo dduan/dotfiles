@@ -43,6 +43,16 @@ vim.opt.autoindent = true
 vim.opt.undofile = true
 vim.opt.undodir = '/tmp'
 
+-- Search stays in the middle
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+
+-- Move while stay in the middle
+vim.keymap.set('n', '<C-f>', '<C-f>zzzv')
+vim.keymap.set('n', '<C-b>', '<C-b>zzzv')
+vim.keymap.set('n', '<C-d>', '<C-d>zzzv')
+vim.keymap.set('n', '<C-u>', '<C-u>zzzv')
+
 -- macOS clipboard sharing
 vim.opt.clipboard = 'unnamedplus'
 
