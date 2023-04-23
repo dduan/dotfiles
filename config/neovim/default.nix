@@ -9,6 +9,7 @@
     copilot-vim
     editorconfig-vim
     emmet-vim
+    gitsigns-nvim
     molokai
     nerdcommenter
     nvim-compe
@@ -21,7 +22,6 @@
     vim-better-whitespace
     vim-easy-align
     vim-fugitive
-    vim-gitgutter
     vim-highlightedyank
     vim-rhubarb
     vim-tmux-navigator
