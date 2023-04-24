@@ -41,7 +41,7 @@ end
 -- Use (s-)tab to:
 --- move to prev/next item in completion menuone
 --- jump to prev/next snippet's placeholder
-vim.g.tab_complete = function()
+_G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-n>"
   elseif check_back_space() then
@@ -51,7 +51,7 @@ vim.g.tab_complete = function()
   end
 end
 
-vim.g.s_tab_complete = function()
+_G.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-p>"
   else
