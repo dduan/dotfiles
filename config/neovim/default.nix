@@ -23,6 +23,7 @@
     vim-easy-align
     vim-fugitive
     vim-highlightedyank
+    vim-markdown
     vim-rhubarb
     vim-tmux-navigator
     (nvim-treesitter.withPlugins (plugins: with plugins; [
@@ -48,7 +49,6 @@
       latex
       lua
       make
-      markdown
       nix
       perl
       proto
