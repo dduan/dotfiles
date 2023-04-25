@@ -45,6 +45,7 @@
         (mkConfig { username = "dan"; host = "mbp.local"; arch = arch.aarch64; os = os.darwin; })
         (mkConfig { username = "dan"; host = "the-puter"; arch = arch.x86_64; os = os.linux; })
         (mkConfig { username = "dan"; host = "dduan.local"; arch = arch.aarch64; os = os.darwin; })
+        (mkConfig { username = "dan"; host = "dduan.lan"; arch = arch.aarch64; os = os.darwin; })
         (mkConfig { username = "dan"; host = "imac.local"; arch = arch.x86_64; os = os.darwin; })
         (mkConfig { username = "dan"; host = "nixos"; arch = arch.aarch64; os = os.linux; })
       ];
