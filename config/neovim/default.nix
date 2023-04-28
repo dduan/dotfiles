@@ -26,6 +26,7 @@
     vim-markdown
     vim-rhubarb
     vim-tmux-navigator
+    venn-nvim
     (nvim-treesitter.withPlugins (plugins: with plugins; [
       bash
       c

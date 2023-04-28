@@ -68,3 +68,6 @@ vim.keymap.set('n', '<leader>h', ':lua vim.lsp.buf.hover()<cr>')
 vim.keymap.set('n', '<C-p>', ':Telescope find_files<cr>')
 vim.keymap.set('n', '<C-s>', ':Telescope live_grep<cr>')
 vim.keymap.set('n', '<C-g>', ':Telescope git_commits<cr>')
+
+-- toggle keymappings for venn using <leader>v
+vim.api.nvim_set_keymap('n', '<leader>d', ":lua Toggle_venn()<CR>", { noremap = true})
