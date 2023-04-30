@@ -6,18 +6,25 @@
   vimdiffAlias = true;
   plugins = with vimPlugins; [
     auto-pairs
+    cmp-buffer
+    cmp-cmdline
+    cmp-nvim-lsp
+    cmp-path
+    cmp-vsnip
     copilot-vim
     editorconfig-vim
     emmet-vim
     gitsigns-nvim
+    lspkind-nvim
     molokai
     nerdcommenter
-    nvim-compe
+    nvim-cmp
     nvim-lspconfig
     nvim-tree-lua
     nvim-web-devicons
     swift-vim
     telescope-nvim
+    venn-nvim
     vim-airline
     vim-better-whitespace
     vim-easy-align
@@ -26,7 +33,7 @@
     vim-markdown
     vim-rhubarb
     vim-tmux-navigator
-    venn-nvim
+    vim-vsnip
     (nvim-treesitter.withPlugins (plugins: with plugins; [
       bash
       c
