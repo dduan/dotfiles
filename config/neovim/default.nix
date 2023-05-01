@@ -76,17 +76,17 @@
   ];
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua
-    ./nerdcommenter.lua
-    ./telescope.lua
-    ./venn.lua
-    ./autopairs.lua
+    ./Plugins/nerdcommenter.lua
+    ./Plugins/telescope.lua
+    ./Plugins/venn.lua
+    ./Plugins/autopairs.lua
+    ./Plugins/tree.lua
     ./FileTypes/markdown.lua
     ./FileTypes/nix.lua
     ./FileTypes/rust.lua
     ./FileTypes/swift.lua
     ./appearance.lua
     ./lsp.lua
-    ./tree.lua
     ./keymaps.lua
   ]);
 }
