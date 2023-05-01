@@ -76,6 +76,14 @@
   ];
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua
+    ./nerdcommenter.lua
+    ./telescope.lua
+    ./venn.lua
+    ./autopairs.lua
+    ./FileTypes/markdown.lua
+    ./FileTypes/nix.lua
+    ./FileTypes/rust.lua
+    ./FileTypes/swift.lua
     ./appearance.lua
     ./lsp.lua
     ./tree.lua
