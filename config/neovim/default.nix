@@ -15,8 +15,8 @@
     editorconfig-vim
     emmet-vim
     gitsigns-nvim
+    gruvbox
     lspkind-nvim
-    molokai
     nerdcommenter
     nvim-cmp
     nvim-lspconfig

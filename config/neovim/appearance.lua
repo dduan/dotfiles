@@ -17,7 +17,7 @@ vim.opt.colorcolumn = '80'
 
 -- [Molokai]
 vim.g.molokai_original = 1
-vim.cmd.colorscheme("molokai")
+vim.cmd.colorscheme("gruvbox")
 
 vim.opt.termguicolors = true
 
