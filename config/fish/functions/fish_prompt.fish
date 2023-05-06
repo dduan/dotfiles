@@ -3,7 +3,7 @@ echo -e ""
 # User
 #
 set -l user (id -un $USER)
-__print_color F4ADA9 "$user"
+__print_color FB4934 "$user"
 
 
 # Host
@@ -11,8 +11,8 @@ __print_color F4ADA9 "$user"
 set -l host_name (hostname -s)
 set -l host_glyph " at "
 
-__print_color ffffff "$host_glyph"
-__print_color F6F49D "$host_name"
+__print_color EBDBB2 "$host_glyph"
+__print_color D79921 "$host_name"
 
 set -l nix_shell_info (
   if test -n "$IN_NIX_SHELL"
@@ -28,8 +28,8 @@ __print_color 00AA00 "$nix_shell_info"
 set -l pwd_glyph " in "
 set -l pwd_string (echo $PWD | sed 's|^'$HOME'\(.*\)$|~\1|')
 
-__print_color ffffff "$pwd_glyph"
-__print_color B2E6EA "$pwd_string"
+__print_color EBDBB2 "$pwd_glyph"
+__print_color 458588 "$pwd_string"
 
 
 # Git
@@ -39,8 +39,8 @@ if git_is_repo
     set -l git_glyph " on "
     set -l git_branch_glyph
 
-    __print_color ffffff "$git_glyph"
-    __print_color 9AB6F9 "$branch_name"
+    __print_color EBDBB2 "$git_glyph"
+    __print_color 83A598 "$branch_name"
 
     if git_is_touched
         if git_is_staged
@@ -54,7 +54,7 @@ if git_is_repo
         end
     end
 
-    __print_color 9AB6F9 "$git_branch_glyph"
+    __print_color 83A598 "$git_branch_glyph"
 
     if __git_upstream_configured
          set -l git_ahead (command git rev-list --left-right --count HEAD...@"{u}" 2> /dev/null | awk '
