@@ -34,6 +34,7 @@
     vim-rhubarb
     vim-tmux-navigator
     vim-vsnip
+    vim-slime
     (nvim-treesitter.withPlugins (plugins: with plugins; [
       bash
       c
@@ -76,11 +77,12 @@
   ];
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua
-    ./Plugins/nerdcommenter.lua
-    ./Plugins/telescope.lua
-    ./Plugins/venn.lua
     ./Plugins/autopairs.lua
+    ./Plugins/nerdcommenter.lua
+    ./Plugins/slime.lua
+    ./Plugins/telescope.lua
     ./Plugins/tree.lua
+    ./Plugins/venn.lua
     ./FileTypes/markdown.lua
     ./FileTypes/nix.lua
     ./FileTypes/rust.lua
