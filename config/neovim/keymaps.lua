@@ -71,3 +71,14 @@ vim.keymap.set('n', '<C-g>', ':Telescope git_commits theme=ivy<cr>')
 
 -- toggle keymappings for venn
 vim.keymap.set('n', '<leader>d', Toggle_venn)
+
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+vim.keymap.set('i', '<C-j>', '<Plug>(copilot-next)')
+vim.keymap.set('i', '<C-k>', '<Plug>(copilot-previous)')
+vim.keymap.set('i', '<C-f>', function()
+    local copilot_keys = vim.fn["copilot#Accept"]()
+    if copilot_keys ~= "" then
+        vim.api.nvim_feedkeys(copilot_keys, "i", true)
+    end
+end)
