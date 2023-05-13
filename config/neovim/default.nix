@@ -15,6 +15,7 @@
     emmet-vim
     gitsigns-nvim
     gruvbox-nvim
+    lightline-lsp
     lightline-vim
     lspkind-nvim
     nerdcommenter
@@ -25,6 +26,7 @@
     nvim-web-devicons
     swift-vim
     telescope-nvim
+    trouble-nvim
     venn-nvim
     vim-better-whitespace
     vim-easy-align
@@ -83,6 +85,7 @@
     ./Plugins/slime.lua
     ./Plugins/telescope.lua
     ./Plugins/tree.lua
+    ./Plugins/trouble.lua
     ./Plugins/venn.lua
     ./FileTypes/markdown.lua
     ./FileTypes/nix.lua
