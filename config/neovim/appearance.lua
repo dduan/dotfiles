@@ -15,10 +15,6 @@ vim.opt.ruler = true
 -- show the column limit
 vim.opt.colorcolumn = '80'
 
--- [Molokai]
-vim.g.molokai_original = 1
-vim.cmd.colorscheme("gruvbox")
-
 vim.opt.termguicolors = true
 
 require('nvim-web-devicons').setup {
@@ -49,6 +45,11 @@ require('nvim-web-devicons').setup {
   }
  };
 }
+
+require('gruvbox').setup {
+    contrast = 'hard'
+}
+vim.cmd.colorscheme("gruvbox")
 
 -- Make vim transparent
 vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })

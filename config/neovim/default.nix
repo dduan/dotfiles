@@ -14,7 +14,7 @@
     editorconfig-vim
     emmet-vim
     gitsigns-nvim
-    gruvbox
+    gruvbox-nvim
     lspkind-nvim
     nerdcommenter
     nvim-autopairs
