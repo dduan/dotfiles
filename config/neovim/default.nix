@@ -15,6 +15,7 @@
     emmet-vim
     gitsigns-nvim
     gruvbox-nvim
+    lightline-vim
     lspkind-nvim
     nerdcommenter
     nvim-autopairs
@@ -25,16 +26,15 @@
     swift-vim
     telescope-nvim
     venn-nvim
-    vim-airline
     vim-better-whitespace
     vim-easy-align
     vim-fugitive
     vim-highlightedyank
     vim-markdown
     vim-rhubarb
+    vim-slime
     vim-tmux-navigator
     vim-vsnip
-    vim-slime
     (nvim-treesitter.withPlugins (plugins: with plugins; [
       bash
       c
@@ -78,6 +78,7 @@
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua
     ./Plugins/autopairs.lua
+    ./Plugins/lightline.lua
     ./Plugins/nerdcommenter.lua
     ./Plugins/slime.lua
     ./Plugins/telescope.lua
