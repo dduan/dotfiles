@@ -5,7 +5,6 @@
   vimAlias = true;
   vimdiffAlias = true;
   plugins = with vimPlugins; [
-    auto-pairs
     cmp-buffer
     cmp-cmdline
     cmp-nvim-lsp
@@ -18,6 +17,7 @@
     gruvbox
     lspkind-nvim
     nerdcommenter
+    nvim-autopairs
     nvim-cmp
     nvim-lspconfig
     nvim-tree-lua
