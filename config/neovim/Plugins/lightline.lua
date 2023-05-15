@@ -3,7 +3,7 @@ vim.g.lightline = {
     active = {
         left = {
             { 'paste', 'gitbranch' },
-            { 'readonly', 'filename', 'fileencoding', 'modified' }
+            { 'readonly', 'filename', 'modified' }
         },
         right = {
             {
@@ -13,7 +13,7 @@ vim.g.lightline = {
                 'linter_hints',
                 'linter_ok'
             },
-            { 'spell', 'percent', 'column' },
+            { 'spell', 'fileencoding', 'percent', 'column' },
         }
     },
     component = {
