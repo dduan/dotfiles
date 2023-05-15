@@ -2,7 +2,7 @@ vim.g.lightline = {
     colorscheme = 'one',
     active = {
         left = {
-            { 'paste', 'spell', 'gitbranch' },
+            { 'paste', 'gitbranch' },
             { 'readonly', 'filename', 'fileencoding', 'modified' }
         },
         right = {
@@ -13,7 +13,7 @@ vim.g.lightline = {
                 'linter_hints',
                 'linter_ok'
             },
-            { 'percent', 'column' },
+            { 'spell', 'percent', 'column' },
         }
     },
     component = {
