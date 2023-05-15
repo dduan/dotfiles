@@ -36,11 +36,7 @@ vim.keymap.set('x', 'p', '"_dP')
 vim.keymap.set('v', '<leader>s', ":'<,'>!sort -f<cr>")
 
 -- Toggle quickfix windown
-vim.keymap.set('n', '<leader><leader>', function()
-    local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
-    local action = qf_winid > 0 and 'cclose' or 'copen'
-    vim.cmd(action)
-end)
+vim.keymap.set('n', '<leader><leader>', ":TroubleToggle quickfix<cr>")
 
 -- Make workflow
 vim.keymap.set('n', '<leader>m', ':let &makeprg=""<left>')
