@@ -50,3 +50,5 @@ vim.opt.foldenable = false
 -- found' messages
 -- set shortmess+=cI
 vim.opt.shortmess:append({ c = true, I = true })
+
+vim.opt.conceallevel = 2
