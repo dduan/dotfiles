@@ -1,3 +1,1 @@
-require("trouble").setup({
-    auto_open = true,
-})
+require("trouble").setup()
