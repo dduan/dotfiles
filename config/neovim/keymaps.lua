@@ -40,7 +40,7 @@ vim.keymap.set('n', '<leader><leader>', ":TroubleToggle quickfix<cr>")
 
 -- Make workflow
 vim.keymap.set('n', '<leader>m', ':let &makeprg=""<left>')
-vim.keymap.set('n', '<leader>b', ':cclose<cr>:silent !clear<cr>:make<cr>')
+vim.keymap.set('n', '<leader>b', ':TroubleClose<cr>:cclose<cr>:silent !clear<cr>:make<cr>')
 
 -- Quickly insert a timestamp
 vim.keymap.set('n', 'tt', '=%strftime("%FT%T")<cr>p=%strftime("%z")<cr>phi:<esc>')
