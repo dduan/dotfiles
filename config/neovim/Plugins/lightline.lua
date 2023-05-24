@@ -3,7 +3,7 @@ vim.g.lightline = {
     active = {
         left = {
             { 'paste', 'gitbranch' },
-            { 'readonly', 'filename', 'modified' }
+            { 'readonly', 'relativepath', 'modified' }
         },
         right = {
             {
