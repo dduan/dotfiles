@@ -37,6 +37,7 @@
     vim-slime
     vim-tmux-navigator
     vim-vsnip
+    zig-vim
     (nvim-treesitter.withPlugins (plugins: with plugins; [
       bash
       c
