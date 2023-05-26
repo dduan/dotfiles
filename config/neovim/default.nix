@@ -23,6 +23,7 @@
     nvim-cmp
     nvim-lspconfig
     nvim-tree-lua
+    nvim-treesitter-context
     nvim-web-devicons
     swift-vim
     telescope-nvim
@@ -81,6 +82,7 @@
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua
     ./Plugins/autopairs.lua
+    ./Plugins/context.lua
     ./Plugins/lightline.lua
     ./Plugins/nerdcommenter.lua
     ./Plugins/slime.lua

@@ -54,7 +54,7 @@ vim.cmd.colorscheme("gruvbox")
 -- Make vim transparent
 vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
-
+vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#000000" })
 require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
