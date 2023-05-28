@@ -17,6 +17,8 @@ vim.opt.colorcolumn = '80'
 
 vim.opt.termguicolors = true
 
+vim.opt.signcolumn = 'yes'
+
 require('nvim-web-devicons').setup {
  default = true;
  strict = true;
