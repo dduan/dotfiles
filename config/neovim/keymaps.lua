@@ -36,7 +36,7 @@ vim.keymap.set('x', 'p', '"_dP')
 vim.keymap.set('v', '<leader>s', ":'<,'>!sort -f<cr>")
 
 -- Toggle quickfix windown
-vim.keymap.set('n', '<leader><leader>', ":TroubleToggle quickfix<cr>")
+vim.keymap.set('n', '<leader><leader>', ":TroubleToggle<cr>")
 
 -- Make workflow
 vim.keymap.set('n', '<leader>m', ':let &makeprg=""<left>')

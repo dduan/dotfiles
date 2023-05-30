@@ -88,7 +88,6 @@
     ./Plugins/slime.lua
     ./Plugins/telescope.lua
     ./Plugins/tree.lua
-    ./Plugins/trouble.lua
     ./Plugins/venn.lua
     ./FileTypes/markdown.lua
     ./FileTypes/nix.lua
