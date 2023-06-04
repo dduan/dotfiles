@@ -59,6 +59,7 @@ vim.keymap.set('n', '<leader>j', ':lua vim.lsp.buf.definition()<cr>')
 
 -- LSP hover
 vim.keymap.set('n', '<leader>h', ':lua vim.lsp.buf.hover()<cr>')
+vim.keymap.set('n', '<Leader><CR>', ':LspRestart<cr>')
 
 -- Telescope
 vim.keymap.set('n', '<C-p>', ':Telescope find_files theme=ivy<cr>')

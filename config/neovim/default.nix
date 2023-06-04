@@ -15,8 +15,7 @@
     emmet-vim
     gitsigns-nvim
     gruvbox-nvim
-    lightline-lsp
-    lightline-vim
+    lualine-nvim
     lspkind-nvim
     nerdcommenter
     nvim-autopairs
@@ -83,7 +82,7 @@
     ./init.lua
     ./Plugins/autopairs.lua
     ./Plugins/context.lua
-    ./Plugins/lightline.lua
+    ./Plugins/statusline.lua
     ./Plugins/nerdcommenter.lua
     ./Plugins/slime.lua
     ./Plugins/telescope.lua
