@@ -5,6 +5,7 @@
   vimAlias = true;
   vimdiffAlias = true;
   plugins = with vimPlugins; [
+    barbar-nvim
     cmp-buffer
     cmp-cmdline
     cmp-nvim-lsp
@@ -81,6 +82,7 @@
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua
     ./Plugins/autopairs.lua
+    ./Plugins/barbar.lua
     ./Plugins/context.lua
     ./Plugins/statusline.lua
     ./Plugins/nerdcommenter.lua

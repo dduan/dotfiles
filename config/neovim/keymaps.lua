@@ -79,3 +79,12 @@ vim.keymap.set('i', '<C-f>', function()
         vim.api.nvim_feedkeys(copilot_keys, "i", true)
     end
 end)
+
+-- Tabs
+vim.keymap.set('n', '<', ':BufferPrevious<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '>', ':BufferNext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>1', ':BufferGoto 1<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>2', ':BufferGoto 2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>3', ':BufferGoto 3<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>4', ':BufferGoto 4<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>5', ':BufferGoto 5<CR>', { noremap = true, silent = true })
