@@ -14,7 +14,13 @@ require('lualine').setup {
     sections = {
         lualine_a = {'branch'},
         lualine_b = {'diff'},
-        lualine_c = {relative_path},
+        lualine_c = {
+            relative_path,
+            {
+                'diagnostics',
+                update_in_insert = true,
+            },
+        },
         lualine_x = {
             'encoding',
             {
@@ -23,13 +29,10 @@ require('lualine').setup {
             },
         },
         lualine_y = {
-            {
-                'diagnostics',
-                update_in_insert = true,
-            },
-            'searchcount'
+            'progress',
+            'searchcount',
         },
-        lualine_z = {'progress', '%c'},
+        lualine_z = {'%c'},
     },
     extensions = {'fugitive', 'nvim-tree', 'trouble', 'quickfix'},
 }
