@@ -30,8 +30,7 @@ vim.keymap.set('n', '<C-c>', ':wa<cr>')
 vim.keymap.set('c', 'Wq', 'wq')
 
 -- Better paste
-vim.keymap.set('x', 'p', '"_dp')
-vim.keymap.set('x', 'P', '"_dP')
+vim.keymap.set('x', 'p', '"_dP', { noremap = true, silent = true })
 
 -- Sort lines in alphabetical order
 vim.keymap.set('v', '<leader>s', ":'<,'>!sort -f<cr>")
