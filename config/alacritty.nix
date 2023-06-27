@@ -6,7 +6,7 @@
       x = 220;
       y = 220;
     };
-    env.TERM = "xterm-256color";
+    env.TERM = "alacritty";
     shell = {
       program = "${fish}/bin/fish";
       args = [

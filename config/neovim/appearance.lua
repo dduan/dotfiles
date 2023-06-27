@@ -57,6 +57,13 @@ vim.cmd.colorscheme("gruvbox")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#000000" })
+
+-- Spell checking
+vim.api.nvim_set_hl(0, "SpellBad", { sp="red", undercurl=true, fg="none", bg="none", ctermfg="none", ctermbg="none"})
+vim.api.nvim_set_hl(0, "SpellCap", { sp="yellow", undercurl=true, fg="none", bg="none", ctermfg="none", ctermbg="none"})
+vim.api.nvim_set_hl(0, "SpellRare", { sp="blue", undercurl=true, fg="none", bg="none", ctermfg="none", ctermbg="none"})
+vim.api.nvim_set_hl(0, "SpellLocal", { sp="orange", undercurl=true, fg="none", bg="none", ctermfg="none", ctermbg="none"})
+
 require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
