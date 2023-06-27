@@ -52,3 +52,6 @@ vim.opt.foldenable = false
 vim.opt.shortmess:append({ c = true, I = true })
 
 vim.opt.conceallevel = 2
+
+-- Enable spellcheck for camelCase
+vim.opt.spelloptions="camel"
