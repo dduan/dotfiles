@@ -7,7 +7,7 @@ These are dotfiles for stand-alone home-manager.
 These are things not managed by home-manager. They should exist somehow.
 
 - Nix with flake support
-- Alacritty installed NOT by nix
+- Alacritty installed NOT by nix, and its `terminfo`
 - gh
 - Some sort of `make` command with basic GNU Make compatibility
 
