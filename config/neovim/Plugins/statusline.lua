@@ -30,9 +30,9 @@ require('lualine').setup {
         },
         lualine_y = {
             'progress',
-            'searchcount',
+            '%c',
         },
-        lualine_z = {'%c'},
+        lualine_z = {'searchcount'},
     },
     extensions = {'fugitive', 'nvim-tree', 'trouble', 'quickfix'},
 }
