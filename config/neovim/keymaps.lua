@@ -43,7 +43,7 @@ vim.keymap.set('n', '<leader>m', ':let &makeprg=""<left>')
 vim.keymap.set('n', '<leader>b', ':TroubleClose<cr>:cclose<cr>:silent !clear<cr>:make<cr>')
 
 -- Quickly insert a timestamp
-vim.keymap.set('n', 'tt', '=%strftime("%FT%T")<cr>p=%strftime("%z")<cr>phi:<esc>')
+vim.keymap.set('n', 'tt', 'a<C-R>=strftime("%FT%T%z")<CR><esc>')
 
 -- Toggle nvim-tree
 vim.keymap.set('n', '<leader>a', ':NvimTreeToggle<cr>')
