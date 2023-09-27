@@ -94,6 +94,7 @@
     ./FileTypes/nix.lua
     ./FileTypes/rust.lua
     ./FileTypes/swift.lua
+    ./FileTypes/gitcommit.lua
     ./appearance.lua
     ./lsp.lua
     ./keymaps.lua

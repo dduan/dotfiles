@@ -8,6 +8,7 @@
     branch.main.pushRemote = "NOPE";
     color.ui = true;
     core.editor = "nvim";
+    core.commentChar = ";";
     init.defaultBranch = "main";
     pull.rebase = true;
     rerere.enabled = true;
