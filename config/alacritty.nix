@@ -2,10 +2,6 @@
 {
   enable = true;
   settings = {
-    dpi = {
-      x = 220;
-      y = 220;
-    };
     env.TERM = "alacritty";
     shell = {
       program = "${fish}/bin/fish";
@@ -32,10 +28,6 @@
         family = "SF Mono Nerd";
         style = "Bold Italic";
       };
-    };
-    window.dimentions = {
-      columns = 120;
-      lines = 50;
     };
     bell = {
       animation = "EaseOutExpo";
