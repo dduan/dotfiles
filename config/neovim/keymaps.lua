@@ -89,3 +89,6 @@ vim.keymap.set('n', '<leader>2', ':BufferGoto 2<CR>', { noremap = true, silent =
 vim.keymap.set('n', '<leader>3', ':BufferGoto 3<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>4', ':BufferGoto 4<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>5', ':BufferGoto 5<CR>', { noremap = true, silent = true })
+
+-- Disable sql.vim default keymaps
+vim.g.omni_sql_no_default_maps = 0
