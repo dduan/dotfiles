@@ -5,13 +5,26 @@
   userEmail = "daniel@duan.ca";
   extraConfig = {
     advice.skippedCherryPicks = false;
-    branch.main.pushRemote = "NOPE";
+    branch = {
+      main.pushRemote = "NOPE";
+      sort = "-committerdate";
+    };
     color.ui = true;
-    core.editor = "nvim";
-    core.commentChar = ";";
+    core = {
+      commentChar = ";";
+      editor = "nvim";
+    };
+    fetch = {
+      fsckobjects = true;
+      prune = true;
+      prunetags = true;
+    };
     init.defaultBranch = "main";
     pull.rebase = true;
+    receive.fsckobjects = true;
     rerere.enabled = true;
+    transfer.fsckobjects = true;
+    diff.algorithm = "histogram";
   };
   ignores = [
     ".DS_Store"
