@@ -13,9 +13,11 @@ vim.opt.autowrite = true
 vim.opt.autoread = true
 
 -- tab settings
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+if (not vim.fn.filereadable(".editorconfig")) then
+    vim.opt.shiftwidth = 4
+    vim.opt.tabstop = 4
+    vim.opt.softtabstop = 4
+end
 vim.opt.expandtab = true
 vim.opt.smarttab = true
 
