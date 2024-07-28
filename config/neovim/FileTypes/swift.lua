@@ -24,14 +24,14 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
-if (vim.fn.executable('swift-format') == 1 and vim.fn.filereadable(".swift-format")) then
+if (vim.fn.executable('swift-format') == 1 and vim.fn.filereadable("./.swift-format")) then
     vim.api.nvim_create_autocmd(
         {'BufWritePost'},
         {
             pattern = {'*.swift'},
             callback = function()
                     vim.cmd [[
-                    silent !swift-format format -i %
+                    silent !swift-format format -i --configuration .swift-format %
                     e
                     ]]
                 end

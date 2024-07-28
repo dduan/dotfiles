@@ -71,7 +71,6 @@
       scheme
       solidity
       sql
-      swift
       toml
       typescript
       vim
