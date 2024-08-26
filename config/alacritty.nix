@@ -7,7 +7,7 @@
       program = "${fish}/bin/fish";
       args = [
         "--login"
-        "--command=tmux attach; or tmux"
+        "--command=env SHELL=${fish}/bin/fish tmux attach; or tmux"
       ];
     };
     font = {

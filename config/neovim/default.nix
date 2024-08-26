@@ -25,7 +25,6 @@
     nvim-tree-lua
     nvim-treesitter-context
     nvim-web-devicons
-    swift-vim
     telescope-nvim
     trouble-nvim
     venn-nvim
