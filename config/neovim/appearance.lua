@@ -64,12 +64,4 @@ vim.api.nvim_set_hl(0, "SpellCap", { sp="yellow", undercurl=true, fg="none", bg=
 vim.api.nvim_set_hl(0, "SpellRare", { sp="blue", undercurl=true, fg="none", bg="none", ctermfg="none", ctermbg="none"})
 vim.api.nvim_set_hl(0, "SpellLocal", { sp="orange", undercurl=true, fg="none", bg="none", ctermfg="none", ctermbg="none"})
 
-require('nvim-treesitter.configs').setup {
-  highlight = {
-    enable = true,
-    disable = { "swift", "markdown" },
-    additional_vim_regex_highlighting = false,
-  },
-}
-
 require('gitsigns').setup()

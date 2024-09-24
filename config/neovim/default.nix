@@ -6,95 +6,37 @@
   vimdiffAlias = true;
   plugins = with vimPlugins; [
     barbar-nvim
-    cmp-buffer
-    cmp-cmdline
-    cmp-nvim-lsp
-    cmp-path
-    cmp-vsnip
     copilot-vim
     editorconfig-vim
-    emmet-vim
     gitsigns-nvim
     gruvbox-nvim
     lualine-nvim
-    lspkind-nvim
     nerdcommenter
     nvim-autopairs
-    nvim-cmp
-    nvim-lspconfig
     nvim-tree-lua
-    nvim-treesitter-context
     nvim-web-devicons
     telescope-nvim
-    trouble-nvim
-    venn-nvim
     vim-better-whitespace
-    vim-easy-align
     vim-fugitive
     vim-highlightedyank
     vim-markdown
-    vim-rhubarb
-    vim-slime
     vim-tmux-navigator
-    vim-vsnip
     zig-vim
-    (nvim-treesitter.withPlugins (plugins: with plugins; [
-      bash
-      c
-      cmake
-      cpp
-      css
-      diff
-      dockerfile
-      dot
-      fish
-      gitattributes
-      gitignore
-      git_rebase
-      go
-      haskell
-      html
-      javascript
-      json
-      json5
-      kotlin
-      latex
-      lua
-      make
-      nix
-      perl
-      proto
-      python
-      rst
-      rust
-      scheme
-      solidity
-      sql
-      toml
-      typescript
-      vim
-      yaml
-      zig
-    ]))
   ];
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua
     ./Plugins/autopairs.lua
     ./Plugins/barbar.lua
-    ./Plugins/context.lua
     ./Plugins/statusline.lua
     ./Plugins/nerdcommenter.lua
-    ./Plugins/slime.lua
     ./Plugins/telescope.lua
     ./Plugins/tree.lua
-    ./Plugins/venn.lua
     ./FileTypes/markdown.lua
     ./FileTypes/nix.lua
     ./FileTypes/rust.lua
     ./FileTypes/swift.lua
     ./FileTypes/gitcommit.lua
     ./appearance.lua
-    ./lsp.lua
     ./keymaps.lua
   ]);
 }

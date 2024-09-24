@@ -51,23 +51,10 @@ vim.keymap.set('n', '<leader>a', ':NvimTreeToggle<cr>')
 -- [vim-fugitive]
 vim.keymap.set('n', '<leader>w', ':Git<cr>')
 
--- Markdown table formatting
-vim.keymap.set('v', '<leader>t', ':EasyAlign *|<cr>')
-
--- Jump to definition
-vim.keymap.set('n', '<leader>j', ':lua vim.lsp.buf.definition()<cr>')
-
--- LSP hover
-vim.keymap.set('n', '<leader>h', ':lua vim.lsp.buf.hover()<cr>')
-vim.keymap.set('n', '<Leader><CR>', ':LspRestart<cr>')
-
 -- Telescope
 vim.keymap.set('n', '<C-p>', ':Telescope find_files theme=ivy<cr>')
 vim.keymap.set('n', '<C-s>', ':Telescope live_grep theme=ivy<cr>')
 vim.keymap.set('n', '<C-g>', ':Telescope git_commits theme=ivy<cr>')
-
--- toggle keymappings for venn
-vim.keymap.set('n', '<leader>d', Toggle_venn)
 
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true

@@ -10,10 +10,3 @@ require("nvim-autopairs").setup {
         keys = '123456789',
     },
 }
--- If you want insert `(` after select function or method item
-local autopairs = require('nvim-autopairs.completion.cmp')
-local cmp = require('cmp')
-cmp.event:on(
-  'confirm_done',
-  autopairs.on_confirm_done()
-)
