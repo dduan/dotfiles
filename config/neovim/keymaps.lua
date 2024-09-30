@@ -81,3 +81,6 @@ vim.keymap.set('n', '<leader><leader>', function()
     local action = qf_winid > 0 and 'cclose' or 'copen'
     vim.cmd('botright '..action)
 end, { noremap = true, silent = true })
+
+-- Jump to definition
+vim.keymap.set('n', '<leader>j', ':lua vim.lsp.buf.definition()<cr>')

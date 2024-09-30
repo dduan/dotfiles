@@ -7,13 +7,18 @@
   package = pkgs-unstable.neovim-unwrapped;
   plugins = with vimPlugins; [
     barbar-nvim
+    cmp-nvim-lsp
+    cmp-vsnip
     copilot-vim
     editorconfig-vim
     gitsigns-nvim
     gruvbox-nvim
     lualine-nvim
+    lspkind-nvim
     nerdcommenter
     nvim-autopairs
+    nvim-cmp
+    nvim-lspconfig
     nvim-tree-lua
     nvim-web-devicons
     telescope-nvim
@@ -40,5 +45,6 @@
     ./FileTypes/gitcommit.lua
     ./appearance.lua
     ./keymaps.lua
+    ./lsp.lua
   ]);
 }
