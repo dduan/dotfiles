@@ -3,6 +3,7 @@
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     tre-command.url = "github:dduan/tre";
     ea.url = "github:dduan/ea";
   };
@@ -33,14 +34,22 @@
                     {
                       tre-command = inputs.tre-command.defaultPackage.${system};
                       ea = inputs.ea.defaultPackage.${system};
+                      neovim-nightly = inputs.neovim-nightly-overlay.packages.${system}.default;
                     })
                 ];
                 inherit system;
               };
+              extraSpecialArgs = {
+                pkgs-unstable = import inputs.nixpkgs-unstable {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
+              };
             };
         };
     in
-    with import ./lib; {
+    with import
+      ./lib; {
       homeConfigurations = builtins.listToAttrs [
         (mkConfig { username = "dan"; host = "mbp2.local"; arch = arch.aarch64; os = os.darwin; })
         (mkConfig { username = "dan"; host = "the-puter"; arch = arch.x86_64; os = os.linux; })

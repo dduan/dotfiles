@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 let localPackages = import ../../pkgs { inherit pkgs; }; in
 with pkgs;
 [

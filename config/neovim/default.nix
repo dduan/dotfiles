@@ -1,9 +1,10 @@
-{ lib, vimPlugins }:
+{ lib, vimPlugins, pkgs, pkgs-unstable, ... }:
 {
   enable = true;
   viAlias = true;
   vimAlias = true;
   vimdiffAlias = true;
+  package = pkgs-unstable.neovim-unwrapped;
   plugins = with vimPlugins; [
     barbar-nvim
     copilot-vim
