@@ -34,5 +34,5 @@ require('lualine').setup {
         },
         lualine_z = {'searchcount'},
     },
-    extensions = {'fugitive', 'nvim-tree', 'trouble', 'quickfix'},
+    extensions = {'fugitive', 'nvim-tree', 'quickfix'},
 }

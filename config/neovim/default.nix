@@ -17,6 +17,7 @@
     nvim-web-devicons
     telescope-nvim
     vim-better-whitespace
+    vim-dispatch
     vim-fugitive
     vim-highlightedyank
     vim-markdown
