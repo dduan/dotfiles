@@ -64,18 +64,28 @@ cmp.setup({
         { name = 'buffer' },
     })
 })
+
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local attach_inlay_hint = function(client, bufnr)
+    vim.lsp.inlay_hint.enable(true, {bufnr=bufnr})
+end
+
 require('lspconfig')['sourcekit'].setup {
-    capabilities = capabilities,
-    cmd = { "sourcekit-lsp" }
+    -- capabilities = capabilities,
+    cmd = { "sourcekit-lsp" },
+    on_attach = attach_inlay_hint,
 }
 require('lspconfig')['rust_analyzer'].setup {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
+    on_attach = attach_inlay_hint,
 }
 require('lspconfig')['pyright'].setup {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
+    on_attach = attach_inlay_hint,
 }
 require('lspconfig')['zls'].setup {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
+    on_attach = attach_inlay_hint,
 }
+
