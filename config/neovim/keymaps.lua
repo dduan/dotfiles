@@ -33,8 +33,17 @@ vim.keymap.set('c', 'Wq', 'wq')
 vim.keymap.set('v', '<leader>s', ":'<,'>!sort -f<cr>")
 
 -- Make workflow
-vim.keymap.set('n', '<leader>m', ':compiler ""<left>')
-vim.keymap.set('n', '<leader>b', ':Make ')
+function _G.set_make_command()
+    local input = vim.fn.input(":Dispatch> ")
+    vim.w.dispatch_content = input
+end
+
+function _G.call_make_command()
+   vim.cmd("Dispatch " .. vim.w.dispatch_content)
+end
+
+vim.keymap.set('n', '<leader>m', ':lua set_make_command()<CR>')
+vim.keymap.set('n', '<leader>b', ':lua call_make_command()<CR>')
 
 -- Quickly insert a timestamp
 vim.keymap.set('n', 'tt', 'a<C-R>=strftime("%FT%T%z")<CR><esc>hi:<esc>$')
