@@ -17,6 +17,6 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "swift",
   callback = function()
     -- Set the errorformat for Swift files
-    vim.bo.errorformat = '%f:%l:%c: error: %m'
+    vim.bo.errorformat = '%f:%l:%c: %trror: %m'
   end,
 })
