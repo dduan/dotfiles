@@ -90,3 +90,6 @@ require('lspconfig')['zls'].setup {
     on_attach = attach_inlay_hint,
 }
 
+vim.diagnostic.config({
+  virtual_text = false,
+})
