@@ -6,6 +6,7 @@
   vimdiffAlias = true;
   package = pkgs-unstable.neovim-unwrapped;
   plugins = with vimPlugins; [
+    asyncrun-vim
     barbar-nvim
     cmp-nvim-lsp
     cmp-vsnip
@@ -23,7 +24,6 @@
     nvim-web-devicons
     telescope-nvim
     vim-better-whitespace
-    vim-dispatch
     vim-fugitive
     vim-highlightedyank
     vim-markdown

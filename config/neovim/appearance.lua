@@ -65,3 +65,5 @@ vim.api.nvim_set_hl(0, "SpellRare", { sp="blue", undercurl=true, fg="none", bg="
 vim.api.nvim_set_hl(0, "SpellLocal", { sp="orange", undercurl=true, fg="none", bg="none", ctermfg="none", ctermbg="none"})
 
 require('gitsigns').setup()
+
+vim.g.asyncrun_open = 8
