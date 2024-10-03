@@ -90,10 +90,6 @@ require('lspconfig')['zls'].setup {
     on_attach = attach_inlay_hint,
 }
 
-vim.diagnostic.config({
-  virtual_text = false,
-})
-
 -- Show diagnostics for the current line in a floating window
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
@@ -115,6 +111,16 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
   }
 )
 
-vim.diagnostic.config{
-  float={ border = _border }
-}
+vim.diagnostic.config({
+  virtual_text = false,
+  underline = true,
+  float = { border = _border },
+  signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN]  = "",
+            [vim.diagnostic.severity.INFO]  = "",
+            [vim.diagnostic.severity.HINT]  = "",
+        },
+    },
+})
