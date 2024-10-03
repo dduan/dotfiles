@@ -93,3 +93,5 @@ end, { noremap = true, silent = true })
 
 -- Jump to definition
 vim.keymap.set('n', '<leader>j', ':lua vim.lsp.buf.definition()<cr>')
+-- LSP Hover
+vim.keymap.set('n', '<leader>h', ':lua vim.lsp.buf.hover()<cr>')
