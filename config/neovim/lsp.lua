@@ -69,6 +69,7 @@ cmp.setup({
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local attach_inlay_hint = function(client, bufnr)
     vim.lsp.inlay_hint.enable(true, {bufnr=bufnr})
+    client.server_capabilities.semanticTokensProvider = nil
 end
 
 require('lspconfig')['sourcekit'].setup {
