@@ -25,11 +25,6 @@ cmp.setup({
             ellipsis_char = '…', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
         })
     },
-    snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        end,
-    },
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
@@ -41,8 +36,6 @@ cmp.setup({
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
             elseif has_words_before() then
                 cmp.complete()
             else
@@ -52,14 +45,11 @@ cmp.setup({
         ["<S-Tab>"] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                feedkey("<Plug>(vsnip-jump-prev)", "")
             end
         end, { "i", "s" }),
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'vsnip' },
     }, {
         { name = 'buffer' },
     })
