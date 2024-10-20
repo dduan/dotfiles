@@ -61,25 +61,23 @@ local attach_inlay_hint = function(client, bufnr)
     vim.lsp.inlay_hint.enable(true, {bufnr=bufnr})
     client.server_capabilities.semanticTokensProvider = nil
 end
-
-require('lspconfig')['sourcekit'].setup {
-    -- capabilities = capabilities,
+local lspconfig = require('lspconfig')
+lspconfig.sourcekit.setup {
     cmd = { "sourcekit-lsp" },
     on_attach = attach_inlay_hint,
 }
-require('lspconfig')['rust_analyzer'].setup {
-    -- capabilities = capabilities,
+lspconfig.rust_analyzer.setup {
     on_attach = attach_inlay_hint,
 }
-require('lspconfig')['pyright'].setup {
-    -- capabilities = capabilities,
+lspconfig.pyright.setup {
     on_attach = attach_inlay_hint,
 }
-require('lspconfig')['zls'].setup {
-    -- capabilities = capabilities,
+lspconfig.zls.setup {
     on_attach = attach_inlay_hint,
 }
-
+lspconfig.gopls.setup({
+    on_attach = attach_inlay_hint,
+})
 -- Show diagnostics for the current line in a floating window
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()

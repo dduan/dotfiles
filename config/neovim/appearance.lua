@@ -19,6 +19,9 @@ vim.opt.termguicolors = true
 
 vim.opt.signcolumn = 'yes'
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 0
+
 require('nvim-web-devicons').setup {
  default = true;
  strict = true;

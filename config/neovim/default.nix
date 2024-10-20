@@ -12,6 +12,7 @@
     cmp-vsnip
     copilot-vim
     editorconfig-vim
+    emmet-vim
     gitsigns-nvim
     gruvbox-nvim
     lualine-nvim
@@ -43,6 +44,7 @@
     ./FileTypes/rust.lua
     ./FileTypes/swift.lua
     ./FileTypes/gitcommit.lua
+    ./FileTypes/go.lua
     ./appearance.lua
     ./keymaps.lua
     ./lsp.lua

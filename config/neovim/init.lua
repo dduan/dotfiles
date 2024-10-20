@@ -58,4 +58,4 @@ vim.opt.conceallevel = 2
 -- Enable spellcheck for camelCase
 vim.opt.spelloptions="camel"
 
-vim.opt.updatetime = 2000
+vim.opt.updatetime = 800
