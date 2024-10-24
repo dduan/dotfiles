@@ -1,0 +1,5 @@
+bind generic g none
+bind generic gg move-first-line
+bind generic G move-last-line
+bind generic y none
+bind generic yy @sh -c "printf %s %(commit) | pbcopy"
