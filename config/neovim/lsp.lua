@@ -56,7 +56,7 @@ cmp.setup({
 })
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local attach_inlay_hint = function(client, bufnr)
     vim.lsp.inlay_hint.enable(true, {bufnr=bufnr})
     client.server_capabilities.semanticTokensProvider = nil
@@ -78,6 +78,11 @@ lspconfig.zls.setup {
 lspconfig.gopls.setup({
     on_attach = attach_inlay_hint,
 })
+lspconfig.templ.setup({
+    on_attach = attach_inlay_hint,
+})
+vim.filetype.add({ extension = { templ = "templ" } })
+
 -- Show diagnostics for the current line in a floating window
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()

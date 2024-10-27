@@ -1,4 +1,5 @@
 { lib, vimPlugins, pkgs, pkgs-unstable, ... }:
+let localPackages = import ../../pkgs { inherit pkgs; }; in
 {
   enable = true;
   viAlias = true;
@@ -30,6 +31,7 @@
     vim-markdown
     vim-tmux-navigator
     zig-vim
+    localPackages.templ-vim
   ];
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua

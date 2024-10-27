@@ -14,6 +14,7 @@ with pkgs;
   pyright
   ripgrep
   scc
+  templ
   tig
   tre-command
   wget
