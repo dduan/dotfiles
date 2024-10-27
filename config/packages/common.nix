@@ -16,4 +16,5 @@ with pkgs;
   tig
   tre-command
   wget
+  nodejs_22
 ]
