@@ -53,12 +53,13 @@ in
     ./Plugins/nerdcommenter.lua
     ./Plugins/telescope.lua
     ./Plugins/tree.lua
+    ./FileTypes/gitcommit.lua
+    ./FileTypes/go.lua
     ./FileTypes/markdown.lua
     ./FileTypes/nix.lua
     ./FileTypes/rust.lua
     ./FileTypes/swift.lua
-    ./FileTypes/gitcommit.lua
-    ./FileTypes/go.lua
+    ./FileTypes/templ.lua
     ./appearance.lua
     ./keymaps.lua
     ./lsp.lua

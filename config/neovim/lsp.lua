@@ -81,7 +81,6 @@ lspconfig.gopls.setup({
 lspconfig.templ.setup({
     on_attach = attach_inlay_hint,
 })
-vim.filetype.add({ extension = { templ = "templ" } })
 
 -- Show diagnostics for the current line in a floating window
 vim.api.nvim_create_autocmd("CursorHold", {
