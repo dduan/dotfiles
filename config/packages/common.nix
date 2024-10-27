@@ -1,5 +1,4 @@
 { pkgs, ... }:
-let localPackages = import ../../pkgs { inherit pkgs; }; in
 with pkgs;
 [
   bat
@@ -9,7 +8,6 @@ with pkgs;
   gnumake
   htop
   jq
-  localPackages.git-pile
   nixpkgs-fmt
   pyright
   ripgrep

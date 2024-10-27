@@ -7,7 +7,4 @@ import ./common.nix // {
     };
   };
   programs = import ../programs/linux.nix { inherit pkgs pkgs-unstable; };
-  xsession.windowManager = {
-    i3 = (import ../../lib).callPackages pkgs ../i3.nix { };
-  };
 }
