@@ -1,5 +1,17 @@
 { lib, vimPlugins, pkgs, pkgs-unstable, ... }:
-let localPackages = import ../../pkgs { inherit pkgs; }; in
+let
+  localPackages = import ../../pkgs { inherit pkgs; };
+  templ-vim = pkgs.vimUtils.buildVimPlugin {
+    pname = "templ-vim";
+    version = "2023-10-30";
+    src = pkgs.fetchFromGitHub {
+      owner = "joerdav";
+      repo = "templ.vim";
+      rev = "5cc48b93a4538adca0003c4bc27af844bb16ba24";
+      sha256 = "sha256-YdV8ioQJ10/HEtKQy1lHB4Tg9GNKkB0ME8CV/+hlgYs=";
+    };
+  };
+in
 {
   enable = true;
   viAlias = true;
@@ -8,7 +20,7 @@ let localPackages = import ../../pkgs { inherit pkgs; }; in
   package = pkgs-unstable.neovim-unwrapped;
   plugins = with vimPlugins; [
     asyncrun-vim
-    barbar-nvim
+    pkgs-unstable.vimPlugins.barbar-nvim
     cmp-nvim-lsp
     cmp-vsnip
     copilot-vim
@@ -16,8 +28,8 @@ let localPackages = import ../../pkgs { inherit pkgs; }; in
     emmet-vim
     gitsigns-nvim
     gruvbox-nvim
-    lualine-nvim
     lspkind-nvim
+    lualine-nvim
     nerdcommenter
     nvim-autopairs
     nvim-cmp
@@ -25,13 +37,13 @@ let localPackages = import ../../pkgs { inherit pkgs; }; in
     nvim-tree-lua
     nvim-web-devicons
     telescope-nvim
+    templ-vim
     vim-better-whitespace
     vim-fugitive
     vim-highlightedyank
     vim-markdown
     vim-tmux-navigator
     zig-vim
-    localPackages.templ-vim
   ];
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua
