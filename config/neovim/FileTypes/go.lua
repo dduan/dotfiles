@@ -1,14 +1,17 @@
-if (vim.fn.executable('gofmt') == 1) then
+if (vim.fn.executable('goimports') == 1) then
     vim.api.nvim_create_autocmd(
-        {'BufWritePost'},
+        {'BufWritePre'},
         {
             pattern = {'*.go'},
-            callback = function()
-                vim.cmd [[
-                    silent !goimports -w %
-                    e
-                ]]
-            end
+            callback = format("goimports -w")
+        }
+    )
+elseif (vim.fn.executable('gofmt') == 1) then
+    vim.api.nvim_create_autocmd(
+        {'BufWritePre'},
+        {
+            pattern = {'*.go'},
+            callback = format("gofmt -w")
         }
     )
 end

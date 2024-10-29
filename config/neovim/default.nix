@@ -47,6 +47,7 @@ in
   ];
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua
+    ./lib.lua
     ./Plugins/autopairs.lua
     ./Plugins/barbar.lua
     ./Plugins/statusline.lua

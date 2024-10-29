@@ -1,13 +1,7 @@
--- Auto-format Nix files
 vim.api.nvim_create_autocmd(
-    {'BufWritePost'},
+    {'BufWritePre'},
     {
         pattern = {'*.nix'},
-        callback = function()
-            vim.cmd [[
-                silent !nixpkgs-fmt %
-                e
-            ]]
-        end
+        callback = format("nixpkgs-fmt")
     }
 )
