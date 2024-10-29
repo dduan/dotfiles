@@ -6,9 +6,11 @@ with pkgs;
   fd
   fzf
   gnumake
+  gotools
   htop
   jq
   nixpkgs-fmt
+  nodejs_22
   pyright
   ripgrep
   scc
@@ -16,5 +18,4 @@ with pkgs;
   tig
   tre-command
   wget
-  nodejs_22
 ]
