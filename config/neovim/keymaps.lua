@@ -31,6 +31,31 @@ vim.keymap.set('n', '<C-c>', ':wa<cr>')
 
 -- I type Wq more often than wq
 vim.keymap.set('c', 'Wq', 'wq')
+vim.api.nvim_create_user_command(
+    'Write',
+    function(opts)
+        local args = opts.args
+        local bang = opts.bang and '!' or ''
+        local range = opts.range
+        local line1 = opts.line1
+        local line2 = opts.line2
+
+        if range == 0 then
+            -- No range specified, use whole file
+            vim.cmd('write' .. bang .. ' ' .. args)
+        else
+            -- Range specified, use line1,line2
+            vim.cmd(line1 .. ',' .. line2 .. 'write' .. bang .. ' ' .. args)
+        end
+    end,
+    {
+        nargs = '*',
+        bang = true,
+        range = '%',
+        complete = 'file',
+        bar = true,
+    }
+)
 
 -- Sort lines in alphabetical order
 vim.keymap.set('v', '<leader>s', ":'<,'>!sort -f<cr>")
@@ -96,3 +121,4 @@ vim.keymap.set('n', '<leader>j', ':lua vim.lsp.buf.definition()<cr>')
 
 -- LSP Hover
 vim.keymap.set('n', '<leader>h', ':lua vim.lsp.buf.hover()<cr>')
+
