@@ -4,11 +4,11 @@ if (vim.fn.executable('gofmt') == 1) then
         {
             pattern = {'*.go'},
             callback = function()
-                    vim.cmd [[
+                vim.cmd [[
                     silent !goimports -w %
                     e
-                    ]]
-                end
+                ]]
+            end
         }
     )
 end
