@@ -59,10 +59,7 @@
 
     fish_add_path $HOME/.local/bin
     fish_add_path /opt/homebrew/bin
-
-    set -gx SWIFTENV_ROOT "$HOME/.swiftenv"
-    fish_add_path "$SWIFTENV_ROOT/bin"
-    fish_add_path "$SWIFTENV_ROOT/shims"
+    fish_add_path /usr/local/go/bin
 
     export GIT_PILE_PREFIX="dd/"
 
