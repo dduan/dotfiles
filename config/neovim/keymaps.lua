@@ -122,3 +122,5 @@ vim.keymap.set('n', '<leader>j', ':lua vim.lsp.buf.definition()<cr>')
 -- LSP Hover
 vim.keymap.set('n', '<leader>h', ':lua vim.lsp.buf.hover()<cr>')
 
+-- Oil
+vim.keymap.set('n', '-', ':lua require("oil.actions").parent.callback()<cr>')
