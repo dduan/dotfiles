@@ -58,6 +58,7 @@
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
     fish_add_path $HOME/.local/bin
+    fish_add_path $HOME/go/bin
     fish_add_path /opt/homebrew/bin
     fish_add_path /usr/local/go/bin
 
