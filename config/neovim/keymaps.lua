@@ -73,8 +73,8 @@ vim.keymap.set('n', ']', ':cnext<CR>', noremapsilent)
 -- Quickly insert a timestamp
 vim.keymap.set('n', 'tt', 'a<C-R>=strftime("%FT%T%z")<CR><esc>hi:<esc>$')
 
--- Toggle nvim-tree
-vim.keymap.set('n', '<leader>a', ':NvimTreeToggle<cr>')
+-- Toggle oil
+vim.keymap.set('n', '<leader>a', ':vsp .<cr>')
 
 -- [vim-fugitive]
 vim.keymap.set('n', '<leader>w', ':Git<cr>')

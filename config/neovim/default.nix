@@ -20,7 +20,6 @@ in
   package = pkgs-unstable.neovim-unwrapped;
   plugins = with vimPlugins; [
     asyncrun-vim
-    pkgs-unstable.vimPlugins.barbar-nvim
     cmp-nvim-lsp
     cmp-vsnip
     copilot-vim
@@ -34,8 +33,9 @@ in
     nvim-autopairs
     nvim-cmp
     nvim-lspconfig
-    nvim-tree-lua
     nvim-web-devicons
+    oil-nvim
+    pkgs-unstable.vimPlugins.barbar-nvim
     telescope-nvim
     templ-vim
     vim-better-whitespace
@@ -53,7 +53,7 @@ in
     ./Plugins/statusline.lua
     ./Plugins/nerdcommenter.lua
     ./Plugins/telescope.lua
-    ./Plugins/tree.lua
+    ./Plugins/oil.lua
     ./FileTypes/gitcommit.lua
     ./FileTypes/go.lua
     ./FileTypes/markdown.lua
