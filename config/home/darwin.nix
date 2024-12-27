@@ -1,5 +1,5 @@
 { config, pkgs, pkgs-unstable, ... }:
-import ./common.nix // {
+import ./common.nix { inherit pkgs; } // {
   home =
     {
       file = {
