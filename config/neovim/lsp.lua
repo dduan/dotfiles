@@ -56,30 +56,26 @@ cmp.setup({
 })
 
 -- Set up lspconfig.
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local attach_inlay_hint = function(client, bufnr)
-    vim.lsp.inlay_hint.enable(true, {bufnr=bufnr})
-    client.server_capabilities.semanticTokensProvider = nil
-end
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 lspconfig.sourcekit.setup {
     cmd = { "sourcekit-lsp" },
-    on_attach = attach_inlay_hint,
+    capabilities = capabilities,
 }
 lspconfig.rust_analyzer.setup {
-    on_attach = attach_inlay_hint,
+    capabilities = capabilities,
 }
 lspconfig.pyright.setup {
-    on_attach = attach_inlay_hint,
+    capabilities = capabilities,
 }
 lspconfig.zls.setup {
-    on_attach = attach_inlay_hint,
+    capabilities = capabilities,
 }
 lspconfig.gopls.setup({
-    on_attach = attach_inlay_hint,
+    capabilities = capabilities,
 })
 lspconfig.templ.setup({
-    on_attach = attach_inlay_hint,
+    capabilities = capabilities,
 })
 
 -- Show diagnostics for the current line in a floating window
