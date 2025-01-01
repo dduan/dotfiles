@@ -64,7 +64,7 @@ vim.keymap.set('v', '<leader>s', ":'<,'>!sort -f<cr>")
 vim.keymap.set('n', '<leader>m', function()
     local input = vim.fn.input("make> ")
     if input == nil or input == '' then return end
-    vim.opt_local.makeprg = input
+    vim.opt_global.makeprg = input
 end, noremapsilent)
 vim.keymap.set('n', '<leader>b', ":AsyncRun -program=make<CR>", normapsilent)
 vim.keymap.set('n', '[', ':cprevious<CR>', noremapsilent)
