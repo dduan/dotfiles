@@ -1,12 +1,11 @@
 {
   inputs = {
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     tre-command.url = "github:dduan/tre";
     ea.url = "github:dduan/ea";
-    templ.url = "github:a-h/templ";
   };
   outputs = { self, home-manager, ... }@inputs:
     let
@@ -31,12 +30,10 @@
               ];
               pkgs = import inputs.nixpkgs {
                 overlays = [
-                  inputs.templ.overlays.default
                   (final: prev:
                     {
                       tre-command = inputs.tre-command.defaultPackage.${system};
                       ea = inputs.ea.defaultPackage.${system};
-                      neovim-nightly = inputs.neovim-nightly-overlay.packages.default;
                     })
                 ];
                 inherit system;
