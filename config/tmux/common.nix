@@ -30,6 +30,7 @@
     set -g status-right ""
     set -g status-interval 2
     set -g default-terminal "alacritty"
+    set -sg escape-time 5
     set-option -g status-position top
     setw -g aggressive-resize on
     unbind p

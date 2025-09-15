@@ -31,6 +31,7 @@
     "*.pyc"
     ".envrc"
     ".direnv"
+    ".ide_lint_disabled"
   ];
   delta = {
     enable = true;
