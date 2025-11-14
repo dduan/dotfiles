@@ -1,4 +1,5 @@
 { pkgs, ... }:
+let localPackages = import ../../pkgs { inherit pkgs; }; in
 with pkgs;
 [
   bat
@@ -9,6 +10,7 @@ with pkgs;
   gotools
   htop
   jq
+  localPackages.git-pile
   nixpkgs-fmt
   nodejs_22
   pyright
