@@ -5,6 +5,7 @@
   userEmail = "daniel@duan.ca";
   extraConfig = {
     advice.skippedCherryPicks = false;
+    advice.detachedHead = false;
     branch = {
       main.pushRemote = "NOPE";
       sort = "-committerdate";
