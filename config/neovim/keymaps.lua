@@ -126,4 +126,4 @@ vim.keymap.set('n', '<leader>h', ':lua vim.lsp.buf.hover()<cr>')
 vim.keymap.set('n', '-', ':lua require("oil.actions").parent.callback()<cr>')
 
 -- Text to journal entry
-vim.keymap.set('v', 'je', 'x:!shortcuts run jfc<cr>p')
+vim.keymap.set('v', 'tt', 'x:!shortcuts run jfc<cr>P')
