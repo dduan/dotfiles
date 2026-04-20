@@ -1,9 +1,8 @@
 {
   inputs = {
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     tre-command.url = "github:dduan/tre";
     ea.url = "github:dduan/ea";
   };
@@ -34,15 +33,23 @@
                     {
                       tre-command = inputs.tre-command.defaultPackage.${system};
                       ea = inputs.ea.defaultPackage.${system};
+                      # Work around
+                      # https://github.com/NixOS/nixpkgs/issues/507531 and
+                      # https://github.com/NixOS/nix/issues/6065 on
+                      # aarch64-darwin: cached fish can have an invalid code
+                      # signature and die.
+                      # FIXME: drop once upstream fixes land and substituted
+                      # fish is good again.
+                      fish =
+                        if system == "aarch64-darwin" then
+                          prev.fish.overrideAttrs (_: {
+                            NIX_FORCE_LOCAL_REBUILD = "darwin-codesign-fix";
+                          })
+                        else
+                          prev.fish;
                     })
                 ];
                 inherit system;
-              };
-              extraSpecialArgs = {
-                pkgs-unstable = import inputs.nixpkgs-unstable {
-                  inherit system;
-                  config.allowUnfree = true;
-                };
               };
             };
         };

@@ -1,9 +1,11 @@
 {}:
 {
   enable = true;
-  userName = "Daniel Duan";
-  userEmail = "daniel@duan.ca";
-  extraConfig = {
+  settings = {
+    user = {
+      name = "Daniel Duan";
+      email = "daniel@duan.ca";
+    };
     advice.skippedCherryPicks = false;
     advice.detachedHead = false;
     branch = {
@@ -34,11 +36,4 @@
     ".direnv"
     ".ide_lint_disabled"
   ];
-  delta = {
-    enable = true;
-    options = {
-      navigate = true;
-      line-numbers = true;
-    };
-  };
 }

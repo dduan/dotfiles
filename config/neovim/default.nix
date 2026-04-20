@@ -1,4 +1,4 @@
-{ lib, vimPlugins, pkgs, pkgs-unstable, ... }:
+{ lib, vimPlugins, pkgs, ... }:
 let
   localPackages = import ../../pkgs { inherit pkgs; };
   templ-vim = pkgs.vimUtils.buildVimPlugin {
@@ -17,9 +17,9 @@ in
   viAlias = true;
   vimAlias = true;
   vimdiffAlias = true;
-  package = pkgs-unstable.neovim-unwrapped;
   plugins = with vimPlugins; [
     asyncrun-vim
+    barbar-nvim
     cmp-nvim-lsp
     cmp-vsnip
     copilot-vim
@@ -35,7 +35,6 @@ in
     nvim-lspconfig
     nvim-web-devicons
     oil-nvim
-    pkgs-unstable.vimPlugins.barbar-nvim
     telescope-nvim
     templ-vim
     vim-better-whitespace

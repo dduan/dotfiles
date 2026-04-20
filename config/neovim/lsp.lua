@@ -57,25 +57,19 @@ cmp.setup({
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig = require('lspconfig')
-lspconfig.sourcekit.setup {
-    cmd = { "sourcekit-lsp" },
-    capabilities = capabilities,
-}
-lspconfig.rust_analyzer.setup {
-    capabilities = capabilities,
-}
-lspconfig.pyright.setup {
-    capabilities = capabilities,
-}
-lspconfig.zls.setup {
-    capabilities = capabilities,
-}
-lspconfig.gopls.setup({
+vim.lsp.config('*', {
     capabilities = capabilities,
 })
-lspconfig.templ.setup({
-    capabilities = capabilities,
+vim.lsp.config('sourcekit', {
+    cmd = { 'sourcekit-lsp' },
+})
+vim.lsp.enable({
+    'sourcekit',
+    'rust_analyzer',
+    'pyright',
+    'zls',
+    'gopls',
+    'templ',
 })
 
 -- Show diagnostics for the current line in a floating window

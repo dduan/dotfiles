@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 import ./common.nix { inherit pkgs; }// {
   home = {
     packages = import ../packages/linux.nix { inherit pkgs; };
@@ -6,5 +6,5 @@ import ./common.nix { inherit pkgs; }// {
       ".config/tig/config".source = ../tig_config_linux;
     };
   };
-  programs = import ../programs/linux.nix { inherit pkgs pkgs-unstable; };
+  programs = import ../programs/linux.nix { inherit pkgs; };
 }

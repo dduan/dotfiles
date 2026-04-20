@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 import ./common.nix { inherit pkgs; } // {
   home =
     {
@@ -9,6 +9,6 @@ import ./common.nix { inherit pkgs; } // {
       packages = import ../packages/darwin.nix { inherit pkgs; };
     };
   programs = import ../programs/darwin.nix {
-    inherit pkgs pkgs-unstable;
+    inherit pkgs;
   };
 }
