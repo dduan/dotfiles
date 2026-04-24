@@ -57,9 +57,9 @@
     export FZF_DEFAULT_OPTS="--height 37.5% --reverse --preview 'file {}' --preview-window down:1"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+    fish_add_path /opt/homebrew/bin
     fish_add_path $HOME/.local/bin
     fish_add_path $HOME/go/bin
-    fish_add_path /opt/homebrew/bin
     fish_add_path /usr/local/go/bin
     fish_add_path $HOME/.nix-profile/bin
 
