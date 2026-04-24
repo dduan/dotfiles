@@ -61,6 +61,7 @@
     fish_add_path $HOME/go/bin
     fish_add_path /opt/homebrew/bin
     fish_add_path /usr/local/go/bin
+    fish_add_path $HOME/.nix-profile/bin
 
     export GIT_PILE_PREFIX="dd/"
 
