@@ -29,7 +29,7 @@
     set -g status-fg colour12
     set -g status-right ""
     set -g status-interval 2
-    set -g default-terminal "alacritty"
+    set -g default-terminal "tmux-256color"
     set -sg escape-time 5
     set-option -g status-position top
     setw -g aggressive-resize on
