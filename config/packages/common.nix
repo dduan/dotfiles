@@ -3,6 +3,7 @@ let localPackages = import ../../pkgs { inherit pkgs; }; in
 with pkgs;
 [
   bat
+  difftastic
   ea
   fd
   fzf
