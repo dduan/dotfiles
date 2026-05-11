@@ -33,6 +33,7 @@ in
     nvim-autopairs
     nvim-cmp
     nvim-lspconfig
+    nvim-tree-lua
     nvim-web-devicons
     oil-nvim
     telescope-nvim
@@ -52,6 +53,7 @@ in
     ./Plugins/statusline.lua
     ./Plugins/nerdcommenter.lua
     ./Plugins/telescope.lua
+    ./Plugins/tree.lua
     ./Plugins/oil.lua
     ./FileTypes/gitcommit.lua
     ./FileTypes/go.lua
