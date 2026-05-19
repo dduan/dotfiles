@@ -28,7 +28,6 @@
     rerere.enabled = true;
     transfer.fsckobjects = true;
     diff.algorithm = "histogram";
-    diff.external = "difft --display inline";
   };
   ignores = [
     ".DS_Store"

@@ -42,10 +42,9 @@
                       # fish is good again.
                       fish =
                         if system == "aarch64-darwin" then
-                          prev.fish.overrideAttrs
-                            (_: {
-                              NIX_FORCE_LOCAL_REBUILD = "darwin-codesign-fix";
-                            })
+                          prev.fish.overrideAttrs (_: {
+                            NIX_FORCE_LOCAL_REBUILD = "darwin-codesign-fix";
+                          })
                         else
                           prev.fish;
                     })
