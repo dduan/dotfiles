@@ -1,7 +1,7 @@
 { stdenv, fzy, fetchFromGitHub, ... }:
 stdenv.mkDerivation rec {
   pname = "git-pile";
-  version = "0.7.0";
+  version = "0.8.0";
   buildInputs = [
     fzy
   ];
@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
     owner = "keith";
     repo = "git-pile";
     rev = version;
-    sha256 = "sha256-7Ek+7r7HYdV9Gs3meADIgn4gxemYTLyeYeqKNwzKems=";
+    sha256 = "sha256-txfvov1ZM0gauWBY37t3HRGaOeigDZ6fIShQcOa45NI=";
     name = "git-pile-${version}-src";
   };
   patchPhase = ''
