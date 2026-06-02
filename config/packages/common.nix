@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 let localPackages = import ../../pkgs { inherit pkgs; }; in
 with pkgs;
 [
@@ -20,4 +20,5 @@ with pkgs;
   tig
   tre-command
   wget
+  pkgsUnstable.zig
 ]

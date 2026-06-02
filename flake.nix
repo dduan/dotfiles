@@ -3,6 +3,7 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     tre-command.url = "github:dduan/tre";
     ea.url = "github:dduan/ea";
   };
@@ -27,6 +28,11 @@
                   };
                 }
               ];
+              extraSpecialArgs = {
+                pkgsUnstable = import inputs.nixpkgs-unstable {
+                  inherit system;
+                };
+              };
               pkgs = import inputs.nixpkgs {
                 overlays = [
                   (final: prev:
@@ -42,9 +48,10 @@
                       # fish is good again.
                       fish =
                         if system == "aarch64-darwin" then
-                          prev.fish.overrideAttrs (_: {
-                            NIX_FORCE_LOCAL_REBUILD = "darwin-codesign-fix";
-                          })
+                          prev.fish.overrideAttrs
+                            (_: {
+                              NIX_FORCE_LOCAL_REBUILD = "darwin-codesign-fix";
+                            })
                         else
                           prev.fish;
                     })

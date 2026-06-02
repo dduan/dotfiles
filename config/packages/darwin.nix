@@ -1,1 +1,1 @@
-{ pkgs }: import ./common.nix { inherit pkgs; }
+{ pkgs, pkgsUnstable }: import ./common.nix { inherit pkgs pkgsUnstable; }
