@@ -9,6 +9,6 @@ import ./common.nix { inherit pkgs; } // {
       packages = import ../packages/darwin.nix { inherit pkgs pkgsUnstable; };
     };
   programs = import ../programs/darwin.nix {
-    inherit pkgs;
+    inherit pkgs pkgsUnstable;
   };
 }

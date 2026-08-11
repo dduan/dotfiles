@@ -1,7 +1,6 @@
-{ lib, vimPlugins, pkgs, ... }:
+{ lib, pkgs, pkgsUnstable, ... }:
 let
-  localPackages = import ../../pkgs { inherit pkgs; };
-  templ-vim = pkgs.vimUtils.buildVimPlugin {
+  templ-vim = pkgsUnstable.vimUtils.buildVimPlugin {
     pname = "templ-vim";
     version = "2023-10-30";
     src = pkgs.fetchFromGitHub {
@@ -17,21 +16,18 @@ in
   viAlias = true;
   vimAlias = true;
   vimdiffAlias = true;
-  plugins = with vimPlugins; [
+  package = pkgsUnstable.neovim-unwrapped;
+  plugins = with pkgsUnstable.vimPlugins; [
     asyncrun-vim
     barbar-nvim
-    cmp-nvim-lsp
-    cmp-vsnip
     copilot-vim
     editorconfig-vim
     emmet-vim
     gitsigns-nvim
     gruvbox-nvim
-    lspkind-nvim
     lualine-nvim
     nerdcommenter
     nvim-autopairs
-    nvim-cmp
     nvim-lspconfig
     nvim-tree-lua
     nvim-web-devicons

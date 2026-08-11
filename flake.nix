@@ -31,6 +31,7 @@
               extraSpecialArgs = {
                 pkgsUnstable = import inputs.nixpkgs-unstable {
                   inherit system;
+                  config.allowUnfree = true;
                 };
               };
               pkgs = import inputs.nixpkgs {

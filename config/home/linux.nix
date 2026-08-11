@@ -6,5 +6,5 @@ import ./common.nix { inherit pkgs; } // {
       ".config/tig/config".source = ../tig_config_linux;
     };
   };
-  programs = import ../programs/linux.nix { inherit pkgs; };
+  programs = import ../programs/linux.nix { inherit pkgs pkgsUnstable; };
 }

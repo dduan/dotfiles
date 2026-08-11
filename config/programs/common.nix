@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 let callPackages = (import ../../lib).callPackages pkgs; in
 {
   home-manager.enable = true;
@@ -13,6 +13,6 @@ let callPackages = (import ../../lib).callPackages pkgs; in
   };
   fish = callPackages ../fish { };
   git = callPackages ../git.nix { };
-  neovim = callPackages ../neovim { };
+  neovim = callPackages ../neovim { inherit pkgsUnstable; };
   direnv = callPackages ../direnv.nix { };
 }
