@@ -1,3 +1,5 @@
+vim.g.mapleader = ","
+
 -- In many terminal emulators the mouse works just fine, thus enable it.
 vim.opt.mouse = 'a'
 

@@ -1,9 +1,6 @@
 -- Shared variables
 local var noremapsilent = { noremap = true, silent = true }
 
--- Habit
-vim.g.mapleader = ","
-
 -- Search stays in the middle
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
