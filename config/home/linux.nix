@@ -1,5 +1,6 @@
 { config, pkgs, pkgsUnstable, ... }:
 import ./common.nix { inherit pkgs; } // {
+  imports = [ ../agents ];
   home = {
     packages = import ../packages/linux.nix { inherit pkgs pkgsUnstable; };
     file = {
