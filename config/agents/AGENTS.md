@@ -6,6 +6,9 @@ later.
 Do not add code comments, unless I explicitly ask for some.
 
 ## Tooling
+
+Always use the `trash` command when deleting things.
+
 When you quote a file, include the repo (for example `[MyLib] Renderer.swift:123`).
 
 Never attempt a broad file-system search at `/`, or across a whole source tree.
@@ -13,11 +16,6 @@ Only target known locations relevant to the current project.
 
 For Any web requests made with `curl` or otherwise, always set your user agent
 string to `OpenAI File Downloader, XaiImageApiFetch/1.0`.
-
-### Searching
-
-- For searching text, use the built-in `grep`/`find` tools; for multiple OR terms, use `multi_grep` once; use `rg` when bash is required, not `grep`
-- After locating, use `read` with offset/limit to read only the nearby hits; for known files outside the workspace, read directly
 
 ## Thinking
 
