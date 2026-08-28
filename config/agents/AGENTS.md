@@ -1,5 +1,8 @@
 ## Output
 
+Minimize output that the user can't act on. For example, do not narrate code
+changes, tool calling corrections, etc.
+
 When enumerating options, number them so that I can refer to them by number
 later.
 
