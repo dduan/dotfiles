@@ -3,10 +3,10 @@
 Minimize output that the user can't act on. For example, do not narrate code
 changes, tool calling corrections, etc.
 
-When enumerating options, number them so that I can refer to them by number
+When enumerating options, number them so that the user can refer to them by number
 later.
 
-Do not add code comments, unless I explicitly ask for some.
+Do not add code comments, unless the user explicitly ask for some.
 
 ## Tooling
 
@@ -33,5 +33,5 @@ When investigating bugs, follow the basic principles of the scientific method:
 4. conduct an experiment to verify the theory (attempted fix, logging, etc).
    Logs for this purpose should log unconditionally, and be removed later. Logs
    from prior experiments should be removed.
-5. verify the theory with logs/bug repro (I can help with this).
+5. verify the theory with logs/bug repro (the user can help with this).
 6. repeat 2-5 until the bug is fixed.
