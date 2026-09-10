@@ -17,9 +17,7 @@ in
   vimAlias = true;
   vimdiffAlias = true;
   package = pkgsUnstable.neovim-unwrapped;
-  extraPackages = [ pkgsUnstable.codex-acp ];
   plugins = with pkgsUnstable.vimPlugins; [
-    avante-nvim
     asyncrun-vim
     barbar-nvim
     copilot-vim
@@ -46,7 +44,6 @@ in
   extraLuaConfig = lib.concatStrings (map builtins.readFile [
     ./init.lua
     ./lib.lua
-    ./Plugins/avante.lua
     ./Plugins/autopairs.lua
     ./Plugins/barbar.lua
     ./Plugins/statusline.lua
