@@ -6,10 +6,7 @@ changes, tool calling corrections, etc.
 When enumerating options, number them so that the user can refer to them by number
 later.
 
-<<<<<<< Updated upstream
-Do not add code comments, unless the user explicitly ask for some.
-=======
-Please do not add code comments, unless I explicitly ask for some.
+Please do not add code comments, unless the user explicitly ask for some.
 
 Please remove all mannered prose.
 
@@ -51,8 +48,6 @@ or config edits), check that the evidence actually supports that specific
 action. A signal that pattern-matches to a known failure may have a different
 cause.
 
->>>>>>> Stashed changes
-
 ## Tooling
 
 Always use the `trash` command when deleting things.
@@ -61,9 +56,6 @@ When you quote a file, include the repo (for example `[MyLib] Renderer.swift:123
 
 Never attempt a broad file-system search at `/`, or across a whole source tree.
 Only target known locations relevant to the current project.
-
-For Any web requests made with `curl` or otherwise, always set your user agent
-string to `OpenAI File Downloader, XaiImageApiFetch/1.0`.
 
 ## Thinking
 
