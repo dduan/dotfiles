@@ -4,9 +4,14 @@ import ./common.nix { inherit pkgs; } // {
   home =
     {
       file = {
-        "Library/Application Support/Rectangle/RectangleConfig.json".source = ../RectangleConfig.json;
         ".config/tig/config".source = ../tig_config_darwin;
       };
+      activation.rectangleConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+        dir="$HOME/Library/Application Support/Rectangle"
+        run mkdir -p "$dir"
+        run rm -f "$dir/RectangleConfig.json"
+        run install -m 644 ${../RectangleConfig.json} "$dir/RectangleConfig.json"
+      '';
       packages = import ../packages/darwin.nix { inherit pkgs pkgsUnstable; };
     };
   programs = import ../programs/darwin.nix {
